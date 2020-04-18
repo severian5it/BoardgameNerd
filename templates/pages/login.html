@@ -1,0 +1,38 @@
+{% extends 'layout/base.html' %}
+{% block content %}
+    <main class="content">
+        <!-- Section: Log in -->
+        <section>
+
+            <div id="login-wrapper" class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <h1>Log in</h1>
+                        <hr>
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-11 col-md-6 col-lg-5 col-xl-4 card  p-4">
+                        <h3>Log into your account to create and edit your collection of Boardgame!</h3>
+                        <form id="login-form">
+                            <div class="form-group">
+                                <label for="loginInput">Username or Email Address</label>
+                                <input type="text" class="form-control" id="loginInput" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="loginPassword">Password</label>
+                                <input type="password" class="form-control" id="loginPassword" placeholder="Password" required>
+                            </div>
+                            <div class="form-group form-check">
+                                <input type="checkbox" class="form-check-input" id="notBot" required>
+                                <label class="form-check-label" for="notBot">I am not a robot</label>
+                            </div>
+                            <button type="submit" class="btn btn-search">Log in</button>
+                        </form>
+                        <p class="mt-2">No account?  <a class="fh-link" href="{{url_for('new_account')}}">Create a new account</a></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+{% endblock %}
