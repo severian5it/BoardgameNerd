@@ -37,6 +37,27 @@ def login():
         loggedIn=loggedIn,
     )
 
+# new account page
+@app.route('/registration', methods=['GET', 'POST'])
+def registration():
+    loggedIn = True if 'user' in session else False
+
+    if loggedIn:
+        user_in_db = DB.users.find_one({"username": session['user']})
+        if user_in_db:
+            return redirect(url_for('my_account_page', username=user_in_db['username']))
+
+    if request.method == 'POST':
+        print('request', request.get_json())
+        post_request = request.get_json()
+        response = create_account(DB, post_request)
+        return json.dumps(response)
+
+    return render_template(
+        'pages/registration.html', 
+        loggedIn=loggedIn
+    )
+
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
             port=int(os.environ.get('PORT')),
