@@ -10,6 +10,7 @@ __pycache__/
 .Python
 .vscode/
 .DS_Store
+.flaskenv
 build/
 develop-eggs/
 dist/

@@ -3,6 +3,8 @@ import requests
 import xmltodict
 import json
 from flask import Flask, redirect, render_template, request, url_for, session
+from flask_pymongo import PyMongo
+
 from helper.db import create_account
 
 
@@ -12,8 +14,12 @@ BASE_API = 'https://www.boardgamegeek.com/xmlapi2/'
 HOT_API = BASE_API + 'hot'
 THING_API = BASE_API + 'thing?id='
 SEARCH_API = BASE_API + 'search?type=boardgame&query='
+root_password = os.environ.get('ROOT_PASSWORD')
 
+app.config["MONGO_URI"] = f'mongodb+srv://root:{root_password}@piercluster-zyykg.mongodb.net/BoardGame?retryWrites=true&w=majority'
 loggedIn = False
+mongo = PyMongo(app)
+DB=mongo.db.BoardGame
 
 @app.route('/')
 @app.route('/index')
@@ -81,6 +87,11 @@ def game(id):
     return render_template("pages/detail.html", 
                            detail=detail, 
                            loggedIn=loggedIn)
+
+@app.route('/test', methods=['GET'])
+def access_db():
+    return render_template("pages/sto-gatto.html", 
+                            gattos=mongo.db.users.find())
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
