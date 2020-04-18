@@ -34,6 +34,30 @@ collection, and writing notes and assigning scores
 1. [Contacts](#contacts)
 1. [Disclaimer](#disclaimer)
 
+# UX
+
+## User stories
+
+As a user of BoardGame Archive I expect/need/want:
+
+1. to search a wide catalogue of boardgame.
+1. to be informed about what is hot in the boardgame community.
+1. to add a boardgame to my collection.
+1. to remove a boardgame to my collection.
+1. to find the best fit game to the number of my friends, I want to filter my search results by 
+   number of players.
+1. to find the best fit game to the time I have, I want to filter my search results by 
+   duration.
+1. as a father/ mother, I want to know suggested age of a boardgame .
+1. to add/update a rating to the boardgame I own.
+1. to add/update a review to the boardgame I own.
+1. to be able to connect to their social media channels, to be informed about new features.
+1. to be easily in contact with the website manager via a contact form.
+1. to have informative feedback from the website regarding the interaction, including a clear information
+about loading status and pop up and modals when my actions are completed successfully.
+1. to navigate the site also from mobile or from table, in way that the site is responsive to different
+kind of device
+
 ## Wireframes
 
 Wireframe mockups, created using [Balsamiq](https://balsamiq.com/), are available in diffent format:
@@ -76,12 +100,12 @@ of redundancy has been introduced, to speed up the response time.
 ## Data Storage Types
 The types of data used in the project are:
 
-ObjectId
-String
-Integer
-Boolean
-DateTime
-Object
+* ObjectId
+* String
+* Integer
+* Boolean
+* DateTime
+* Object
 
 and some of them are collected into Arrays
 
@@ -151,7 +175,7 @@ DEBUG | FALSE
 IP | 0.0.0.0
 MONGO_URI | `mongodb+srv://<username>:<password>@<cluster_name>-qtxun.mongodb.net/<database_name>?retryWrites=true&w=majority`
 PORT | 5000
-SECRET_KEY | `<your_secret_key>`
+ROOT_PASSWORD | `<your_secret_key>`
 
 - To get you MONGO_URI read the MongoDB Atlas documentation [here](https://docs.atlas.mongodb.com/)
 
