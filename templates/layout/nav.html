@@ -1,0 +1,46 @@
+{% block navbar %}
+
+<nav class="navbar navbar-expand-lg  navbar-light bg-platinum no-fouc">
+    <a class="navbar-brand" href="{{url_for('index')}}">
+        <img id="nav-logo" src="{{url_for('static', filename='img/20.png')}}" class="d-inline-block align-top" alt="BoardGame Logo">
+    BoardGame Archive
+    </a>
+    <button class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="{{url_for('index')}}">
+                    <i class="fas fa-home menu-icon"></i> Home <span class="sr-only">(current)</span>
+                </a>
+            </li>
+
+            <!-- create account and log in navigation items only visible when not logged in -->
+            {% if loggedIn != True %}
+            <li class="nav-item">
+                <a class="nav-link {% if active == 'login' %}active{% endif %}" href="{{url_for('login')}}">
+                    <i class="fas fa-sign-in-alt menu-icon"></i> Log In {% if active == 'login' %}<span class="sr-only">(current)</span>{% endif %}
+                </a>
+            </li>
+            {% endif %}
+
+            <!-- My account dropdown menu only visible when logged in -->
+            {% if loggedIn == True %}
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-user menu-icon"></i> My Account
+                </a>
+            </li>
+            {% endif %}
+        </ul>
+    </div>
+</nav>
+
+{% endblock %}
