@@ -5,7 +5,8 @@ from flask import Flask, redirect, render_template, request, url_for, session
 
 app = Flask(__name__)
 
-HOT_API = 'https://www.boardgamegeek.com/xmlapi2/hot'
+BASE_API = 'https://www.boardgamegeek.com/xmlapi2/'
+HOT_API = BASE_API + 'hot'
 
 loggedIn = False
 
@@ -57,6 +58,14 @@ def registration():
         'pages/registration.html', 
         loggedIn=loggedIn
     )
+
+@app.route('/search/<query>', methods=['GET'])
+def search(query):
+    r = requests.get(SEARCH_API+query)
+    search_results = xmltodict.parse(r.content)
+    search_results=search_results["items"]["item"]
+    print(search_results)
+    return render_template("pages/search-results.html",  search_results=search_results, loggedIn=loggedIn)
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),

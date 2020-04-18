@@ -1,6 +1,9 @@
 {% extends 'layout/base.html' %}
 
 {% block content %}
+    <!-- Search Bar -->
+    {% include 'search_bar.html' %}
+    
     <div id="carouselExampleInterval" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
             {% for doc in docs %}
