@@ -15,7 +15,7 @@ def index():
     r = requests.get(HOT_API)
     doc = xmltodict.parse(r.content)
     docs=doc["items"]["item"]
-    return render_template("index.html",  docs=docs, loggedIn=loggedIn)
+    return render_template("pages/index.html",  docs=docs, loggedIn=loggedIn)
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
