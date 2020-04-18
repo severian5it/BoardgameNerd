@@ -1,6 +1,7 @@
 import os
 import requests
 import xmltodict
+import json
 from flask import Flask, redirect, render_template, request, url_for, session
 
 app = Flask(__name__)
@@ -66,8 +67,18 @@ def search(query):
     r = requests.get(SEARCH_API+query)
     search_results = xmltodict.parse(r.content)
     search_results=search_results["items"]["item"]
-    print(search_results)
-    return render_template("pages/search-results.html",  search_results=search_results, loggedIn=loggedIn)
+    return render_template("pages/search-results.html",  
+                            search_results=search_results, 
+                            loggedIn=loggedIn)
+
+@app.route('/game/<id>', methods=['GET'])
+def game(id):
+    r = requests.get(THING_API+str(id))
+    detail = xmltodict.parse(r.content)
+    detail=detail["items"]["item"]
+    return render_template("pages/detail.html", 
+                           detail=detail, 
+                           loggedIn=loggedIn)
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),

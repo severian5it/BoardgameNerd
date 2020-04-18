@@ -1,0 +1,12 @@
+{% extends 'layout/base.html' %}
+
+
+{% block content %}
+    <img src="{{  detail['image'] }}" class="mx-auto d-block w-50"
+                         alt="{{ detail['name'] }}">
+    <h1 class="text-center">{{  detail['name']['@value'] }}</h1>
+    <p>{{  detail['description'] }}</p>
+    <p><bold>year published:  </bold> {{  detail['yearpublished'] ['@value'] }}</p>
+    <p><bold>min player:  </bold> {{  detail['minplayers'] ['@value']}}</p>
+    <p><bold>min player: </bold>  {{  detail['maxplayers'] ['@value']}}</p>
+{% endblock %}
