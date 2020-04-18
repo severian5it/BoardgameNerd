@@ -184,3 +184,12 @@ ROOT_PASSWORD | `<your_secret_key>`
 9. In the "Manual Deployment" section of this page, made sure the master branch is selected and then click "Deploy Branch".
 
 10. The site is now successfully deployed.
+
+# Contact
+To contact me feel free to email
+
+ `pdelbuono  (at)  gmail (dot) com`
+ 
+# Disclaimer
+
+The content of this website is educational purposes only.
