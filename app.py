@@ -7,6 +7,8 @@ app = Flask(__name__)
 
 BASE_API = 'https://www.boardgamegeek.com/xmlapi2/'
 HOT_API = BASE_API + 'hot'
+THING_API = BASE_API + 'thing?id='
+SEARCH_API = BASE_API + 'search?type=boardgame&query='
 
 loggedIn = False
 
