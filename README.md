@@ -148,7 +148,26 @@ List of Publisher| boardgamepublisher | - | Array(string)
 Date Bought | dateAdded | timepicker | datetime
 Rating| rating | - | integer
 User Review| review | `maxlength="200"` | string
- 
+ # Technologies Used
+
+# Testing
+
+# Deployment
+
+## How to run this project locally
+
+To run this project on your own IDE follow the instructions below:
+
+Ensure you have the following tools: 
+- An IDE such as [Visual Studio Code](https://code.visualstudio.com/)
+
+The following **must be installed** on your machine:
+- [PIP](https://pip.pypa.io/en/stable/installing/)
+- [Python 3](https://www.python.org/downloads/)
+- [Git](https://gist.github.com/derhuerst/1b15ff4652a867391f03)
+- An account at [MongoDB Atlas](https://www.mongodb.com/cloud/atlas) or MongoDB running locally on your machine. 
+- How to set up your Mongo Atlas account [here](https://docs.atlas.mongodb.com/).
+
 ## Heroku Deployment
 
 To deploy to heroku, take the following steps:
