@@ -26,6 +26,71 @@ Wireframe mockups, created using [Balsamiq](https://balsamiq.com/), are availabl
 Modal not dependent on the device:
    1. [Log in](wireframes/modal/loginModal.pdf)
    1. [Register](wireframes/modal/registerModal.pdf)
+
+# Features
+
+# Information Architecture
+## Database Choice
+
+a NoSQL database has been selected for his low latency response, keeping in mind the need to scale up 
+increasing the number of user and query.
+MongoDB was the optimal choice, being free of cost in his limited edition, good start, and with the possibility
+to increase resource throwing more money to it.
+
+The Design of Data didn't respect The 3NF, because NoSQL database are doing join poorly, and a level
+of redundancy has been introduced, to speed up the response time.
+
+## Data Storage Types
+The types of data used in the project are:
+
+ObjectId
+String
+Integer
+Boolean
+DateTime
+Object
+
+and some of them are collected into Arrays
+
+## Collections Data Structure
+the website relies on two database collections:
+
+## Users Collection
+
+| Title | Field Name | form validation type | Data type |
+--- | --- | --- | --- 
+Account ID | _id | None | ObjectId 
+Name | username | text, `maxlength="40"` | string
+Email Address | email | email, `maxlength="40"` | string
+Password | password | text, `maxlength="15"` | string
+
+#### BoardGame Collection
+
+| Title | Key in db | form validation type | Data type |
+--- | --- | --- | --- 
+Boardgame relation ID | _id | None | ObjectId 
+Username | username | text, `maxlength="40"` | string
+Title | primary_name | text, `maxlength="50"` | string
+BGG id | id | - | integer
+Image Thumbnail | thumbnail| - | string
+Image | image | - | string
+Min Player | minplayers | - | integer
+Max Player | maxplayers | - | integer
+Playing Time | playingtime | - | integer
+Min Playing Time | minplaytime | - | integer
+Max Playing Time | maxplaytime | - | integer
+Age | age | - | integer
+Game Description | description | - | string
+Language Dependence | language_dependence | - | string
+List of category | boardgamecategory | - | Array(string)
+List of mechanics | boardgamemechanic | - | Array(string)
+List of family category | boardgamefamily | - | Array(string)
+List of Designer| boardgamedesigner | - | Array(string)
+List of Artist| boardgameartist | - | Array(string)
+List of Publisher| boardgamepublisher | - | Array(string)
+Date Bought | dateAdded | timepicker | datetime
+Rating| rating | - | integer
+User Review| review | `maxlength="200"` | string
  
 ## Heroku Deployment
 
