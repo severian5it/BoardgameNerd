@@ -4,7 +4,7 @@
 {% block content %}
 
     <!-- Search Bar -->
-    {% include 'search-bar.html' %}
+    {% include 'component/search-bar.html' %}
 
     {% for result in search_results %}
      <a href="/game/{{ result['@id'] }}">  <p>{{ result['name']['@value'] }}</p> </a>
