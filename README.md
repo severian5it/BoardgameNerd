@@ -1,5 +1,38 @@
-# BoardgameNerd
-Application to manage your collection of boardgame.
+<div align="center">
+    <h1>  Boardgame Archive </h1>
+</div>
+
+<div align="center">
+    <a href="https://boardgame-archive.herokuapp.com/"> View  Live Website</a>
+</div>
+
+## Introduction
+
+BoardGame Archive has been created by Pierluca Del Buono to serve Boardgame Geeks to manage their
+collection. The site allow visitors to search a vast catalogue of Boardgame, add them to their 
+collection, and writing notes and assigning scores
+
+
+## Table of Contents
+1. [UX](#ux)
+    - [User Stories](#user-stories)
+    - [Wireframes](#wireframes)
+1. [Features](#features)
+1. [Information Architecture](#information-architecture)
+    - [Database choice](#database-choice)
+    - [Data Storage Types](#data-storage-types)
+    - [Collections Data Structure](#collections-data-structure)
+        - [Users Collection](#users-collection)
+        - [Boardgame Collection](#boardgame-collection)
+1. [Technologies Used](#technologies-used)
+1. [Testing](#testing)
+1. [Deployment](#deployment)
+[Deployment](#deployment)
+    - [Heroku Deployment](#heroku-deployment)
+    - [How to run this project locally](#how-to-run-this-project-locally)
+1. [Credits](#credits)
+1. [Contacts](#contacts)
+1. [Disclaimer](#disclaimer)
 
 ## Wireframes
 
