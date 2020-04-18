@@ -1,0 +1,13 @@
+{% extends 'layout/base.html' %}
+
+
+{% block content %}
+
+    <!-- Search Bar -->
+    {% include 'search_bar.html' %}
+
+    {% for result in search_results %}
+     <a href="/game/{{ result['@id'] }}">  <p>{{ result['name']['@value'] }}</p> </a>
+    {% endfor %}
+
+{% endblock %}
