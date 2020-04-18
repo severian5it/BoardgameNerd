@@ -1,6 +1,7 @@
 import requests
 import xmltodict
 from flask import Flask, redirect, render_template, request, url_for, session
+
 app = Flask(__name__)
 
 HOT_API = 'https://www.boardgamegeek.com/xmlapi2/hot'
@@ -14,3 +15,8 @@ def index():
     doc = xmltodict.parse(r.content)
     docs=doc["items"]["item"]
     return render_template("index.html",  docs=docs, loggedIn=loggedIn)
+
+if __name__ == '__main__':
+    app.run(host=os.environ.get('IP'),
+            port=int(os.environ.get('PORT')),
+            debug=True)
