@@ -1,12 +1,12 @@
+import json
 import os
+
 import requests
 import xmltodict
-import json
-from flask import Flask, redirect, render_template, request, url_for, session
+from flask import Flask, redirect, render_template, request, session, url_for
 from flask_pymongo import PyMongo
 
 from helper.db import create_account
-
 
 app = Flask(__name__)
 
