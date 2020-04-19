@@ -90,4 +90,10 @@ def access_db():
     return render_template("pages/sto-gatto.html", 
                             gattos=DB.users.find())
 
+# log out page
+@app.route('/logout')
+def logout():
+    session.clear()
+    return redirect(url_for('index'))
+
 
