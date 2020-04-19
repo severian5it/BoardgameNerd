@@ -24,12 +24,14 @@ def index():
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     loggedIn = True if 'user' in session else False
+    print(session, loggedIn)
 
     if loggedIn == True:
-        user_in_db = DB.users.find_one({"username": session['user']})
+        user_in_db = DB.users.find_one({"username": session["user"]})
+        print(user_in_db)
         if user_in_db:
-            pass
-            # return redirect(url_for('my_account_page', username=user_in_db['username']))
+            return render_template("pages/account-page.html", 
+                            username=user_in_db.get('username'))
 
     if request.method == 'POST':
         post_form = request.form
