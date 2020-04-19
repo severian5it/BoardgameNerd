@@ -1,24 +1,10 @@
 import json
-import os
-
 import requests
 import xmltodict
-from flask import Flask, redirect, render_template, request, session, url_for
-from flask_pymongo import PyMongo
 
-from helper.db import create_account
-
-app = Flask(__name__)
-
-BASE_API = 'https://www.boardgamegeek.com/xmlapi2/'
-HOT_API = BASE_API + 'hot'
-THING_API = BASE_API + 'thing?id='
-SEARCH_API = BASE_API + 'search?type=boardgame&query='
-root_password = os.environ.get('ROOT_PASSWORD')
-
-app.config["MONGO_URI"] = f'mongodb+srv://root:{root_password}@piercluster-zyykg.mongodb.net/BoardGame?retryWrites=true&w=majority'
-mongo = PyMongo(app)
-DB=mongo.db
+from .helper.db import create_account
+from . import app, HOT_API, SEARCH_API, THING_API, DB
+from flask import redirect, render_template, request, session, url_for
 
 loggedIn = False
 
@@ -39,7 +25,7 @@ def login():
     loggedIn = True if 'user' in session else False
 
     if loggedIn == True:
-        user_in_db = mongo.db.users.find_one({"username": session['user']})
+        user_in_db = DB.users.find_one({"username": session['user']})
         if user_in_db:
             return redirect(url_for('my_account_page', username=user_in_db['username']))
 
@@ -94,9 +80,6 @@ def game(id):
 @app.route('/test', methods=['GET'])
 def access_db():
     return render_template("pages/sto-gatto.html", 
-                            gattos=mongo.db.users.find())
+                            gattos=DB.users.find())
 
-if __name__ == '__main__':
-    app.run(host=os.environ.get('IP'),
-            port=int(os.environ.get('PORT')),
-            debug=True)
+

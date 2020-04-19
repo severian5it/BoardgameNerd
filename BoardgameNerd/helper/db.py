@@ -1,6 +1,5 @@
 from werkzeug.security import generate_password_hash, check_password_hash
 
-
 def create_account(db, post_form):
     emailExists = True
     userExists = True
@@ -10,7 +9,6 @@ def create_account(db, post_form):
 
     user_email = db.users.find_one({"email": email})
     user_username = db.users.find_one({"username": user})
-    print(db, db.users.find())
 
     if not user_email:
         emailExists = False
