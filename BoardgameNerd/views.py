@@ -3,6 +3,7 @@ import requests
 import xmltodict
 
 from .helper.db import create_account
+from .helper.form import check_user_login
 from . import app, HOT_API, SEARCH_API, THING_API, DB
 from flask import redirect, render_template, request, session, url_for
 
@@ -27,12 +28,13 @@ def login():
     if loggedIn == True:
         user_in_db = DB.users.find_one({"username": session['user']})
         if user_in_db:
-            return redirect(url_for('my_account_page', username=user_in_db['username']))
+            pass
+            # return redirect(url_for('my_account_page', username=user_in_db['username']))
 
     if request.method == 'POST':
-        post_request = request.get_json()
-        # response = login_req(db, post_request)
-        # return json.dumps(response)
+        post_form = request.form
+        response = check_user_login(DB, post_form)
+        return json.dumps(response)
 
     return render_template(
         "pages/login.html",
