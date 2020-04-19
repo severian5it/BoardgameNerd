@@ -1,13 +1,16 @@
 from werkzeug.security import generate_password_hash, check_password_hash
 
 
-def create_account(db, post_request):
-    print(db, post_request)
+def create_account(db, post_form):
     emailExists = True
     userExists = True
+    email = post_form['email']
+    user = post_form['username']
+    password = post_form['password']
 
-    user_email = db.users.find_one({"email": post_request['email']})
-    user_username = db.users.find_one({"username": post_request['username']})
+    user_email = db.users.find_one({"email": email})
+    user_username = db.users.find_one({"username": user})
+    print(db, db.users.find())
 
     if not user_email:
         emailExists = False
@@ -17,12 +20,14 @@ def create_account(db, post_request):
     if not user_username and not user_email:
         userExists = False
         emailExists = False
-        post_request['password'] = generate_password_hash(post_request['password'])
-        db.users.insert_one(post_request)
+        password = generate_password_hash(password)
+        db.users.insert_one({'username': user,
+                            'email': email,
+                            'password': password})
 
     response = {
         "emailExists": emailExists,
         "userExists": userExists,
-        "username": post_request['username']
+        "username": user
     }
     return response

@@ -17,9 +17,10 @@ SEARCH_API = BASE_API + 'search?type=boardgame&query='
 root_password = os.environ.get('ROOT_PASSWORD')
 
 app.config["MONGO_URI"] = f'mongodb+srv://root:{root_password}@piercluster-zyykg.mongodb.net/BoardGame?retryWrites=true&w=majority'
-loggedIn = False
 mongo = PyMongo(app)
-DB=mongo.db.BoardGame
+DB=mongo.db
+
+loggedIn = False
 
 @app.route('/')
 @app.route('/index')
@@ -27,7 +28,10 @@ def index():
     r = requests.get(HOT_API)
     doc = xmltodict.parse(r.content)
     docs=doc["items"]["item"]
-    return render_template("pages/index.html",  docs=docs, loggedIn=loggedIn)
+    return render_template("pages/index.html", 
+                            docs=docs, 
+                            loggedIn=loggedIn,
+                            title="Home")
 
 # login page
 @app.route('/login', methods=['GET', 'POST'])
@@ -35,7 +39,7 @@ def login():
     loggedIn = True if 'user' in session else False
 
     if loggedIn == True:
-        user_in_db = mongo.db.BoardGame.users.find_one({"username": session['user']})
+        user_in_db = mongo.db.users.find_one({"username": session['user']})
         if user_in_db:
             return redirect(url_for('my_account_page', username=user_in_db['username']))
 
@@ -60,9 +64,8 @@ def registration():
             return redirect(url_for('my_account_page', username=user_in_db['username']))
 
     if request.method == 'POST':
-        print('request', request.get_json())
-        post_request = request.get_json()
-        response = create_account(DB, post_request)
+        post_form = request.form
+        response = create_account(DB, post_form)
         return json.dumps(response)
 
     return render_template(
