@@ -1,1 +1,1 @@
-web: python -m BoardgameNerd.webapp.py
+web: python -m BoardgameNerd.webapp
