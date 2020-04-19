@@ -7,11 +7,11 @@ from .helper.form import check_user_login
 from . import app, HOT_API, SEARCH_API, THING_API, DB
 from flask import redirect, render_template, request, session, url_for
 
-loggedIn = False
 
 @app.route('/')
 @app.route('/index')
 def index():
+    loggedIn = True if 'user' in session else False
     r = requests.get(HOT_API)
     doc = xmltodict.parse(r.content)
     docs=doc["items"]["item"]
@@ -65,6 +65,8 @@ def registration():
 
 @app.route('/search/<query>', methods=['GET'])
 def search(query):
+    loggedIn = True if 'user' in session else False
+
     r = requests.get(SEARCH_API+query)
     search_results = xmltodict.parse(r.content)
     search_results=search_results["items"]["item"]
@@ -74,6 +76,8 @@ def search(query):
 
 @app.route('/game/<id>', methods=['GET'])
 def game(id):
+    loggedIn = True if 'user' in session else False
+
     r = requests.get(THING_API+str(id))
     detail = xmltodict.parse(r.content)
     detail=detail["items"]["item"]
