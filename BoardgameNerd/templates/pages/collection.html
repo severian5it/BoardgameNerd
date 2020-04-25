@@ -2,8 +2,15 @@
 {%  block content %}
      <h1 class="text-center">{{user}}'s collection</h1>
     {% for collection in collections %}
+    <p>{{  collection['boardgame_name'] }}</p>
     <img src="{{  collection['boardgame_thumbnail'] }}" class="mx-auto"
     alt="{{ collection['boardgame_name'] }}">
-    <p>{{  collection['boardgame_name'] }}</p>
+    <a href="/game/{{ collection['id'] }}" class="btn btn-success"
+    role="button">Edit</a>
+    <form id="add_collectionform" action="/collection" method="post">
+        <input name="user" type="hidden" value={{ collection['username'] }}>
+        <input name="id" type="hidden" value={{ collection['id'] }}>
+        <button class="btn btn-danger" id="deleteboardgameSubmit" type="submit">Delete</button>
+    </form>
     {% endfor %}
 {%  endblock %}

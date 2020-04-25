@@ -68,3 +68,17 @@ def insert_in_collection(db, post_request):
         "inserted": inserted
     }
     return response
+
+def delete_from_collection(db, post_request):
+    deleted = False
+    user = post_request['user']
+    id = post_request['id']
+
+    test = db.collection.delete_one({'username': user,
+    'id': id})
+    deleted = True
+
+    response = {
+        "deleted": deleted
+            }
+    return response

@@ -2,7 +2,7 @@ import json
 import requests
 import xmltodict
 
-from .helper.db import create_account, insert_in_collection
+from .helper.db import create_account, insert_in_collection, delete_from_collection
 from .helper.form import check_user_login
 from . import app, HOT_API, SEARCH_API, THING_API, DB
 from flask import redirect, render_template, request, session, url_for
@@ -101,14 +101,20 @@ def game(id):
                             user=user,
                             id=id)
 
-@app.route('/collection', methods=['GET'])
+@app.route('/collection', methods=['GET', 'POST'])
 def collection():
     loggedIn = True if 'user' in session else False
     user = session.get('user')
-    return render_template("pages/collection.html", 
-                           loggedIn=loggedIn,
-                            user=user,
-                            collections=DB.collection.find({"username":user}))
+
+    if request.method == 'POST':
+        post_form = request.form
+        response = delete_from_collection(DB, post_form)
+        return json.dumps(response)
+    else:
+        return render_template("pages/collection.html", 
+                            loggedIn=loggedIn,
+                                user=user,
+                                collections=DB.collection.find({"username":user}))
 
 
 # log out page
