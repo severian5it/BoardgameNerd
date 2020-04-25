@@ -26,6 +26,7 @@ def index():
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     loggedIn = True if 'user' in session else False
+    user = session.get('user')
 
     if loggedIn == True:
         user_in_db = DB.users.find_one({"username": session["user"]})
@@ -41,12 +42,14 @@ def login():
     return render_template(
         "pages/login.html",
         loggedIn=loggedIn,
+        user=user
     )
 
 # new account page
 @app.route('/registration', methods=['GET', 'POST'])
 def registration():
     loggedIn = True if 'user' in session else False
+    user = session.get('user')
 
     if loggedIn:
         user_in_db = DB.users.find_one({"username": session['user']})
@@ -60,23 +63,27 @@ def registration():
 
     return render_template(
         'pages/registration.html', 
-        loggedIn=loggedIn
+        loggedIn=loggedIn,
+         user=user
     )
 
 @app.route('/search/<query>', methods=['GET'])
 def search(query):
     loggedIn = True if 'user' in session else False
+    user = session.get('user')
 
     r = requests.get(SEARCH_API+query)
     search_results = xmltodict.parse(r.content)
     search_results=search_results["items"]["item"]
     return render_template("pages/search-results.html",  
                             search_results=search_results, 
-                            loggedIn=loggedIn)
+                            loggedIn=loggedIn,
+                            user=user)
 
 @app.route('/game/<id>', methods=['GET'])
 def game(id):
     loggedIn = True if 'user' in session else False
+    user = session.get('user')
 
     r = requests.get(THING_API+str(id))
     detail = xmltodict.parse(r.content)
@@ -84,7 +91,8 @@ def game(id):
     detail=detail["items"]["item"]
     return render_template("pages/detail.html", 
                            detail=detail, 
-                           loggedIn=loggedIn)
+                           loggedIn=loggedIn,
+                            user=user)
 
 @app.route('/test', methods=['GET'])
 def access_db():
