@@ -12,23 +12,23 @@ from flask import redirect, render_template, request, session, url_for
 @app.route('/index')
 def index():
     loggedIn = True if 'user' in session else False
+    user = session.get('user')
     r = requests.get(HOT_API)
     doc = xmltodict.parse(r.content)
     docs=doc["items"]["item"]
     return render_template("pages/index.html", 
                             docs=docs, 
                             loggedIn=loggedIn,
-                            title="Home")
+                            title="Home",
+                            user=user)
 
 # login page
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     loggedIn = True if 'user' in session else False
-    print(session, loggedIn)
 
     if loggedIn == True:
         user_in_db = DB.users.find_one({"username": session["user"]})
-        print(user_in_db)
         if user_in_db:
             return render_template("pages/account-page.html", 
                             username=user_in_db.get('username'))
@@ -80,6 +80,7 @@ def game(id):
 
     r = requests.get(THING_API+str(id))
     detail = xmltodict.parse(r.content)
+    print(detail)
     detail=detail["items"]["item"]
     return render_template("pages/detail.html", 
                            detail=detail, 
