@@ -12,4 +12,4 @@ ROOT_PASSWORD = os.environ.get('ROOT_PASSWORD')
 app.config["SECRET_KEY"] = os.environ.get('SECRET_KEY')
 app.config["MONGO_URI"] = f'mongodb+srv://root:{ROOT_PASSWORD}@piercluster-zyykg.mongodb.net/BoardGame?retryWrites=true&w=majority'
 mongo = PyMongo(app)
-DB=mongo.db.BoardGame
+DB=mongo.db

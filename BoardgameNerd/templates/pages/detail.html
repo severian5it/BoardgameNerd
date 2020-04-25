@@ -14,8 +14,19 @@
     <div class="container">
         <div class="row">
             <div class="col text-center">
-                <a href="" class="btn btn-success"
-                   role="button">ADD</a>
+                <form id="add_collectionform" action="/game/{{id}}" method="post">
+                    <input name="user" type="hidden" value={{user}}>
+                    <input name="id" type="hidden" value={{id}}>
+                    <input name="boardgameName" type="hidden" value="{{  detail['name']['@value'] }}">
+                    <input name="boardgameDescription" type="hidden" value="{{  detail['description'] }}">
+                    <input name="boardgameImage" type="hidden" value={{  detail['image'] }}>
+                    <input name="boardgameThumbnail" type="hidden" value={{  detail['thumbnail'] }}>
+                    <input name="boardgameMinPlayer" type="hidden" value={{  detail['minplayers']['@value'] }}>
+                    <input name="boardgameMaxPlayer" type="hidden" value={{  detail['maxplayers']['@value'] }}>
+                    <input name="boardgameMinAge" type="hidden" value={{  detail['minage']['@value'] }}>
+                    <input name="boardgameplayingTime" type="hidden" value={{  detail['playingtime']['@value'] }}>
+                    <button class="btn btn-search btn-success" id="addCollectionSubmit" type="submit">ADD</button>
+                </form>
             </div>
         </div>
     </div>

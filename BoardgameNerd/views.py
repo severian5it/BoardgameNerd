@@ -2,7 +2,7 @@ import json
 import requests
 import xmltodict
 
-from .helper.db import create_account
+from .helper.db import create_account, insert_in_collection
 from .helper.form import check_user_login
 from . import app, HOT_API, SEARCH_API, THING_API, DB
 from flask import redirect, render_template, request, session, url_for
@@ -80,19 +80,24 @@ def search(query):
                             loggedIn=loggedIn,
                             user=user)
 
-@app.route('/game/<id>', methods=['GET'])
+@app.route('/game/<id>', methods=['GET', 'POST'])
 def game(id):
     loggedIn = True if 'user' in session else False
     user = session.get('user')
 
-    r = requests.get(THING_API+str(id))
-    detail = xmltodict.parse(r.content)
-    print(detail)
-    detail=detail["items"]["item"]
-    return render_template("pages/detail.html", 
-                           detail=detail, 
-                           loggedIn=loggedIn,
-                            user=user)
+    if request.method == 'POST':
+        post_form = request.form
+        response = insert_in_collection(DB, post_form)
+        return json.dumps(response)
+    else:    
+        r = requests.get(THING_API+str(id))
+        detail = xmltodict.parse(r.content)
+        detail=detail["items"]["item"]
+        return render_template("pages/detail.html", 
+                            detail=detail, 
+                            loggedIn=loggedIn,
+                            user=user,
+                            id=id)
 
 @app.route('/test', methods=['GET'])
 def access_db():
