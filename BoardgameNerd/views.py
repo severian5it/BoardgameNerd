@@ -67,6 +67,7 @@ def registration():
          user=user
     )
 
+# search page
 @app.route('/search/<query>', methods=['GET'])
 def search(query):
     loggedIn = True if 'user' in session else False
@@ -80,6 +81,7 @@ def search(query):
                             loggedIn=loggedIn,
                             user=user)
 
+# login page
 @app.route('/game/<id>', methods=['GET', 'POST'])
 def game(id):
     loggedIn = True if 'user' in session else False
@@ -98,6 +100,15 @@ def game(id):
                             loggedIn=loggedIn,
                             user=user,
                             id=id)
+
+@app.route('/collection', methods=['GET'])
+def collection():
+    loggedIn = True if 'user' in session else False
+    user = session.get('user')
+    return render_template("pages/collection.html", 
+                           loggedIn=loggedIn,
+                            user=user,
+                            collections=DB.collection.find({"username":user}))
 
 @app.route('/test', methods=['GET'])
 def access_db():

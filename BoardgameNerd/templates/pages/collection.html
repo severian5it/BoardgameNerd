@@ -1,0 +1,9 @@
+{%  extends 'layout/base.html' %}
+{%  block content %}
+     <h1 class="text-center">{{user}}'s collection</h1>
+    {% for collection in collections %}
+    <img src="{{  collection['boardgame_thumbnail'] }}" class="mx-auto"
+    alt="{{ collection['boardgame_name'] }}">
+    <p>{{  collection['boardgame_name'] }}</p>
+    {% endfor %}
+{%  endblock %}
