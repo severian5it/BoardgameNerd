@@ -110,10 +110,6 @@ def collection():
                             user=user,
                             collections=DB.collection.find({"username":user}))
 
-@app.route('/test', methods=['GET'])
-def access_db():
-    return render_template("pages/sto-gatto.html", 
-                            gattos=DB.users.find())
 
 # log out page
 @app.route('/logout')
