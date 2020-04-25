@@ -1,0 +1,58 @@
+{% extends 'layout/base.html' %} 
+
+{% block content %}
+
+    <!-- Section: Account settings -->
+    <section>
+
+        <div  class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h1>Edit account</h1>
+                    <hr>
+                </div>
+            </div>
+            <div id="edit-account-form" class="row">
+                <div>
+                    <form id="emailEdit" method="POST">
+                        <h3>Change email</h3>
+                        <p>To update your email address please fill in both fields</p>
+                        <div class="form-group">
+                            <label for="emaiOld">Current email</label>
+                            <input name="emaiOld" type="email" class="form-control" id="emaiOld"
+                                placeholder="Current email" required>
+                            <label for="emaiNew">New email</label>
+                            <input name="emaiNew" type="email" class="form-control" id="emaiNew"
+                                placeholder="New email" required>
+                            </label>
+                            <button id="emailEditBtn" type="submit" class="btn btn-search">Update email</button>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="col-12 d-md-none">
+                    <hr>
+                </div>
+                    
+                <div class="col-10">
+                    <form action="POST">
+                        <h3>Change password</h3>
+                        <p>To update your password please fill in both fields</p>
+                        <div class="form-group">
+                            <label for="passOld">Current password</label>
+                            <input name="passOld" type="password" class="form-control"
+                                autocomplete="new-password" id="passOld" placeholder="Current password" required>
+                            <label for="passNew">New password</label>
+                            <input name="passNew" type="password" class="form-control"
+                                autocomplete="new-password" id="passNew" placeholder="New password" required>
+                        </div>
+                        <button id="passEditBtn" type="submit" class="btn btn-search">Update password</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+
+{% endblock %}

@@ -20,3 +20,6 @@ def check_user_login(db, post_request):
     }
 
     return response
+
+def change_user_details(db, user, post_request):
+    pass

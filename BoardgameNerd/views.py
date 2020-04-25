@@ -3,7 +3,7 @@ import requests
 import xmltodict
 
 from .helper.db import create_account, insert_in_collection, delete_from_collection
-from .helper.form import check_user_login
+from .helper.form import check_user_login, change_user_details
 from . import app, HOT_API, SEARCH_API, THING_API, DB
 from flask import redirect, render_template, request, session, url_for
 
@@ -122,5 +122,21 @@ def collection():
 def logout():
     session.clear()
     return redirect(url_for('index'))
+
+@app.route('/settings', methods=['GET', 'POST'])
+def settings():
+    loggedIn = True if 'user' in session else False
+    user = session.get('user')
+
+    if request.method == 'POST':
+        post_request = request.get_json()
+        response = change_user_details(DB, user, post_request)
+        return json.dumps(response)
+    else:
+        return render_template(
+            "pages/settings.html", 
+            loggedIn=loggedIn,
+            user=user
+        )
 
 
