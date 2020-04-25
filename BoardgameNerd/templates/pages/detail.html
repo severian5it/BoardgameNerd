@@ -5,8 +5,18 @@
     <img src="{{  detail['image'] }}" class="mx-auto d-block w-50"
                          alt="{{ detail['name'] }}">
     <h1 class="text-center">{{  detail['name']['@value'] }}</h1>
-    <p>{{  detail['description'] }}</p>
+    <p>{{  detail['description']|safe }}<p>
     <p><bold>year published:  </bold> {{  detail['yearpublished'] ['@value'] }}</p>
     <p><bold>min player:  </bold> {{  detail['minplayers'] ['@value']}}</p>
-    <p><bold>min player: </bold>  {{  detail['maxplayers'] ['@value']}}</p>
+    <p><bold>max player: </bold>  {{  detail['maxplayers'] ['@value']}}</p>
+    <p><bold>minimum age: </bold>  {{  detail['minage'] ['@value']}}</p>
+    <p><bold>playing time: </bold>  {{  detail['playingtime'] ['@value']}}</p>
+    <div class="container">
+        <div class="row">
+            <div class="col text-center">
+                <a href="" class="btn btn-success"
+                   role="button">ADD</a>
+            </div>
+        </div>
+    </div>
 {% endblock %}
