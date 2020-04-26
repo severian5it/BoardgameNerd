@@ -5,7 +5,7 @@
     <p>{{  collection['boardgame_name'] }}</p>
     <img src="{{  collection['boardgame_thumbnail'] }}" class="mx-auto"
     alt="{{ collection['boardgame_name'] }}">
-    <a href="/game/{{ collection['id'] }}" class="btn btn-success"
+    <a href="/edit/{{ collection['id'] }}" class="btn btn-success"
     role="button">Edit</a>
     <form id="add_collectionform" action="/collection" method="post">
         <input name="user" type="hidden" value={{ collection['username'] }}>

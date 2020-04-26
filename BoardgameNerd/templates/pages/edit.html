@@ -1,0 +1,24 @@
+{% extends 'layout/base.html' %}
+
+
+{% block content %}
+    <img src="{{  detail['boardgame_image'] }}" class="mx-auto d-block w-50"
+                         alt="{{ detail['boardgame_name'] }}">
+    <h1 class="text-center">{{  detail['boardgame_name'] }}</h1>
+    <p>{{  detail['boardgame_description']|safe }}<p>
+    <p><bold>min player:  </bold> {{  detail['boardgame_minplay'] }}</p>
+    <p><bold>max player: </bold>  {{  detail['boardgame_maxplay'] }}</p>
+    <p><bold>minimum age: </bold>  {{  detail['boardgame_minage'] }}</p>
+    <p><bold>playing time: </bold>  {{  detail['boardgame_playtime'] }} minutes</p>
+    <div class="container">
+        <div class="row">
+            <div class="col text-center">
+                <form id="add_collectionform" action="/game/{{id}}" method="post">
+                    <input name="user" type="hidden" value={{user}}>
+                    <input name="id" type="hidden" value={{id}}>
+                    <button class="btn btn-search btn-success" id="addCollectionSubmit" type="submit">Save</button>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

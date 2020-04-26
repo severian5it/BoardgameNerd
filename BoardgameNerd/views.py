@@ -81,7 +81,7 @@ def search(query):
                             loggedIn=loggedIn,
                             user=user)
 
-# login page
+# detail boardgame page
 @app.route('/game/<id>', methods=['GET', 'POST'])
 def game(id):
     loggedIn = True if 'user' in session else False
@@ -100,6 +100,22 @@ def game(id):
                             loggedIn=loggedIn,
                             user=user,
                             id=id)
+
+# edit page
+@app.route('/edit/<id>', methods=['GET', 'POST'])
+def edit(id):
+    loggedIn = True if 'user' in session else False
+    user = session.get('user')
+
+    if request.method == 'POST':
+        post_form = request.form
+        response = insert_in_collection(DB, post_form)
+        return json.dumps(response)
+    else:     
+        return render_template("pages/edit.html", 
+                            detail=DB.collection.find_one({"username": user, "id":id}) , 
+                            loggedIn=loggedIn,
+                            user=user)
 
 @app.route('/collection', methods=['GET', 'POST'])
 def collection():
