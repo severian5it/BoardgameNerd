@@ -14,7 +14,12 @@
     <!-- Navigation -->
     {% include 'layout/nav.html' %}
     <!-- Content -->
-
+    {% for message in get_flashed_messages() %}
+    <div class="alert alert-warning">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        {{ message }}
+    </div>
+    {% endfor %}
     {% block content %}
     {% endblock %}
 

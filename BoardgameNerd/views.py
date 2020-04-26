@@ -37,7 +37,10 @@ def login():
     if request.method == 'POST':
         post_form = request.form
         response = check_user_login(DB, post_form)
-        return json.dumps(response)
+        # return json.dumps(response)
+        if response['passwordCorrect']:
+            flash("succesful logon!")
+            return redirect(url_for('collection'))
 
     return render_template(
         "pages/login.html",
@@ -59,9 +62,10 @@ def registration():
     if request.method == 'POST':
         post_form = request.form
         response = create_account(DB, post_form)
-        print(response)
         if response['user_created']:
             flash('You were successfully signed up')
+            return redirect(url_for('login'))
+
 
     return render_template(
         'pages/registration.html', 
@@ -153,7 +157,6 @@ def settings():
 
     if request.method == 'POST':
         post_request = request.form
-        print(post_request)
         if post_request.get('oldemail') != post_request.get('newemail'):
                 response = change_user_mail(DB, post_request)
                 return json.dumps(response)
