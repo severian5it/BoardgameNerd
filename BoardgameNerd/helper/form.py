@@ -22,28 +22,22 @@ def check_user_login(db, post_request):
     return response
 
 def change_user_mail(db, post_request):
-    wrong_mail = False
+    wrong_email = False
     updated = False
-    no_user = False
 
     username = post_request.get('user')
     old_mail= post_request.get('oldemail')
     new_mail = post_request.get('newemail')
-
-    user = db.users.find_one({ 'username': post_request['username']})
-
-    if user:
-            db.users.find_one_and_update({"_id": ObjectId(user["_id"])}, {"$set": {"mail": post_request["newemail"]}})           
+    mail = db.users.find_one({ 'username': username, 'email': old_mail})
+    if mail:
+            db.users.find_one_and_update({"username": username}, {"$set": {"email": new_mail}})           
             updated = True
-        else:
-            wrong_password = True
     else:
-       no_user = True             
+        wrong_email= True           
 
     response = {
-        "wrong_password": wrong_password,
-        "updated": updated,
-        "no_user": no_user
+        "wrong_password": wrong_email,
+        "updated": updated
     }
     return response
 
@@ -54,13 +48,13 @@ def change_user_password(db, post_request):
 
     username = post_request.get('user')
     old_password= post_request.get('oldpassword')
-    new_password = post_request.get('newpassword')
+    new_password = generate_password_hash(post_request.get('newpassword'))
 
     user = db.users.find_one({ 'username': post_request['username']})
 
     if user:
-        if check_password_hash(user['password'], post_request['oldpassword']):
-            db.users.find_one_and_update({"_id": ObjectId(user["_id"])}, {"$set": {"password": post_request["newpassword"]}})           
+        if check_password_hash(user['password'], old_password):
+            db.users.find_one_and_update({"username": username}, {"$set": {"password": new_password}})           
             updated = True
         else:
             wrong_password = True

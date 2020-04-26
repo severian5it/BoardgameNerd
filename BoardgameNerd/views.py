@@ -123,6 +123,7 @@ def logout():
     session.clear()
     return redirect(url_for('index'))
 
+# change password and mail
 @app.route('/settings', methods=['GET', 'POST'])
 def settings():
     loggedIn = True if 'user' in session else False
