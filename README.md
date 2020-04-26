@@ -3,7 +3,7 @@
 </div>
 
 <div align="center">
-    <a href="https://boardgame-archive.herokuapp.com/"> View  Live Website</a>
+    <a href="https://boardgame-nerd.herokuapp.com/"> View  Live Website</a>
 </div>
 
 ## Introduction
