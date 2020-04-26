@@ -5,7 +5,7 @@ import xmltodict
 from .helper.db import create_account, insert_in_collection, delete_from_collection, update_collection
 from .helper.form import check_user_login, change_user_password, change_user_mail
 from . import app, HOT_API, SEARCH_API, THING_API, DB
-from flask import redirect, render_template, request, session, url_for
+from flask import flash, redirect, render_template, request, session, url_for
 
 
 @app.route('/')
@@ -59,7 +59,9 @@ def registration():
     if request.method == 'POST':
         post_form = request.form
         response = create_account(DB, post_form)
-        return json.dumps(response)
+        print(response)
+        if response['user_created']:
+            flash('You were successfully signed up')
 
     return render_template(
         'pages/registration.html', 
