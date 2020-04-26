@@ -37,7 +37,6 @@ def login():
     if request.method == 'POST':
         post_form = request.form
         response = check_user_login(DB, post_form)
-        # return json.dumps(response)
         if response['passwordCorrect']:
             flash("succesful logon!")
             return redirect(url_for('collection'))
@@ -65,7 +64,6 @@ def registration():
         if response['user_created']:
             flash('You were successfully signed up')
             return redirect(url_for('login'))
-
 
     return render_template(
         'pages/registration.html', 
@@ -96,7 +94,10 @@ def game(id):
     if request.method == 'POST':
         post_form = request.form
         response = insert_in_collection(DB, post_form)
-        return json.dumps(response)
+        if response["inserted"]:
+            flash("game added to the collection!")
+            return redirect(url_for('index'))
+
     else:    
         r = requests.get(THING_API+str(id))
         detail = xmltodict.parse(r.content)
@@ -117,9 +118,14 @@ def edit(id):
         post_form = request.form
         if post_form['type'] == 'delete':
             response = delete_from_collection(DB, post_form)
+            if response['deleted']:
+                flash("game successfully removed from the collection")
+                return redirect(url_for('collection'))
         elif post_form['type'] == 'update':
             response = update_collection(DB, post_form)
-        return json.dumps(response)
+            if response['updated']:
+                flash("game successfully updated")
+                return redirect(url_for('collection'))
     else:     
         return render_template("pages/edit.html", 
                             detail=DB.collection.find_one({"username": user, "id":id}) , 
@@ -135,7 +141,9 @@ def collection():
     if request.method == 'POST':
         post_form = request.form
         response = delete_from_collection(DB, post_form)
-        return json.dumps(response)
+        if response['deleted']:
+            flash("game successfully removed from the collection")
+            return redirect(url_for('collection'))
     else:
         return render_template("pages/collection.html", 
                             loggedIn=loggedIn,
