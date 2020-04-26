@@ -3,7 +3,7 @@ import requests
 import xmltodict
 
 from .helper.db import create_account, insert_in_collection, delete_from_collection
-from .helper.form import check_user_login, change_user_details
+from .helper.form import check_user_login, change_user_password, change_user_mail
 from . import app, HOT_API, SEARCH_API, THING_API, DB
 from flask import redirect, render_template, request, session, url_for
 
@@ -129,9 +129,13 @@ def settings():
     user = session.get('user')
 
     if request.method == 'POST':
-        post_request = request.get_json()
-        response = change_user_details(DB, user, post_request)
-        return json.dumps(response)
+        post_request = request.form
+        if post_request['oldemail'] != post_request['newemail']:
+                response = change_user_mail(DB, post_request)
+                return json.dumps(response)
+        elif post_request['oldpassword'] != post_request['newpassword']:
+                response = change_user_password(DB, post_request)
+                return json.dumps(response)
     else:
         return render_template(
             "pages/settings.html", 
