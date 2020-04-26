@@ -50,8 +50,7 @@ def change_user_password(db, post_request):
     old_password= post_request.get('oldpassword')
     new_password = generate_password_hash(post_request.get('newpassword'))
 
-    user = db.users.find_one({ 'username': post_request['username']})
-
+    user = db.users.find_one({ 'username': username})
     if user:
         if check_password_hash(user['password'], old_password):
             db.users.find_one_and_update({"username": username}, {"$set": {"password": new_password}})           
