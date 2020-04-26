@@ -167,17 +167,19 @@ def settings():
         post_request = request.form
         if post_request.get('oldemail') != post_request.get('newemail'):
                 response = change_user_mail(DB, post_request)
-                return json.dumps(response)
+                if response['updated']:
+                    flash("mail successfully updated")
         
         if post_request.get('oldpassword') != post_request.get('newpassword'):
                 response = change_user_password(DB, post_request)
-                return json.dumps(response)
-    else:
-        return render_template(
-            "pages/settings.html", 
-            loggedIn=loggedIn,
-            user=user
-        )
+                if response['updated']:
+                    flash("password successfully updated")
+
+    return render_template(
+        "pages/settings.html", 
+        loggedIn=loggedIn,
+        user=user
+    )
 
 @app.errorhandler(404)
 def page_not_found(e):
