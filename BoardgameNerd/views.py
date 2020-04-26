@@ -154,6 +154,6 @@ def page_not_found(e):
 @app.errorhandler(500)
 def internal_server_erro(e):
     # note that we set the 500 status explicitly
-    return render_template('500.html'), 500
+    return render_template('pages/500.html'), 500
 
 
