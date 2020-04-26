@@ -74,11 +74,30 @@ def delete_from_collection(db, post_request):
     user = post_request['user']
     id = post_request['id']
 
-    test = db.collection.delete_one({'username': user,
+    db.collection.delete_one({'username': user,
     'id': id})
     deleted = True
 
     response = {
         "deleted": deleted
             }
+    return response
+
+def update_collection(db, post_request):
+    updated = False
+    user = post_request['user']
+    id = post_request['id']
+    note = post_request['note']
+
+    db.collection.find_one_and_update(
+        {'username': user,
+        'id': id},
+    { "$set": {"note": note}}
+    )
+    updated = True
+
+    response = {
+        "updated": updated
+            }
+
     return response

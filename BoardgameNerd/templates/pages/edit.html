@@ -18,8 +18,8 @@
                     <input name="id" type="hidden" value={{ id }}>
                     <input name="type" type="hidden" value='update'>
                     <div class="form-group">
-                        <label for="exampleFormControlTextarea1">Notes</label>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                        <label for="note">Notes</label>
+                        <input type="text" id="note" name="note" value={{detail['note']}}>
                       </div>
                     <button class="btn btn-search btn-success" id="editItemCollectionSubmit" type="submit">Save</button>
                 </form>

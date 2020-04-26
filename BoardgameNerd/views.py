@@ -2,7 +2,7 @@ import json
 import requests
 import xmltodict
 
-from .helper.db import create_account, insert_in_collection, delete_from_collection
+from .helper.db import create_account, insert_in_collection, delete_from_collection, update_collection
 from .helper.form import check_user_login, change_user_password, change_user_mail
 from . import app, HOT_API, SEARCH_API, THING_API, DB
 from flask import redirect, render_template, request, session, url_for
@@ -111,6 +111,8 @@ def edit(id):
         post_form = request.form
         if post_form['type'] == 'delete':
             response = delete_from_collection(DB, post_form)
+        elif post_form['type'] == 'update':
+            response = update_collection(DB, post_form)
         return json.dumps(response)
     else:     
         return render_template("pages/edit.html", 
