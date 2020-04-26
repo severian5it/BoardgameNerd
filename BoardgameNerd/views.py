@@ -109,13 +109,15 @@ def edit(id):
 
     if request.method == 'POST':
         post_form = request.form
-        response = insert_in_collection(DB, post_form)
+        if post_form['type'] == 'delete':
+            response = delete_from_collection(DB, post_form)
         return json.dumps(response)
     else:     
         return render_template("pages/edit.html", 
                             detail=DB.collection.find_one({"username": user, "id":id}) , 
                             loggedIn=loggedIn,
-                            user=user)
+                            user=user,
+                            id=id)
 
 @app.route('/collection', methods=['GET', 'POST'])
 def collection():
