@@ -2,18 +2,28 @@
 
 
 {% block content %}
-    <img src="{{  detail['image'] }}" class="mx-auto d-block w-50"
-                         alt="{{ detail['name'] }}">
-    <h1 class="text-center">{{  detail['name']['@value'] }}</h1>
-    <p>{{  detail['description']|safe }}<p>
-    <p><bold>year published:  </bold> {{  detail['yearpublished'] ['@value'] }}</p>
-    <p><bold>min player:  </bold> {{  detail['minplayers'] ['@value']}}</p>
-    <p><bold>max player: </bold>  {{  detail['maxplayers'] ['@value']}}</p>
-    <p><bold>minimum age: </bold>  {{  detail['minage'] ['@value']}}</p>
-    <p><bold>playing time: </bold>  {{  detail['playingtime'] ['@value']}} minutes</p>
-    <div class="container">
-        <div class="row">
-            <div class="col text-center">
+<div class="container">
+    <div class="row">
+        <div class="col-lg-6">
+            <h1 class="text-center">{{  detail['name']['@value'] }}</h1>
+            <img src="{{  detail['image'] }}" class="mx-auto d-block w-50" alt="{{ detail['name'] }}">
+            <div class=" text-center">
+
+            <p>
+                <b>year published: </b> {{  detail['yearpublished'] ['@value'] }}
+            </p>
+            <p>
+                <b>min player: </b> {{  detail['minplayers'] ['@value']}}
+            </p>
+            <p>
+                <b>max player: </b> {{  detail['maxplayers'] ['@value']}}
+            </p>
+            <p>
+                <b>minimum age: </b> {{  detail['minage'] ['@value']}}
+            </p>
+            <p>
+                <b>playing time: </b> {{  detail['playingtime'] ['@value']}} minutes
+            </p>
                 <form id="add_collectionform" action="/game/{{id}}" method="post">
                     <input name="user" type="hidden" value={{user}}>
                     <input name="id" type="hidden" value={{id}}>
@@ -29,5 +39,13 @@
                 </form>
             </div>
         </div>
+
+        <div class="col-lg-6">
+            <p>{{  detail['description']|safe }}<p>
+
+        </div>
     </div>
+</div>
+
+
 {% endblock %}
