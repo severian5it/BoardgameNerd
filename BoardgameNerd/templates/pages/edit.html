@@ -1,39 +1,49 @@
 {% extends 'layout/base.html' %}
 
 {% block content %}
-{{detail[]}}
-    <img src="{{  detail['boardgame_image'] }}" class="mx-auto d-block w-50"
-                         alt="{{ detail['boardgame_name'] }}">
-    <h1 class="text-center">{{  detail['boardgame_name'] }}</h1>
-    <p>{{  detail['boardgame_description']|safe }}<p>
-    <p><bold>min player:  </bold> {{  detail['boardgame_minplay'] }}</p>
-    <p><bold>max player: </bold>  {{  detail['boardgame_maxplay'] }}</p>
-    <p><bold>minimum age: </bold>  {{  detail['boardgame_minage'] }}</p>
-    <p><bold>playing time: </bold>  {{  detail['boardgame_playtime'] }} minutes</p>
-    <div class="container">
-        <div class="row">
-            <div class="col text-center">
-                <form id="add_collectionform" action="/edit/{{ id }}" method="post">
-                    <input name="user" type="hidden" value={{user}}>
-                    <input name="id" type="hidden" value={{ id }}>
-                    <input name="type" type="hidden" value='update'>
-                    <div class="form-group">
-                        <label for="note">Notes</label>
-                        <input type="text" id="note" name="note" value={{detail['note']}}>
-                      </div>
-                    <button class="btn btn-search btn-success" id="editItemCollectionSubmit" type="submit">Save</button>
-                </form>
-            </div>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-6">
+            <h1 class="text-center">{{  detail['boardgame_name'] }}</h1>
+            <img src="{{  detail['boardgame_image'] }}" class="mx-auto d-block w-50"
+                alt="{{ detail['boardgame_name'] }}">
+             <div class = "text-center">  
+            <p>
+                <b>min player: </b> {{  detail['boardgame_minplay'] }}
+            </p>
+            <p>
+                <b>max player: </b> {{  detail['boardgame_maxplay'] }}
+            </p>
+            <p>
+                <b>minimum age: </b> {{  detail['boardgame_minage'] }}
+            </p>
+            <p>
+                <b>playing time: </b> {{  detail['boardgame_playtime'] }} minutes
+            </p>
+            <form id="add_collectionform" action="/edit/{{ id }}" method="post">
+                <input name="user" type="hidden" value={{user}}>
+                <input name="id" type="hidden" value={{ id }}>
+                <input name="type" type="hidden" value='update'>
+                <div class="form-group">
+                    <label for="note">Notes</label>
+                    <input type="text" id="note" name="note" value={{detail['note']}}>
+                </div>
+                <button class="btn btn-search btn-success" id="editItemCollectionSubmit" type="submit">Save</button>
+            </form>
+
+            <form id="add_collectionform" action="/edit/{{id}}" method="post">
+                <input name="user" type="hidden" value={{user}}>
+                <input name="id" type="hidden" value={{ id }}>
+                <input name="type" type="hidden" value='delete'>
+                <button class="btn btn-search btn-danger" id="deleteItemCollectionSubmit" type="submit">Delete</button>
+            </form>
+        </div> 
         </div>
-        <div class="row">
-            <div class="col text-center">
-                <form id="add_collectionform" action="/edit/{{id}}" method="post">
-                    <input name="user" type="hidden" value={{user}}>
-                    <input name="id" type="hidden" value={{ id }}>
-                    <input name="type" type="hidden" value='delete'>
-                    <button class="btn btn-search btn-danger" id="deleteItemCollectionSubmit" type="submit">Delete</button>
-                </form>
-            </div>
+
+        <div class="col-lg-6">
+            <p>{{  detail['boardgame_description']|safe }}<p>
+
         </div>
     </div>
+</div>
 {% endblock %}
