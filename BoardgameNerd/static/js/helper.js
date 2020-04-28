@@ -10,7 +10,6 @@ $(document).ready(function(){
     });
 
     $('.searchButton').click(function(){
-        console.log('here2')
         this.href='/search/'+document.getElementById('toSearch').value
         $('.searchButton').submit()
     });
