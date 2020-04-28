@@ -27,13 +27,13 @@
       </header>
 
     <div class="container text-center my-3">
-      <h2 class="font-weight-light">Pick What is hot now!</h2>
+      <h3 class="font-weight-light">Pick What is hot now!</h2>
       <div class="row mx-auto my-auto">
           <div id="hotCarousel" class="carousel slide w-100" data-ride="carousel">
               <div class="carousel-inner w-100" role="listbox">
               {% for doc in docs %}
                   <div class="carousel-item {% if loop.index == 1 %} active{% endif %}">
-                      <div class="col-md-4">
+                      <div class="col-12 col-md-6 col-lg-4 col-xl-3">
                           <div class="card card-body">
                             <h5 class="card-title">{{ doc['name']['@value'] }}</h5>
                             <a href="/game/{{ doc['@id'] }}">
