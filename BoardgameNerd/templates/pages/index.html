@@ -25,36 +25,37 @@
           </div>
         </div>
       </header>
-    
 
-    <div id="carouselExampleInterval" class="carousel slide" data-ride="carousel">
-        <div class="carousel-inner">
-            {% for doc in docs %}
-                <div class="carousel-item {% if loop.index == 1 %} active{% endif %}"
-                     data-interval="10000">
-                    <h3 class="text-center">{{ doc['name']['@value'] }}</h3>
-                    <img src="{{ doc['thumbnail']['@value'] }}" class="mx-auto d-block"
-                         alt="{{ doc['name']['@value'] }}">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col text-center">
-                                <a href="/game/{{ doc['@id'] }}" class="btn btn-success"
-                                   role="button">view</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            {% endfor %}
-        </div>
-        <a class="carousel-control-prev" href="#carouselExampleInterval" role="button"
-           data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#carouselExampleInterval" role="button"
-           data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-        </a>
-    </div>
+    <div class="container text-center my-3">
+      <h2 class="font-weight-light">Pick What is hot now!</h2>
+      <div class="row mx-auto my-auto">
+          <div id="hotCarousel" class="carousel slide w-100" data-ride="carousel">
+              <div class="carousel-inner w-100" role="listbox">
+              {% for doc in docs %}
+                  <div class="carousel-item {% if loop.index == 1 %} active{% endif %}">
+                      <div class="col-md-4">
+                          <div class="card card-body">
+                            <h5 class="card-title">{{ doc['name']['@value'] }}</h5>
+                            <a href="/game/{{ doc['@id'] }}">
+                              <img class="img-fluid" src="{{ doc['thumbnail']['@value'] }}">
+                            </a>
+
+                          </div>
+                      </div>
+                  </div>
+              {% endfor %}
+            </div>
+
+              <a class="carousel-control-prev w-auto" href="#hotCarousel" role="button" data-slide="prev">
+                  <span class="carousel-control-prev-icon bg-dark border border-dark rounded-circle" aria-hidden="true"></span>
+                  <span class="sr-only">Previous</span>
+              </a>
+              <a class="carousel-control-next w-auto" href="#hotCarousel" role="button" data-slide="next">
+                  <span class="carousel-control-next-icon bg-dark border border-dark rounded-circle" aria-hidden="true"></span>
+                  <span class="sr-only">Next</span>
+              </a>
+          </div>
+      </div>
+  </div>
+
 {% endblock %}
