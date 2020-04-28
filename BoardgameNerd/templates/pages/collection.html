@@ -6,8 +6,8 @@
     <div class="row">
 
         {% for collection in collections %}
-        <div class="col-lg-3">
-            <div class="card" style="width: 18rem;">
+        <div class="col-12 col-md-6 col-lg-4 col-xl-3">
+            <div class="card">
                 <img class="card-img-top" src="{{  collection['boardgame_thumbnail'] }}" alt="Card image cap">
                 <div class="card-body">
                     <h5 class="card-title">{{ collection['boardgame_name']  }}</h5>
