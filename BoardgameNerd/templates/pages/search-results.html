@@ -3,11 +3,25 @@
 
 {% block content %}
 
-    <!-- Search Bar -->
-    {% include 'component/search-bar.html' %}
+<!-- Search Bar -->
+{% include 'component/search-bar.html' %}
 
-    {% for result in search_results %}
-     <a href="/game/{{ result['@id'] }}">  <p>{{ result['name']['@value'] }}</p> </a>
-    {% endfor %}
+<div class="container">
 
+    <div class="row">
+
+        {% for result in search_results %}
+        <div class="col-12 col-md-6 col-lg-4 col-xl-3">
+            <div class="card">
+                <div class="card-body">
+                    <a href="/game/{{ result['@id'] }}">
+                        <img class=" prova img-fluid">
+                    </a>
+                    <p>{{ result['name']['@value'] }}</p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
 {% endblock %}

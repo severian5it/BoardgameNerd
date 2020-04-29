@@ -36,4 +36,6 @@ $(document).ready(function(){
           }
     });
 
+    $(".prova").attr('src', "/thumbnail/82298");
+
 });

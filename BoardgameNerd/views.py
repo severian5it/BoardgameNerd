@@ -1,6 +1,7 @@
 import json
 import requests
 import xmltodict
+import time
 
 from .helper.db import create_account, insert_in_collection, delete_from_collection, update_collection
 from .helper.form import check_user_login, change_user_password, change_user_mail
@@ -157,6 +158,17 @@ def logout():
     session.clear()
     return redirect(url_for('index'))
 
+# log out page
+@app.route('/thumbnail/<id>')
+def thumbnail(id):
+    time.sleep(1)
+    r = requests.get(THING_API+str(id))
+    detail = xmltodict.parse(r.content)
+    print("here", id ,detail)
+    thumbnail=detail["items"]["item"]["thumbnail"]
+    print(thumbnail)
+    return thumbnail
+
 # change password and mail
 @app.route('/settings', methods=['GET', 'POST'])
 def settings():
@@ -187,7 +199,7 @@ def page_not_found(e):
     return render_template('pages/404.html'), 404
 
 @app.errorhandler(500)
-def internal_server_erro(e):
+def internal_server_error(e):
     # note that we set the 500 status explicitly
     return render_template('pages/500.html'), 500
 
