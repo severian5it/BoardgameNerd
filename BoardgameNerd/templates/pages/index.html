@@ -26,36 +26,36 @@
         </div>
       </header>
 
-    <div class="container text-center my-3">
-      <h3 class="font-weight-light">Pick What is hot now!</h2>
-      <div class="row mx-auto my-auto">
-          <div id="hotCarousel" class="carousel slide w-100" data-ride="carousel">
-              <div class="carousel-inner w-100" role="listbox">
-              {% for doc in docs %}
-                  <div class="carousel-item {% if loop.index == 1 %} active{% endif %}">
-                      <div class="col-12 col-md-6 col-lg-4 col-xl-3">
-                          <div class="card card-body">
-                            <h5 class="card-title">{{ doc['name']['@value'] }}</h5>
-                            <a href="/game/{{ doc['@id'] }}">
-                              <img class="img-fluid" src="{{ doc['thumbnail']['@value'] }}">
-                            </a>
-
-                          </div>
-                      </div>
-                  </div>
+      <!-- Top content  code for carousel from here:  https://azmind.com/bootstrap-carousel-multiple-items -->
+<div class="top-content">
+  <h3 class="font-weight-light text-center">Pick What is hot now!</h2>
+  <div class="container-fluid">
+      <div id="carousel-example" class="carousel slide" data-ride="carousel">
+          <div class="carousel-inner row w-100 mx-auto" role="listbox">
+            {% for doc in docs %}
+              <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3 {% if loop.index == 1 %} active {% endif %}">
+                <div class="card card-body">
+                  <h5 class="card-title">{{ doc['name']['@value'] }}</h5>
+                  <a href="/game/{{ doc['@id'] }}">
+                    <img class="img-fluid" src="{{ doc['thumbnail']['@value'] }}">
+                  </a>
+                </div>
+              </div>
               {% endfor %}
-            </div>
 
-              <a class="carousel-control-prev w-auto" href="#hotCarousel" role="button" data-slide="prev">
-                  <span class="carousel-control-prev-icon bg-dark border border-dark rounded-circle" aria-hidden="true"></span>
-                  <span class="sr-only">Previous</span>
-              </a>
-              <a class="carousel-control-next w-auto" href="#hotCarousel" role="button" data-slide="next">
-                  <span class="carousel-control-next-icon bg-dark border border-dark rounded-circle" aria-hidden="true"></span>
-                  <span class="sr-only">Next</span>
-              </a>
           </div>
+          <a class="carousel-control-prev" href="#carousel-example" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+          </a>
+          <a class="carousel-control-next" href="#carousel-example" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+          </a>
       </div>
   </div>
+</div>
+
+
 
 {% endblock %}
