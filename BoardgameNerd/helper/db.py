@@ -90,11 +90,11 @@ def update_collection(db, post_request):
     user = post_request['user']
     id = post_request['id']
     note = post_request['note']
-
+    date_buy = post_request['dateBuy']
     db.collection.find_one_and_update(
         {'username': user,
         'id': id},
-    { "$set": {"note": note}}
+    { "$set": {"note": note, 'dateBuy': date_buy}}
     )
     updated = True
 

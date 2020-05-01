@@ -25,6 +25,11 @@
                 <input name="id" type="hidden" value={{ id }}>
                 <input name="type" type="hidden" value='update'>
                 <div class="form-group">
+                    <label >Date of acquisition</label>
+                    <input type="date" name="dateBuy" max="3000-12-31" 
+                           min="1000-01-01" class="form-control" value={{ detail["dateBuy"] }}>
+                </div>
+                <div class="form-group">
                     <label for="note">Notes</label>
                     <textarea class="form-control" id="note" rows=3 name="note">
                         {{ detail["note"] }}

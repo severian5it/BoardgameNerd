@@ -127,6 +127,7 @@ def edit(id):
                 flash("game successfully removed from the collection")
                 return redirect(url_for('collection'))
         elif post_form['type'] == 'update':
+            print("here", post_form)
             response = update_collection(DB, post_form)
             if response['updated']:
                 flash("game successfully updated")
