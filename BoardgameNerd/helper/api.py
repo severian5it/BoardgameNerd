@@ -4,11 +4,8 @@ import xmltodict
 from flask import url_for
 from .. import THING_API
 
-from random import seed
 from random import randint
-# seed random number generator
-seed(1)
-# generate some integers
+
 
 
 
@@ -21,15 +18,19 @@ def thumbnail(id):
         thumbnail = url_for('static', filename='img/question-mark.png')
     return thumbnail
 
-def random_games(nbr=15):
+def random_games(nbr=30):
     random_list = []
     for _ in range(nbr):
         value = randint(0, 180000)
-        r = requests.get(THING_API+str(value))
-        detail = xmltodict.parse(r.content)
-        if detail.get("items").get('item') is not None:
-            detail=detail["items"]["item"]
-            random_list.append(detail)
+        random_list.append(str(value))
+    
+    random_values = ','.join(random_list)
+    filter_type = '&type=boardgame'
+    r = requests.get(THING_API+random_values+filter_type)
+    details = xmltodict.parse(r.content)
+    random_results = []
+    for d in details['items']['item']:
+        random_results.append(d)
 
-    return random_list
+    return random_results
         
