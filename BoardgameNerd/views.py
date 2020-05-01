@@ -12,24 +12,22 @@ from flask import flash, redirect, render_template, request, session, url_for
 @app.route('/')
 @app.route('/index')
 def index():
-    loggedIn = True if 'user' in session else False
     user = session.get('user')
     r = requests.get(HOT_API)
     doc = xmltodict.parse(r.content)
     docs=doc["items"]["item"]
     return render_template("pages/index.html", 
                             docs=docs, 
-                            loggedIn=loggedIn,
                             title="Home",
                             user=user)
 
 # login page
 @app.route('/login', methods=['GET', 'POST'])
 def login():
-    loggedIn = True if 'user' in session else False
+    logged_in = True if 'user' in session else False
     user = session.get('user')
 
-    if loggedIn == True:
+    if logged_in == True:
         user_in_db = DB.users.find_one({"username": session["user"]})
         if user_in_db:
             return render_template("pages/account-page.html", 
@@ -44,17 +42,16 @@ def login():
 
     return render_template(
         "pages/login.html",
-        loggedIn=loggedIn,
         user=user
     )
 
 # new account page
 @app.route('/registration', methods=['GET', 'POST'])
 def registration():
-    loggedIn = True if 'user' in session else False
+    logged_in = True if 'user' in session else False
     user = session.get('user')
 
-    if loggedIn:
+    if logged_in:
         user_in_db = DB.users.find_one({"username": session['user']})
         if user_in_db:
             return redirect(url_for('my_account_page', username=user_in_db['username']))
@@ -68,14 +65,12 @@ def registration():
 
     return render_template(
         'pages/registration.html', 
-        loggedIn=loggedIn,
          user=user
     )
 
 # search page
 @app.route('/search/<query>', methods=['GET'])
 def search(query):
-    loggedIn = True if 'user' in session else False
     user = session.get('user')
 
     r = requests.get(SEARCH_API+query)
@@ -83,13 +78,11 @@ def search(query):
     search_results=search_results["items"]["item"]
     return render_template("pages/search-results.html",  
                             search_results=search_results, 
-                            loggedIn=loggedIn,
                             user=user)
 
 # detail boardgame page
 @app.route('/game/<id>', methods=['GET', 'POST'])
 def game(id):
-    loggedIn = True if 'user' in session else False
     user = session.get('user')
 
     if request.method == 'POST':
@@ -112,7 +105,6 @@ def game(id):
 # edit page
 @app.route('/edit/<id>', methods=['GET', 'POST'])
 def edit(id):
-    loggedIn = True if 'user' in session else False
     user = session.get('user')
 
     if request.method == 'POST':
@@ -130,13 +122,11 @@ def edit(id):
     else:     
         return render_template("pages/edit.html", 
                             detail=DB.collection.find_one({"username": user, "id":id}) , 
-                            loggedIn=loggedIn,
                             user=user,
                             id=id)
 
 @app.route('/collection', methods=['GET', 'POST'])
 def collection():
-    loggedIn = True if 'user' in session else False
     user = session.get('user')
 
     if request.method == 'POST':
@@ -147,7 +137,6 @@ def collection():
             return redirect(url_for('collection'))
     else:
         return render_template("pages/collection.html", 
-                            loggedIn=loggedIn,
                                 user=user,
                                 collections=DB.collection.find({"username":user}))
 
@@ -172,7 +161,6 @@ def thumbnail(id):
 # change password and mail
 @app.route('/settings', methods=['GET', 'POST'])
 def settings():
-    loggedIn = True if 'user' in session else False
     user = session.get('user')
 
     if request.method == 'POST':
@@ -189,7 +177,6 @@ def settings():
 
     return render_template(
         "pages/settings.html", 
-        loggedIn=loggedIn,
         user=user
     )
 

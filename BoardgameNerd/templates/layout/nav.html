@@ -18,16 +18,14 @@
         <ul class="navbar-nav ml-auto">
 
             <!-- create account and log in navigation items only visible when not logged in -->
-            {% if loggedIn != True %}
+            {% if user is none %}
             <li class="nav-item">
                 <a class="nav-link {% if active == 'login' %}active{% endif %}" href="{{url_for('login')}}">
                     <i class="fas fa-sign-in-alt menu-icon"></i> Log In {% if active == 'login' %}<span class="sr-only">(current)</span>{% endif %}
                 </a>
             </li>
-            {% endif %}
-
+            {% else %}
             <!-- My account dropdown menu only visible when logged in -->
-            {% if loggedIn == True %}
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i class="fas fa-user menu-icon"></i> {{user}}
