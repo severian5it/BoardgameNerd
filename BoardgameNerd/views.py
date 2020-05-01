@@ -5,7 +5,7 @@ import time
 
 from .helper.db import create_account, insert_in_collection, delete_from_collection, update_collection
 from .helper.form import check_user_login, change_user_password, change_user_mail
-from .helper.api import thumbnail
+from .helper.api import thumbnail, random_games
 from . import app, HOT_API, SEARCH_API, THING_API, DB
 from flask import flash, redirect, render_template, request, session, url_for
 
@@ -17,8 +17,18 @@ def index():
     r = requests.get(HOT_API)
     doc = xmltodict.parse(r.content)
     docs=doc["items"]["item"]
+
+    r = requests.get(HOT_API)
+    doc = xmltodict.parse(r.content)
+    docs=doc["items"]["item"]
+
+    random_games_list = random_games()
+
+    print(random_games_list)
+
     return render_template("pages/index.html", 
-                            docs=docs, 
+                            docs=docs,
+                            random_games=random_games_list,
                             title="Home",
                             user=user)
 
