@@ -24,8 +24,6 @@ def index():
 
     random_games_list = random_games()
 
-    print(random_games_list)
-
     return render_template("pages/index.html", 
                             docs=docs,
                             random_games=random_games_list,

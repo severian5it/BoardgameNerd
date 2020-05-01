@@ -166,3 +166,35 @@
       visibility: visible;
   }
 }
+
+/* navbar from https://github.com/BlackrockDigital/startbootstrap-new-age/blob/master/css/new-age.css*/
+#mainNav {
+  border-color: rgba(34, 34, 34, 0.05);
+  background-color: white;
+  transition: all .35s;
+  font-family: 'Catamaran', 'Helvetica', 'Arial', 'sans-serif';
+  font-weight: 200;
+  letter-spacing: 1px;
+  border-bottom:3px solid #fd5252;
+
+}
+
+#mainNav .navbar-brand {
+  color: #fd5252;
+  font-family: 'Catamaran', 'Helvetica', 'Arial', 'sans-serif';
+  font-weight: 200;
+  letter-spacing: 1px;
+}
+
+#mainNav .navbar-brand:hover, #mainNav .navbar-brand:focus {
+  color: #181717;
+}
+
+#mainNav .navbar-toggler {
+  font-size: 12px;
+  padding: 8px 10px;
+  color: #222222;
+}
+
+/* as in here: https://stackoverflow.com/questions/11124777/twitter-bootstrap-navbar-fixed-top-overlapping-site */
+body { padding-top: 70px; }
