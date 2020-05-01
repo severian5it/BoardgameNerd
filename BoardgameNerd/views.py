@@ -5,6 +5,7 @@ import time
 
 from .helper.db import create_account, insert_in_collection, delete_from_collection, update_collection
 from .helper.form import check_user_login, change_user_password, change_user_mail
+from .helper.api import thumbnail
 from . import app, HOT_API, SEARCH_API, THING_API, DB
 from flask import flash, redirect, render_template, request, session, url_for
 
@@ -76,6 +77,10 @@ def search(query):
     r = requests.get(SEARCH_API+query)
     search_results = xmltodict.parse(r.content)
     search_results=search_results["items"]["item"]
+
+    for search in search_results:
+        search['thumbnail'] = thumbnail(search['@id'])
+
     return render_template("pages/search-results.html",  
                             search_results=search_results, 
                             user=user)
@@ -98,7 +103,6 @@ def game(id):
         detail=detail["items"]["item"]
         return render_template("pages/detail.html", 
                             detail=detail, 
-                            loggedIn=loggedIn,
                             user=user,
                             id=id)
 
@@ -147,16 +151,7 @@ def logout():
     session.clear()
     return redirect(url_for('index'))
 
-# log out page
-@app.route('/thumbnail/<id>')
-def thumbnail(id):
-    time.sleep(1)
-    r = requests.get(THING_API+str(id))
-    detail = xmltodict.parse(r.content)
-    print("here", id ,detail)
-    thumbnail=detail["items"]["item"]["thumbnail"]
-    print(thumbnail)
-    return thumbnail
+
 
 # change password and mail
 @app.route('/settings', methods=['GET', 'POST'])
