@@ -10,6 +10,7 @@ SEARCH_API = BASE_API + 'search?type=boardgame&query='
 ROOT_PASSWORD = os.environ.get('ROOT_PASSWORD')
 
 app.config["SECRET_KEY"] = os.environ.get('SECRET_KEY')
-app.config["MONGO_URI"] = f'mongodb+srv://root:{ROOT_PASSWORD}@piercluster-zyykg.mongodb.net/BoardGame?retryWrites=true&w=majority'
+app.config["MONGO_URI"] = os.environ.get('MONGO_URI')
+
 mongo = PyMongo(app)
 DB=mongo.db
