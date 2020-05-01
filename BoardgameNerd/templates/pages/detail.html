@@ -24,7 +24,7 @@
             <p>
                 <b>playing time: </b> {{  detail['playingtime'] ['@value']}} minutes
             </p>
-                <form id="add_collectionform" action="/game/{{id}}" method="post">
+                <form id="add-collectionform" action="/game/{{id}}" method="post">
                     <input name="user" type="hidden" value={{user}}>
                     <input name="id" type="hidden" value={{id}}>
                     <input name="boardgameName" type="hidden" value="{{  detail['name']['@value'] }}">

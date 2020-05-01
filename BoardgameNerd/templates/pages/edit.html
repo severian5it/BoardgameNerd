@@ -20,7 +20,7 @@
             <p>
                 <b>playing time: </b> {{  detail['boardgame_playtime'] }} minutes
             </p>
-            <form id="add_collectionform" action="/edit/{{ id }}" method="post">
+            <form id="add-collectionform" action="/edit/{{ id }}" method="post">
                 <input name="user" type="hidden" value={{user}}>
                 <input name="id" type="hidden" value={{ id }}>
                 <input name="type" type="hidden" value='update'>
@@ -31,7 +31,7 @@
                 <button class="btn btn-search btn-success" id="editItemCollectionSubmit" type="submit">Save</button>
             </form>
 
-            <form id="add_collectionform" action="/edit/{{id}}" method="post">
+            <form id="add-collectionform" action="/edit/{{id}}" method="post">
                 <input name="user" type="hidden" value={{user}}>
                 <input name="id" type="hidden" value={{ id }}>
                 <input name="type" type="hidden" value='delete'>

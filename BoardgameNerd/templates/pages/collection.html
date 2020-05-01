@@ -13,7 +13,7 @@
                     <h5 class="card-title">{{ collection['boardgame_name']  }}</h5>
 
                     <a href="/edit/{{ collection['id'] }}" class="btn btn-success" role="button">Edit</a>
-                    <form id="add_collectionform" action="/collection" method="post">
+                    <form id="add-collectionform" action="/collection" method="post">
                         <input name="user" type="hidden" value={{ collection['username'] }}>
                         <input name="id" type="hidden" value={{ collection['id'] }}>
                         <button class="btn btn-danger" id="deleteboardgameSubmit" type="submit">Delete</button>
