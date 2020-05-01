@@ -21,7 +21,7 @@ def thumbnail(id):
         thumbnail = url_for('static', filename='img/question-mark.png')
     return thumbnail
 
-def random_games(nbr=10):
+def random_games(nbr=15):
     random_list = []
     for _ in range(nbr):
         value = randint(0, 180000)
