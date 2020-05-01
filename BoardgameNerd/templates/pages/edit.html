@@ -26,7 +26,9 @@
                 <input name="type" type="hidden" value='update'>
                 <div class="form-group">
                     <label for="note">Notes</label>
-                    <input type="text" id="note" name="note" value={{detail['note']}}>
+                    <textarea class="form-control" id="note" rows=3 name="note">
+                        {{ detail["note"] }}
+                    </textarea>
                 </div>
                 <button class="btn btn-search btn-success" id="editItemCollectionSubmit" type="submit">Save</button>
             </form>
