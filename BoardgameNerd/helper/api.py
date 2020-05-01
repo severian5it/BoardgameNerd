@@ -8,15 +8,24 @@ from random import randint
 
 
 
+def thumbnail(search_ids_to_enrich):
+    value = ','.join(search_ids_to_enrich)
+    r = requests.get(THING_API+value)
+    details = xmltodict.parse(r.content)
+    results_list = []
+    for d in details['items']['item']:
+        result = {}
+        result['id'] = d.get('@id')
+        result['thumbnail'] = d.get('thumbnail', url_for('static', filename='img/question-mark.png'))
+        board_game_name = d.get('name')
+        if type(board_game_name) == list:
+            result['name'] = board_game_name[0].get('@value')
+        else:
+            result['name'] = board_game_name.get('@value')
+        results_list.append(result)
 
-def thumbnail(id):
-    r = requests.get(THING_API+str(id))
-    detail = xmltodict.parse(r.content)
-    try:
-        thumbnail=detail["items"]["item"].get("thumbnail", url_for('static', filename='img/question-mark.png')) 
-    except:
-        thumbnail = url_for('static', filename='img/question-mark.png')
-    return thumbnail
+    print(results_list)
+    return results_list
 
 def random_games(nbr=30):
     random_list = []

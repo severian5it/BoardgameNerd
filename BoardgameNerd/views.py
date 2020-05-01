@@ -86,11 +86,11 @@ def search(query):
     search_results = xmltodict.parse(r.content)
     search_results=search_results["items"]["item"]
 
-    for search in search_results:
-        search['thumbnail'] = thumbnail(search['@id'])
+    search_ids_to_enrich = [search['@id'] for search in search_results]
+    results_enriched = thumbnail(search_ids_to_enrich)
 
     return render_template("pages/search-results.html",  
-                            search_results=search_results, 
+                            search_results=results_enriched, 
                             user=user)
 
 # detail boardgame page
