@@ -2,50 +2,56 @@
 
 
 {% block content %}
-<div class="container detail-page">
+<div class="container-fluid detail-page">
     <div class="row">
         <div class="col-lg-6">
-            <img src="{{  detail['image'] }}" class="mx-auto d-block w-50 m-4" alt="{{ detail['name'] }}">
-            <div class=" text-center">
-
-            <p>
-                <b>year published: </b> {{  detail['yearpublished'] ['@value'] }}
-            </p>
-            <p>
-                <b>min player: </b> {{  detail['minplayers'] ['@value']}}
-            </p>
-            <p>
-                <b>max player: </b> {{  detail['maxplayers'] ['@value']}}
-            </p>
-            <p>
-                <b>minimum age: </b> {{  detail['minage'] ['@value']}}
-            </p>
-            <p>
-                <b>playing time: </b> {{  detail['playingtime'] ['@value']}} minutes
-            </p>
-                <form id="add-collectionform" action="/game/{{id}}" method="post">
-                    <input name="user" type="hidden" value={{user}}>
-                    <input name="id" type="hidden" value={{id}}>
-                    <input name="boardgameName" type="hidden" value="{{  detail['name']['@value'] }}">
-                    <input name="boardgameDescription" type="hidden" value="{{  detail['description'] }}">
-                    <input name="boardgameImage" type="hidden" value={{  detail['image'] }}>
-                    <input name="boardgameThumbnail" type="hidden" value={{  detail['thumbnail'] }}>
-                    <input name="boardgameMinPlayer" type="hidden" value={{  detail['minplayers']['@value'] }}>
-                    <input name="boardgameMaxPlayer" type="hidden" value={{  detail['maxplayers']['@value'] }}>
-                    <input name="boardgameMinAge" type="hidden" value={{  detail['minage']['@value'] }}>
-                    <input name="boardgameplayingTime" type="hidden" value={{  detail['playingtime']['@value'] }}>
-                    <button class="btn btn-search btn-danger" id="addCollectionSubmit" type="submit">
-                        <i class="fas fa-heart"></i>
-                    </button>
-                </form>
-            </div>
-        </div>
-
-        <div class="col-lg-6">
-            <h1 class="text-center m-2">{{  detail['name']['@value'] }}</h1>
+            <h1 class="text-center m-4">{{  detail['name']['@value'] }}</h1>
             <p>{{  detail['description']|safe }}<p>
 
         </div>
+        <div class="col-lg-6 mb-1">
+                <img src="{{  detail['image'] }}" class="mx-auto d-block w-50 m-4" alt="{{ detail['name'] }}">
+                <div class="justify-left ml-5 pl-5">
+
+                    <p>
+                        <b>year published: </b> {{  detail['yearpublished'] ['@value'] }}
+                    </p>
+                    <p>
+                        <b>min player: </b> {{  detail['minplayers'] ['@value']}}
+                    </p>
+                    <p>
+                        <b>max player: </b> {{  detail['maxplayers'] ['@value']}}
+                    </p>
+                    <p>
+                        <b>minimum age: </b> {{  detail['minage'] ['@value']}}
+                    </p>
+                    <p>
+                        <b>playing time: </b> {{  detail['playingtime'] ['@value']}} minutes
+                    </p>
+                </div>
+                <div>
+                    <form id="add-collectionform" action="/game/{{id}}" method="post">
+                        <input name="user" type="hidden" value={{user}}>
+                        <input name="id" type="hidden" value={{id}}>
+                        <input name="boardgameName" type="hidden" value="{{  detail['name']['@value'] }}">
+                        <input name="boardgameDescription" type="hidden" value="{{  detail['description'] }}">
+                        <input name="boardgameImage" type="hidden" value={{  detail['image'] }}>
+                        <input name="boardgameThumbnail" type="hidden" value={{  detail['thumbnail'] }}>
+                        <input name="boardgameMinPlayer" type="hidden" value={{  detail['minplayers']['@value'] }}>
+                        <input name="boardgameMaxPlayer" type="hidden" value={{  detail['maxplayers']['@value'] }}>
+                        <input name="boardgameMinAge" type="hidden" value={{  detail['minage']['@value'] }}>
+                        <input name="boardgameplayingTime" type="hidden" value={{  detail['playingtime']['@value'] }}>
+                        <div class="text-center">
+                            <button class="btn btn-search btn-danger" id="addCollectionSubmit" type="submit">
+                                <i class="fas fa-heart"></i>
+                                Add to your collection!
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+
     </div>
 </div>
 

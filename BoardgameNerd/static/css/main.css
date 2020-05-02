@@ -296,5 +296,5 @@ footer ul li a:hover, footer ul li a:focus, footer ul li a:active, footer ul li 
   color: #346861;
 }
 div.detail-page {
-  height: 80vh
+  min-height: 80vh
 }
