@@ -41,4 +41,27 @@ def random_games(nbr=30):
         random_results.append(d)
 
     return random_results
+
+def wrangle_game(detail):
+    detail=detail["items"]["item"]
+    print(detail)
+    result = {}
+    result['id'] = detail.get('@id')
+    result['thumbnail'] = detail.get('thumbnail', url_for('static', filename='img/question-mark.png'))
+    board_game_name = detail.get('name')
+    if type(board_game_name) == list:
+        result['name'] = board_game_name[0].get('@value')
+    else:
+        result['name'] = board_game_name.get('@value')
+    result['description'] = detail.get('description')
+    result['thumbnail'] = detail.get('thumbnail')
+    result['image'] = detail.get('image')
+    result['yearpublished'] = detail.get('yearpublished').get('@value')
+    result['minplayers'] = detail.get('minplayers').get('@value')
+    result['maxplayers'] = detail.get('maxplayers').get('@value')
+    result['minage'] = detail.get('minplayers').get('@value')
+    result['playingtime'] = detail.get('playingtime').get('@value')
+    print(result)
+    return result
         
+
