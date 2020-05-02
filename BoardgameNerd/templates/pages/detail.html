@@ -17,18 +17,6 @@
                         <b>year published: </b> {{  detail['yearpublished']  }}
                     </p>
                     <p>
-                        <b>min player: </b> {{  detail['minplayers'] }}
-                    </p>
-                    <p>
-                        <b>max player: </b> {{  detail['maxplayers'] }}
-                    </p>
-                    <p>
-                        <b>minimum age: </b> {{  detail['minage'] }}
-                    </p>
-                    <p>
-                        <b>playing time: </b> {{  detail['playingtime']}} minutes
-                    </p>
-                    <p>
                         <b>boardgame designer: </b> {{  ', '.join(detail['boardgamedesigner']) }}
                     </p>
                     <p>
@@ -40,6 +28,19 @@
                     <p>
                         <b>boardgame mechanics: </b> {{  ', '.join(detail['boardgamemechanic']) }}
                     </p>
+                    <p>
+                        <b>min player: </b> {{  detail['minplayers'] }}
+                    </p>
+                    <p>
+                        <b>max player: </b> {{  detail['maxplayers'] }}
+                    </p>
+                    <p>
+                        <b>minimum age: </b> {{  detail['minage'] }}
+                    </p>
+                    <p>
+                        <b>playing time: </b> {{  detail['playingtime']}} minutes
+                    </p>
+   
                 </div>
                 <div>
                     <form id="add-collectionform" action="/game/{{id}}" method="post">
@@ -53,6 +54,10 @@
                         <input name="boardgameMaxPlayer" type="hidden" value={{  detail['maxplayers'] }}>
                         <input name="boardgameMinAge" type="hidden" value={{  detail['minage'] }}>
                         <input name="boardgameplayingTime" type="hidden" value={{  detail['playingtime'] }}>
+                        <input name="boardgamedesigner" type="hidden" value={{  detail['boardgamedesigner'] }}>
+                        <input name="boardgamecategory" type="hidden" value={{  detail['boardgamecategory'] }}>
+                        <input name="boardgamefamily" type="hidden" value={{  detail['boardgamefamily'] }}>
+                        <input name="boardgamemechanic" type="hidden" value={{  detail['boardgamemechanic'] }}>
                         <div class="text-center">
                             <button class="btn btn-search btn-danger" id="addCollectionSubmit" type="submit">
                                 <i class="fas fa-heart"></i>

@@ -105,11 +105,11 @@ def game(id):
             flash("game added to the collection!")
             return redirect(url_for('index'))
 
-    else:    
-        r = requests.get(THING_API+str(id))
-        detail = xmltodict.parse(r.content)
-        detail = wrangle_game(detail)
-        return render_template("pages/detail.html", 
+
+    r = requests.get(THING_API+str(id))
+    detail = xmltodict.parse(r.content)
+    detail = wrangle_game(detail)
+    return render_template("pages/detail.html", 
                             detail=detail, 
                             user=user,
                             id=id)

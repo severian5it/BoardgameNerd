@@ -44,7 +44,6 @@ def random_games(nbr=30):
 
 def wrangle_game(detail):
     detail=detail["items"]["item"]
-    print(detail)
     result = {}
     result['id'] = detail.get('@id')
     result['thumbnail'] = detail.get('thumbnail', url_for('static', filename='img/question-mark.png'))
@@ -68,9 +67,6 @@ def wrangle_game(detail):
     result['boardgamemechanic'] = [c[1] for c in characteristict if c[0] == 'boardgamemechanic']
     result['boardgamedesigner'] = [c[1] for c in characteristict if c[0] == 'boardgamedesigner']
 
-
-
-    print(result)
     return result
         
 

@@ -45,7 +45,10 @@ def insert_in_collection(db, post_request):
     boardgame_maxplay = post_request['boardgameMaxPlayer']
     boardgame_minage = post_request['boardgameMinAge']
     boardgame_playtime = post_request['boardgameplayingTime']
-
+    boardgame_family = post_request['boardgamefamily']
+    boardgame_category = post_request['boardgamecategory']
+    boardgame_mechanic = post_request['boardgamemechanic']
+    boardgame_designer = post_request['boardgamedesigner']
 
     boardgame = db.collection.find_one({"username": user, 'id': id})
 
@@ -61,7 +64,11 @@ def insert_in_collection(db, post_request):
         'boardgame_minplay': boardgame_minplay,   
         'boardgame_maxplay': boardgame_maxplay,
         'boardgame_minage': boardgame_minage,          
-        'boardgame_playtime': boardgame_playtime })
+        'boardgame_playtime': boardgame_playtime,
+        'boardgame_family': boardgame_family,   
+        'boardgame_category': boardgame_category,
+        'boardgame_mechanic': boardgame_mechanic,          
+        'boardgame_designer': boardgame_designer})
 
         inserted =True
 
