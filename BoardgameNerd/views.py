@@ -5,7 +5,7 @@ import time
 
 from .helper.db import create_account, insert_in_collection, delete_from_collection, update_collection
 from .helper.form import check_user_login, change_user_password, change_user_mail
-from .helper.api import thumbnail, random_games
+from .helper.api import enrich_thumbnail, random_games
 from . import app, HOT_API, SEARCH_API, THING_API, DB
 from flask import flash, redirect, render_template, request, session, url_for
 
@@ -87,10 +87,10 @@ def search(query):
     search_results=search_results["items"]["item"]
 
     search_ids_to_enrich = [search['@id'] for search in search_results]
-    results_enriched = thumbnail(search_ids_to_enrich)
+    search_results = enrich_thumbnail(search_ids_to_enrich)
 
-    return render_template("pages/search-results.html",  
-                            search_results=results_enriched, 
+    return search_results("pages/search-results.html",  
+                            search_results=search_results, 
                             user=user)
 
 # detail boardgame page
@@ -127,7 +127,6 @@ def edit(id):
                 flash("game successfully removed from the collection")
                 return redirect(url_for('collection'))
         elif post_form['type'] == 'update':
-            print("here", post_form)
             response = update_collection(DB, post_form)
             if response['updated']:
                 flash("game successfully updated")

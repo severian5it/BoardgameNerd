@@ -8,7 +8,7 @@ from random import randint
 
 
 
-def thumbnail(search_ids_to_enrich):
+def enrich_thumbnail(search_ids_to_enrich):
     value = ','.join(search_ids_to_enrich)
     r = requests.get(THING_API+value)
     details = xmltodict.parse(r.content)
@@ -24,7 +24,6 @@ def thumbnail(search_ids_to_enrich):
             result['name'] = board_game_name.get('@value')
         results_list.append(result)
 
-    print(results_list)
     return results_list
 
 def random_games(nbr=30):
