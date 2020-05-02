@@ -2,11 +2,10 @@
 
 
 {% block content %}
-<div class="container">
+<div class="container detail-page">
     <div class="row">
         <div class="col-lg-6">
-            <h1 class="text-center">{{  detail['name']['@value'] }}</h1>
-            <img src="{{  detail['image'] }}" class="mx-auto d-block w-50" alt="{{ detail['name'] }}">
+            <img src="{{  detail['image'] }}" class="mx-auto d-block w-50 m-4" alt="{{ detail['name'] }}">
             <div class=" text-center">
 
             <p>
@@ -35,12 +34,15 @@
                     <input name="boardgameMaxPlayer" type="hidden" value={{  detail['maxplayers']['@value'] }}>
                     <input name="boardgameMinAge" type="hidden" value={{  detail['minage']['@value'] }}>
                     <input name="boardgameplayingTime" type="hidden" value={{  detail['playingtime']['@value'] }}>
-                    <button class="btn btn-search btn-success" id="addCollectionSubmit" type="submit">ADD</button>
+                    <button class="btn btn-search btn-danger" id="addCollectionSubmit" type="submit">
+                        <i class="fas fa-heart"></i>
+                    </button>
                 </form>
             </div>
         </div>
 
         <div class="col-lg-6">
+            <h1 class="text-center m-2">{{  detail['name']['@value'] }}</h1>
             <p>{{  detail['description']|safe }}<p>
 
         </div>
