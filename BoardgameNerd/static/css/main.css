@@ -284,3 +284,14 @@ footer ul li a:hover, footer ul li a:focus, footer ul li a:active, footer ul li 
   border: 1px solid #cccccc;
   background-color: white;
 }
+
+.knowmore-link {
+  margin-top: 0.25rem;
+  color: #5ca4a9;
+  -webkit-transition: 0.3s ease-in-out 0.3s;
+  transition: 0.3s ease-in-out 0.3s;
+}
+
+.knowmore-link:hover {
+  color: #346861;
+}

@@ -41,6 +41,7 @@
                   <a href="/game/{{ doc['@id'] }}">
                     <img class="card-img-top img-fluid" src="{{ doc['thumbnail']['@value'] }}">
                   </a>
+                  <div class="knowmore-link">Read More <i class="fas fa-arrow-circle-right"></i></div>
                 </div>
               </div>
               {% endfor %}
@@ -70,6 +71,7 @@
                   <a href="/game/{{ game['@id'] }}">
                     <img class="card-img-top img-fluid" src="{{ game.get('thumbnail') }}">
                   </a>
+                  <div class="knowmore-link">Read More <i class="fas fa-arrow-circle-right"></i></div>
                 </div>
               </div>
               {% endfor %}
