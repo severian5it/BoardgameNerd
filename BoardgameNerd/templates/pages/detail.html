@@ -28,6 +28,18 @@
                     <p>
                         <b>playing time: </b> {{  detail['playingtime']}} minutes
                     </p>
+                    <p>
+                        <b>boardgame designer: </b> {{  ', '.join(detail['boardgamedesigner']) }}
+                    </p>
+                    <p>
+                        <b>boardgame category: </b> {{  ', '.join(detail['boardgamecategory']) }}
+                    </p>
+                    <p>
+                        <b>boardgame family: </b> {{  ', '.join(detail['boardgamefamily']) }}
+                    </p>
+                    <p>
+                        <b>boardgame mechanics: </b> {{  ', '.join(detail['boardgamemechanic']) }}
+                    </p>
                 </div>
                 <div>
                     <form id="add-collectionform" action="/game/{{id}}" method="post">

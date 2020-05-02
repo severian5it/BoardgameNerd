@@ -61,6 +61,15 @@ def wrangle_game(detail):
     result['maxplayers'] = detail.get('maxplayers').get('@value')
     result['minage'] = detail.get('minplayers').get('@value')
     result['playingtime'] = detail.get('playingtime').get('@value')
+
+    characteristict = [(l.get('@type'), l.get('@value'))  for l in detail.get('link')]
+    result['boardgamefamily'] = [c[1] for c in characteristict if c[0] == 'boardgamefamily']
+    result['boardgamecategory'] = [c[1] for c in characteristict if c[0] == 'boardgamecategory']
+    result['boardgamemechanic'] = [c[1] for c in characteristict if c[0] == 'boardgamemechanic']
+    result['boardgamedesigner'] = [c[1] for c in characteristict if c[0] == 'boardgamedesigner']
+
+
+
     print(result)
     return result
         
