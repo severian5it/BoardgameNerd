@@ -8,10 +8,9 @@
         {% for collection in collections %}
         <div class="col-12 col-md-6 col-lg-4 col-xl-3">
             <div class="card">
-                <img class="card-img-top" src="{{  collection['boardgame_thumbnail'] }}" alt="Card image cap">
                 <div class="card-body">
                     <h5 class="card-title">{{ collection['boardgame_name']  }}</h5>
-
+                    <img class="card-img-top img-fluid" src="{{  collection['boardgame_thumbnail'] }}" alt="Card image cap">
                     <a href="/edit/{{ collection['id'] }}" class="btn btn-success" role="button">Edit</a>
                     <form id="add-collectionform" action="/collection" method="post">
                         <input name="user" type="hidden" value={{ collection['username'] }}>
