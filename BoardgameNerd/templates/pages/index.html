@@ -32,45 +32,49 @@
 <section class="hot" id="hot">
 
   <div class="top-content">
-    <h2>See what is hot now</h2>
-    <p class="text-muted">explore what is trending in the community</p>
-    <hr>
+    <div class="section-heading text-center">
+      <h2>See what is hot now</h2>
+      <p class="text-muted">explore what is trending in the community</p>
+      <hr>
+    </div>
 
-      <div class="container-fluid">
-        <div id="carousel-example" class="carousel slide" data-ride="carousel">
-          <div class="carousel-inner row w-100 mx-auto" role="listbox">
-            {% for doc in docs %}
-            <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3 {% if loop.index == 1 %} active {% endif %}">
-              <div class="card card-body">
-                <h5 class="card-title text-center">{{ doc['name']['@value'] }}</h5>
-                <a href="/game/{{ doc['@id'] }}">
-                  <img class="card-img-top img-fluid" src="{{ doc['thumbnail']['@value'] }}">
-                </a>
-                <div class="knowmore-link">Read More <i class="fas fa-arrow-circle-right"></i></div>
-              </div>
+    <div class="container-fluid">
+      <div id="carousel-example" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner row w-100 mx-auto" role="listbox">
+          {% for doc in docs %}
+          <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3 {% if loop.index == 1 %} active {% endif %}">
+            <div class="card card-body">
+              <h5 class="card-title text-center">{{ doc['name']['@value'] }}</h5>
+              <a href="/game/{{ doc['@id'] }}">
+                <img class="card-img-top img-fluid" src="{{ doc['thumbnail']['@value'] }}">
+              </a>
+              <div class="knowmore-link">Read More <i class="fas fa-arrow-circle-right"></i></div>
             </div>
-            {% endfor %}
-
           </div>
-          <a class="carousel-control-prev" href="#carousel-example" role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-          </a>
-          <a class="carousel-control-next" href="#carousel-example" role="button" data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-          </a>
+          {% endfor %}
+
         </div>
+        <a class="carousel-control-prev" href="#carousel-example" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carousel-example" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
       </div>
+    </div>
   </div>
 </section>
 
 <section class="oldies bg-primary" id="oldies">
 
   <div class="top-content">
-    <h2>Discover old-school Classic</h2>
-    <p class="text-muted">have you ever heard of these games?</p>
-    <hr>
+    <div class="section-heading text-center">
+      <h2>Discover old-school Classic</h2>
+      <p class="text-muted">have you ever heard of these games?</p>
+      <hr>
+    </div>
     <div class="container-fluid">
       <div id="carousel-example2" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner row w-100 mx-auto" role="listbox">
