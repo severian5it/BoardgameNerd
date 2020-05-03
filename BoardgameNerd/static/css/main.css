@@ -307,6 +307,8 @@ section {
 section h2 {
   font-size: 50px;
 }
+
+/* features section */
 section.features .section-heading {
   margin-bottom: 100px;
 }
@@ -352,5 +354,22 @@ section.features .feature-item i {
   background: linear-gradient(to left, #7b4397, #dc2430);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+section.oldies .section-heading {
+  margin-bottom: 100px;
+}
+
+section.oldies .section-heading h2 {
+  margin-top: 0;
+}
+
+section.oldies .section-heading p {
+  margin-bottom: 0;
+}
+
+.bg-primary {
+  background: #fdcc52;
+  background: linear-gradient(#fdcc52, #fdc539);
 }
 
