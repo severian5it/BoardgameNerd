@@ -275,13 +275,13 @@ footer ul li a:hover, footer ul li a:focus, footer ul li a:active, footer ul li 
 }
 
 
-.card {
+.card-game {
   margin-bottom: 2rem;
   margin-top: 2rem;
   height: 50vh;
 }
 /* small part of https://codepen.io/andrewsims/pen/mQoYwz*/
-.card:hover {
+.card-game:hover {
   transition: all 0.2s ease-out;
   box-shadow: 0px 4px 8px rgba(38, 38, 38, 0.2);
   top: -4px;
