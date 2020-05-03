@@ -7,7 +7,6 @@ from .. import THING_API
 from random import randint
 
 
-
 def enrich_thumbnail(search_ids_to_enrich):
     value = ','.join(search_ids_to_enrich)
     r = requests.get(THING_API+value)
@@ -44,7 +43,7 @@ def random_games(nbr=50):
             result['name'] = board_game_name[0].get('@value')
         else:
             result['name'] = board_game_name.get('@value')
-        result['description'] = d.get('description')
+        result['id'] = d.get('@id')
         result['thumbnail'] = d.get('thumbnail')
         random_results.append(result)
     return random_results[:12]
