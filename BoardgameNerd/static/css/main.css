@@ -373,3 +373,15 @@ section.oldies .section-heading p {
   background: linear-gradient(#fdcc52, #fdc539);
 }
 
+section.hot .section-heading {
+  margin-bottom: 100px;
+}
+
+section.hot .section-heading h2 {
+  margin-top: 0;
+}
+
+section.hot .section-heading p {
+  margin-bottom: 0;
+}
+
