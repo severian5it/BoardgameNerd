@@ -67,6 +67,21 @@
                 alt="{{ detail['boardgame_name'] }}">
             <div class="justify-left ml-5 pl-5">
                 <p>
+                    <b>year published: </b> {{  detail['year_published']  }}
+                </p>
+                <p>
+                    <b>boardgame designer: </b> {{  ', '.join(detail['boardgame_designer']) }}
+                </p>
+                <p>
+                    <b>boardgame category: </b> {{  ', '.join(detail['boardgame_category']) }}
+                </p>
+                <p>
+                    <b>boardgame family: </b> {{  ', '.join(detail['boardgame_family']) }}
+                </p>
+                <p>
+                    <b>boardgame mechanics: </b> {{  ', '.join(detail['boardgame_mechanic']) }}
+                </p>
+                <p>
                     <b>min player: </b> {{  detail['boardgame_minplay'] }}
                 </p>
                 <p>

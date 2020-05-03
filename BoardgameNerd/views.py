@@ -131,9 +131,10 @@ def edit(id):
             if response['updated']:
                 flash("game successfully updated")
                 return redirect(url_for('collection'))
-    else:   
-        detail  = DB.collection.find_one({"username": user, "id":id}) 
-        return render_template("pages/edit.html", 
+  
+    detail  = DB.collection.find_one({"username": user, "id":id}) 
+    print(detail)
+    return render_template("pages/edit.html", 
                             detail=detail , 
                             user=user,
                             id=id)
