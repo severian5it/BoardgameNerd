@@ -84,10 +84,13 @@ def search(query):
 
     r = requests.get(SEARCH_API+query)
     search_results = xmltodict.parse(r.content)
-    search_results=search_results["items"]["item"]
+    if search_results["items"].get("item") is None:
+        flash("search returned no result")
+    else:    
+        search_results=search_results["items"]["item"]
 
-    search_ids_to_enrich = [search['@id'] for search in search_results]
-    search_results = enrich_thumbnail(search_ids_to_enrich)
+        search_ids_to_enrich = [search['@id'] for search in search_results]
+        search_results = enrich_thumbnail(search_ids_to_enrich)
 
     return render_template("pages/search-results.html",  
                             search_results=search_results, 
@@ -133,7 +136,6 @@ def edit(id):
                 return redirect(url_for('collection'))
   
     detail  = DB.collection.find_one({"username": user, "id":id}) 
-    print(detail)
     return render_template("pages/edit.html", 
                             detail=detail , 
                             user=user,
