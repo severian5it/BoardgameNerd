@@ -32,7 +32,9 @@
                             <input class="form-control" id="newPasswordInput" maxlength="20" minlength="8" placeholder="Password"
                                 required type="password" name=password value="{{ request.form.password }}">
                         </div>
-                        <button class="btn btn-search btn-success" id="newAccountSubmit" type="submit">Create account</button>
+                        <button class="btn btn-search btn-success" id="newAccountSubmit" type="submit">
+                            <i class="fas fa-user-plus"></i>
+                            Create account</button>
                     </form>
 
                     <p class="mt-2">Already have an account? <a class="fh-link" href="{{url_for('login')}}">
