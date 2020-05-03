@@ -26,7 +26,7 @@ def enrich_thumbnail(search_ids_to_enrich):
 
     return results_list
 
-def random_games(nbr=30):
+def random_games(nbr=50):
     random_list = []
     for _ in range(nbr):
         value = randint(0, 180000)
@@ -38,9 +38,16 @@ def random_games(nbr=30):
     details = xmltodict.parse(r.content)
     random_results = []
     for d in details['items']['item']:
-        random_results.append(d)
-
-    return random_results
+        result = {}
+        board_game_name = d.get('name')
+        if type(board_game_name) == list:
+            result['name'] = board_game_name[0].get('@value')
+        else:
+            result['name'] = board_game_name.get('@value')
+        result['description'] = d.get('description')
+        result['thumbnail'] = d.get('thumbnail')
+        random_results.append(result)
+    return random_results[:12]
 
 def wrangle_game(detail):
     detail=detail["items"]["item"]

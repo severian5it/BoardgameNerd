@@ -81,8 +81,8 @@
           {% for game in random_games %}
           <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3 {% if loop.index == 1 %} active {% endif %}">
             <div class="card card-game card-body">
-              <h5 class="card-title text-center">{{ game['name']['@value'] }}</h5>
-              <a href="/game/{{ game['@id'] }}">
+              <h5 class="card-title text-center">{{ game['name'] }}</h5>
+              <a href="/game/{{ game['id'] }}">
                 <img class="card-img-top img-fluid p-2" src="{{ game.get('thumbnail') }}">
               </a>
               <div class="knowmore-link">Read More <i class="fas fa-arrow-circle-right"></i></div>
