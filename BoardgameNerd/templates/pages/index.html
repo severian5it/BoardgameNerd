@@ -46,7 +46,7 @@
             <div class="card card-body">
               <h5 class="card-title text-center">{{ doc['name']['@value'] }}</h5>
               <a href="/game/{{ doc['@id'] }}">
-                <img class="card-img-top img-fluid" src="{{ doc['thumbnail']['@value'] }}">
+                <img class="card-img-top img-fluid p-2" src="{{ doc['thumbnail']['@value'] }}">
               </a>
               <div class="knowmore-link">Read More <i class="fas fa-arrow-circle-right"></i></div>
             </div>
@@ -83,7 +83,7 @@
             <div class="card card-body">
               <h5 class="card-title text-center">{{ game['name']['@value'] }}</h5>
               <a href="/game/{{ game['@id'] }}">
-                <img class="card-img-top img-fluid" src="{{ game.get('thumbnail') }}">
+                <img class="card-img-top img-fluid p-2" src="{{ game.get('thumbnail') }}">
               </a>
               <div class="knowmore-link">Read More <i class="fas fa-arrow-circle-right"></i></div>
             </div>
