@@ -15,11 +15,11 @@
                     <div class="float-right">
                         <form id="add-collectionform" action="/collection" method="post">
                             <a href="/edit/{{ collection['id'] }}" class="btn-floating btn-small" type="button">
-                                <i class="fas fa-edit"></i></a>
+                                <i class="fas fa-edit"></i>Edit</a>
                             <input name="user" type="hidden" value={{ collection['username'] }}>
                             <input name="id" type="hidden" value={{ collection['id'] }}>
                             <button class="btn btn-danger" id="deleteboardgameSubmit" type="submit"><i
-                                    class="fas fa-trash"></i></a></button>
+                                    class="fas fa-trash"></i>Remove</a></button>
                         </form>
                     </div>
 
