@@ -126,6 +126,10 @@ def game(id):
     user = session.get('user')
 
     if request.method == 'POST':
+        if user is None:            
+            flash("please login first to add to you collection!")
+            return redirect(url_for('login'))
+
         post_form = request.form
         response = insert_in_collection(DB, post_form)
         if response["inserted"]:

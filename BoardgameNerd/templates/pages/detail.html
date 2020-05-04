@@ -54,10 +54,11 @@
                         <input name="boardgameMaxPlayer" type="hidden" value={{  detail['maxplayers'] }}>
                         <input name="boardgameMinAge" type="hidden" value={{  detail['minage'] }}>
                         <input name="boardgameplayingTime" type="hidden" value={{  detail['playingtime'] }}>
-                        <input name="boardgamedesigner" type="hidden" value={{  detail['boardgamedesigner'] }}>
-                        <input name="boardgamecategory" type="hidden" value={{  detail['boardgamecategory'] }}>
-                        <input name="boardgamefamily" type="hidden" value={{  detail['boardgamefamily'] }}>
-                        <input name="boardgamemechanic" type="hidden" value={{  detail['boardgamemechanic'] }}>
+                        <input name="boardgameYearPublished" type="hidden" value={{  detail['yearpublished'] }}>
+                        <input name="boardgamedesigner" type="hidden" value="{{  ', '.join(detail['boardgamedesigner']) }}"">
+                        <input name="boardgamecategory" type="hidden" value="{{  ', '.join(detail['boardgamecategory'])  }}"">
+                        <input name="boardgamefamily" type="hidden" value="{{  ', '.join(detail['boardgamefamily']) }}"">
+                        <input name="boardgamemechanic" type="hidden" value="{{  ', '.join(detail['boardgamemechanic']) }}"">
                         <div class="text-center">
                             <button class="btn btn-search btn-danger" id="addCollectionSubmit" type="submit">
                                 <i class="fas fa-heart"></i>

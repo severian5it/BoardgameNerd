@@ -51,11 +51,12 @@ def insert_in_collection(db, post_request):
     boardgame_minplay = post_request['boardgameMinPlayer']
     boardgame_maxplay = post_request['boardgameMaxPlayer']
     boardgame_minage = post_request['boardgameMinAge']
+    boardgame_yearpublished = post_request['boardgameYearPublished']
     boardgame_playtime = post_request['boardgameplayingTime']
-    boardgame_family = post_request['boardgamefamily']
-    boardgame_category = post_request['boardgamecategory']
-    boardgame_mechanic = post_request['boardgamemechanic']
-    boardgame_designer = post_request['boardgamedesigner']
+    boardgame_family = post_request['boardgamefamily'].split(',')
+    boardgame_category = post_request['boardgamecategory'].split(',')
+    boardgame_mechanic = post_request['boardgamemechanic'].split(',')
+    boardgame_designer = post_request['boardgamedesigner'].split(',')
 
     boardgame = db.collection.find_one({"username": user, 'id': id})
 
@@ -72,6 +73,7 @@ def insert_in_collection(db, post_request):
         'boardgame_maxplay': boardgame_maxplay,
         'boardgame_minage': boardgame_minage,          
         'boardgame_playtime': boardgame_playtime,
+        'year_published': boardgame_yearpublished,
         'boardgame_family': boardgame_family,   
         'boardgame_category': boardgame_category,
         'boardgame_mechanic': boardgame_mechanic,          
@@ -80,7 +82,7 @@ def insert_in_collection(db, post_request):
         inserted =True
 
     response = {
-        "isThereAlready": is_there_already,
+        "is_there_already": is_there_already,
         "inserted": inserted
     }
     return response
