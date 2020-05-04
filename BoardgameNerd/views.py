@@ -226,17 +226,25 @@ def settings():
     """
     user = session.get('user')
 
+    if user is None:            
+        flash("please login first to see your settings!")
+        return redirect(url_for('login'))
+
     if request.method == 'POST':
         post_request = request.form
         if post_request.get('oldemail') != post_request.get('newemail'):
                 response = change_user_mail(DB, post_request)
                 if response['updated']:
                     flash("mail successfully updated")
+                else:
+                    flash("old mail wrong")
         
         if post_request.get('oldpassword') != post_request.get('newpassword'):
                 response = change_user_password(DB, post_request)
                 if response['updated']:
                     flash("password successfully updated")
+                else:
+                    flash("old password wrong")
 
     return render_template(
         "pages/settings.html", 
