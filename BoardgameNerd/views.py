@@ -52,10 +52,10 @@ def login():
         post_form = request.form
         response = check_user_login(DB, post_form)
         if response['passwordCorrect']:
-            flash("succesful logon!")
+            flash({"content": "succesful logon!", "background": "bg-success"})         
             return redirect(url_for('collection'))
         else:
-            flash("wrong user or password!")
+            flash({"content": "wrong user or password!", "background": "bg-danger"})         
 
     return render_template(
         "pages/login.html",
@@ -72,17 +72,17 @@ def registration():
     user = session.get('user')
 
     if user is not None:
-        flash("you are already logged on!")
+        flash({"content": " you are already logged on!", "background": "bg-warning"})         
         return redirect(url_for('collection'))
 
     if request.method == 'POST':
         post_form = request.form
         response = create_account(DB, post_form)
         if response['user_created']:
-            flash('You were successfully signed up')
+            flash({"content": "You were successfully signed up", "background": "bg-success"})         
             return redirect(url_for('login'))
         else:
-            flash('user or mail already exists!')
+            flash({"content": "user or mail already exists!", "background": "bg-warning"})         
 
     return render_template(
         'pages/registration.html', 
@@ -103,7 +103,7 @@ def search(query):
     r = requests.get(SEARCH_API+query)
     search_results = xmltodict.parse(r.content)
     if search_results["items"].get("item") is None:
-        flash("search returned no result")
+        flash({"content": "search returned no result", "background": "bg-warning"})         
     else:    
         search_results=search_results["items"]["item"]
 
@@ -126,17 +126,17 @@ def game(id):
     user = session.get('user')
 
     if request.method == 'POST':
-        if user is None:            
-            flash("please login first to add to you collection!")
+        if user is None:
+            flash({"content": "please login first to add to you collection!", "background": "bg-danger"})                     
             return redirect(url_for('login'))
 
         post_form = request.form
         response = insert_in_collection(DB, post_form)
         if response["inserted"]:
-            flash("game added to the collection!")
+            flash({"content": "game added to the collection!", "background": "bg-success"})         
             return redirect(url_for('index'))
         else:
-            flash("this game is already part of your collection!")
+            flash({"content": "this game is already part of your collection!", "background": "bg-warning"})         
 
     r = requests.get(THING_API+str(id))
     detail = xmltodict.parse(r.content)
@@ -157,8 +157,8 @@ def edit(id):
     """
     user = session.get('user')
 
-    if user is None:            
-        flash("please login first to edit your collection!")
+    if user is None:   
+        flash({"content": "please login first to edit your collection!", "background": "bg-danger"})         
         return redirect(url_for('login'))
 
     if request.method == 'POST':
@@ -166,12 +166,12 @@ def edit(id):
         if post_form['type'] == 'delete':
             response = delete_from_collection(DB, post_form)
             if response['deleted']:
-                flash("game successfully removed from the collection")
+                flash({"content": "game successfully removed from the collection", "background": "bg-success"})         
                 return redirect(url_for('collection'))
         elif post_form['type'] == 'update':
             response = update_collection(DB, post_form)
             if response['updated']:
-                flash("game successfully updated")
+                flash({"content": "game successfully updated", "background": "bg-success"})         
                 return redirect(url_for('collection'))
   
     detail  = DB.collection.find_one({"username": user, "id":id}) 
@@ -190,14 +190,14 @@ def collection():
     user = session.get('user')
 
     if user is None:            
-        flash("please login first to see your collection!")
+        flash({"content": "please login first to see your collection!", "background": "bg-danger"})
         return redirect(url_for('login'))
 
     if request.method == 'POST':
         post_form = request.form
         response = delete_from_collection(DB, post_form)
         if response['deleted']:
-            flash("game successfully removed from the collection")
+            flash({"content": "game successfully removed from the collection", "background": "bg-success"})
             return redirect(url_for('collection'))
     else:
         return render_template("pages/collection.html", 
@@ -213,7 +213,7 @@ def logout():
 
     """
     session.clear()
-    flash("successful log-out")
+    flash({"content": "successful log-out", "background": "bg-success"})
     return redirect(url_for('index'))
 
 
@@ -227,8 +227,8 @@ def settings():
     """
     user = session.get('user')
 
-    if user is None:            
-        flash("please login first to see your settings!")
+    if user is None:
+        flash({"content": "please login first to see your settings!", "background": "bg-danger"})            
         return redirect(url_for('login'))
 
     if request.method == 'POST':
@@ -236,16 +236,16 @@ def settings():
         if post_request.get('oldemail') != post_request.get('newemail'):
                 response = change_user_mail(DB, post_request)
                 if response['updated']:
-                    flash("mail successfully updated")
+                    flash({"content": "mail successfully updated", "background": "bg-success"})            
                 else:
-                    flash("old mail wrong")
+                    flash({"content": "old mail wrong", "background": "bg-danger"})            
         
         if post_request.get('oldpassword') != post_request.get('newpassword'):
                 response = change_user_password(DB, post_request)
                 if response['updated']:
-                    flash("password successfully updated")
+                    flash({"content": "password successfully updated", "background": "bg-success"})            
                 else:
-                    flash("old password wrong")
+                    flash({"content": "old password wrong", "background": "bg-danger"})            
 
     return render_template(
         "pages/settings.html", 

@@ -10,13 +10,13 @@
     {% include 'layout/nav.html' %}
     <!-- Content -->
     {% for message in get_flashed_messages() %}
-    <div class="toast bg-success" role data-delay="5000" id="warningToast">
-        <div class="toast-header bg-success">
+    <div class="toast {{ message['background'] }}" role data-delay="5000" id="warningToast">
+        <div class="toast-header {{ message['background'] }}">
             <button type="button" class="close ml-2 mb-1" data-dismiss="toast">&times;</button>
           </div>
         <div class="toast-body  text-muted">
             <div class="align-middle">
-                {{message}}
+                {{ message['content'] }}
             </div>
         </div>
     </div>
