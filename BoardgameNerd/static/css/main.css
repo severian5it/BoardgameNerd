@@ -313,9 +313,6 @@ section h2 {
 }
 
 /* features section */
-section.features .section-heading {
-  margin-bottom: 100px;
-}
 
 section.features .section-heading h2 {
   margin-top: 0;
