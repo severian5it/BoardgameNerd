@@ -157,6 +157,10 @@ def edit(id):
     """
     user = session.get('user')
 
+    if user is None:            
+        flash("please login first to add to you collection!")
+        return redirect(url_for('login'))
+
     if request.method == 'POST':
         post_form = request.form
         if post_form['type'] == 'delete':
