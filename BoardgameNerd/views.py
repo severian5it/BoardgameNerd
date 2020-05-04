@@ -36,23 +36,17 @@ def login():
     user = session.get('user')
 
     if user is not None:
-        user_in_db = DB.users.find_one({"username": session["user"]})
-        if user_in_db:
-            return render_template("pages/account-page.html", 
-                            username=user_in_db.get('username'))
+        flash("you are already logged on!")
+        return redirect(url_for('collection'))
 
     if request.method == 'POST':
         post_form = request.form
         response = check_user_login(DB, post_form)
-        if not response['passwordCorrect']:
-            flash("wrong password!")
-        elif response['passwordCorrect']:
+        if response['passwordCorrect']:
             flash("succesful logon!")
             return redirect(url_for('collection'))
         else:
-            flash("wrong password!")
-
-
+            flash("wrong user or password!")
 
     return render_template(
         "pages/login.html",

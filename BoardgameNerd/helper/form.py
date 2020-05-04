@@ -8,13 +8,11 @@ def check_user_login(db, post_request):
                                 {'email': username} ]})
     passwordCorrect = False
 
-    if user: 
-        if check_password_hash(user['password'], password):
+    if user and check_password_hash(user['password'], password):
             session['user'] = user['username']
             passwordCorrect = True    
 
     response = {
-        "userMatch": True if user else False,
         "passwordCorrect": passwordCorrect,
         "username": username
     }
