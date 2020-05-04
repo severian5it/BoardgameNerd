@@ -9,8 +9,7 @@ def create_account(db, post_form):
         response dictionary containing the result of operations
 
     """
-    email_exists = True
-    user_exists = True
+    user_created = False
     email = post_form['email']
     user = post_form['username']
     password = post_form['password']
@@ -18,24 +17,16 @@ def create_account(db, post_form):
     user_email = db.users.find_one({"email": email})
     user_username = db.users.find_one({"username": user})
 
-    if not user_email:
-        email_exists = False
-    elif not user_username:
-        user_exists = False
-
-    if not user_username and not user_email:
-
+    print(user_email, user_username)
+    if not user_email and not user_username:
+        print('here')
         password = generate_password_hash(password)
         db.users.insert_one({'username': user,
                             'email': email,
                             'password': password})
-        user_exists = False
-        email_exists = False
         user_created = True
 
     response = {
-        "email_exists": email_exists,
-        "user_exists": user_exists,
         "user_created": user_created
     }
     return response

@@ -69,13 +69,11 @@ def registration():
         rendering registration page
 
     """
-    logged_in = True if 'user' in session else False
     user = session.get('user')
 
-    if logged_in:
-        user_in_db = DB.users.find_one({"username": session['user']})
-        if user_in_db:
-            return redirect(url_for('my_account_page', username=user_in_db['username']))
+    if user is not None:
+        flash("you are already logged on!")
+        return redirect(url_for('collection'))
 
     if request.method == 'POST':
         post_form = request.form
@@ -83,6 +81,8 @@ def registration():
         if response['user_created']:
             flash('You were successfully signed up')
             return redirect(url_for('login'))
+        else:
+            flash('user or mail already exists!')
 
     return render_template(
         'pages/registration.html', 
