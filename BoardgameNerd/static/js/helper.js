@@ -3,6 +3,9 @@
  */
 $(document).ready(function(){
 
+    $("#warningToast").toast('show');
+
+
 
     $('#toSearch').keypress(function(e){
       if(e.keyCode==13)
@@ -27,7 +30,6 @@ $('#carousel-example').on('slide.bs.carousel', function (e) {
     let idx = $e.index();
     let itemsPerSlide = 5;
     let totalItems = $('.item-hot').length;
-    console.log(idx, totalItems, totalItems-(itemsPerSlide-1))
   
     if (idx >= totalItems-(itemsPerSlide-1)) {
         let it = itemsPerSlide - (totalItems - idx);

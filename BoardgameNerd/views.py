@@ -213,6 +213,7 @@ def logout():
 
     """
     session.clear()
+    flash("successful log-out")
     return redirect(url_for('index'))
 
 
