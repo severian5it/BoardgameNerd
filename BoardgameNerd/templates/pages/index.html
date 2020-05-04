@@ -40,9 +40,9 @@
 
     <div class="container-fluid">
       <div id="carousel-example" class="carousel slide" data-ride="carousel">
-        <div class="carousel-inner row w-100 mx-auto" role="listbox">
+        <div class="carousel-inner carousel-inner-hot row w-100 mx-auto" role="listbox">
           {% for doc in docs %}
-          <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3 {% if loop.index == 1 %} active {% endif %}">
+          <div class="carousel-item item-hot col-12 col-sm-6 col-md-4 col-lg-3 {% if loop.index == 1 %} active {% endif %}">
             <div class="card card-game card-body">
               <h5 class="card-title text-center">{{ doc['name']['@value'] }}</h5>
               <a href="/game/{{ doc['@id'] }}">
@@ -77,9 +77,9 @@
     </div>
     <div class="container-fluid">
       <div id="carousel-example2" class="carousel slide" data-ride="carousel">
-        <div class="carousel-inner row w-100 mx-auto" role="listbox">
+        <div class="carousel-inner  carousel-inner-old row w-100 mx-auto" role="listbox">
           {% for game in random_games %}
-          <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3 {% if loop.index == 1 %} active {% endif %}">
+          <div class="carousel-item item-old col-12 col-sm-6 col-md-4 col-lg-3 {% if loop.index == 1 %} active {% endif %}">
             <div class="card card-game card-body">
               <h5 class="card-title text-center">{{ game['name'] }}</h5>
               <a href="/game/{{ game['id'] }}">

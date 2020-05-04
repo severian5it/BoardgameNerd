@@ -33,10 +33,9 @@ def index():
 # login page
 @app.route('/login', methods=['GET', 'POST'])
 def login():
-    logged_in = True if 'user' in session else False
     user = session.get('user')
 
-    if logged_in == True:
+    if user is not None:
         user_in_db = DB.users.find_one({"username": session["user"]})
         if user_in_db:
             return render_template("pages/account-page.html", 
@@ -45,9 +44,15 @@ def login():
     if request.method == 'POST':
         post_form = request.form
         response = check_user_login(DB, post_form)
-        if response['passwordCorrect']:
+        if not response['passwordCorrect']:
+            flash("wrong password!")
+        elif response['passwordCorrect']:
             flash("succesful logon!")
             return redirect(url_for('collection'))
+        else:
+            flash("wrong password!")
+
+
 
     return render_template(
         "pages/login.html",
