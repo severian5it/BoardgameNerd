@@ -135,7 +135,8 @@ def game(id):
         if response["inserted"]:
             flash("game added to the collection!")
             return redirect(url_for('index'))
-
+        else:
+            flash("this game is already part of your collection!")
 
     r = requests.get(THING_API+str(id))
     detail = xmltodict.parse(r.content)
