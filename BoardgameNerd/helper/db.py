@@ -1,6 +1,14 @@
 from werkzeug.security import generate_password_hash
 
 def create_account(db, post_form):
+    """register new user
+    Args:
+        db: database to check for account 
+        post_form: form from which extract detail
+    Returns:
+        response dictionary containing the result of operations
+
+    """
     email_exists = True
     user_exists = True
     email = post_form['email']
@@ -33,6 +41,14 @@ def create_account(db, post_form):
     return response
 
 def insert_in_collection(db, post_request):
+    """insert a game in a user's collection
+    Args:
+        db: database to check for account 
+        post_form: form from which extract detail
+    Returns:
+        response dictionary containing the result of operations
+
+    """
     is_there_already = False
     inserted = False
     user = post_request['user']
@@ -79,6 +95,14 @@ def insert_in_collection(db, post_request):
     return response
 
 def delete_from_collection(db, post_request):
+    """remove a game in a user's collection
+    Args:
+        db: database to check for account 
+        post_form: form from which extract detail
+    Returns:
+        response dictionary containing the result of operations
+
+    """
     deleted = False
     user = post_request['user']
     id = post_request['id']
@@ -93,6 +117,14 @@ def delete_from_collection(db, post_request):
     return response
 
 def update_collection(db, post_request):
+    """update a game in user's collection
+    Args:
+        db: database to check for account 
+        post_form: form from which extract detail
+    Returns:
+        response dictionary containing the result of operations
+
+    """
     updated = False
     user = post_request['user']
     id = post_request['id']

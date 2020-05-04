@@ -13,6 +13,11 @@ from flask import flash, redirect, render_template, request, session, url_for
 @app.route('/')
 @app.route('/index')
 def index():
+    """Main access to the application
+    Returns:
+        rendering landing page
+
+    """
     user = session.get('user')
     r = requests.get(HOT_API)
     doc = xmltodict.parse(r.content)
@@ -30,9 +35,13 @@ def index():
                             title="Home",
                             user=user)
 
-# login page
 @app.route('/login', methods=['GET', 'POST'])
 def login():
+    """Login Page
+    Returns:
+        rendering login page
+
+    """
     user = session.get('user')
 
     if user is not None:
@@ -53,9 +62,13 @@ def login():
         user=user
     )
 
-# new account page
 @app.route('/registration', methods=['GET', 'POST'])
 def registration():
+    """Registration Page
+    Returns:
+        rendering registration page
+
+    """
     logged_in = True if 'user' in session else False
     user = session.get('user')
 
@@ -76,9 +89,15 @@ def registration():
          user=user
     )
 
-# search page
 @app.route('/search/<query>', methods=['GET'])
 def search(query):
+    """Search page
+    Args:
+        query: word to search for, accept multiple words joined with '+'
+    Returns:
+        rendering search page results
+
+    """
     user = session.get('user')
 
     r = requests.get(SEARCH_API+query)
@@ -95,9 +114,15 @@ def search(query):
                             search_results=search_results, 
                             user=user)
 
-# detail boardgame page
 @app.route('/game/<id>', methods=['GET', 'POST'])
 def game(id):
+    """game detail page
+    Args:
+        id: id of the game
+    Returns:
+        rendering detail page
+
+    """
     user = session.get('user')
 
     if request.method == 'POST':
@@ -116,9 +141,15 @@ def game(id):
                             user=user,
                             id=id)
 
-# edit page
 @app.route('/edit/<id>', methods=['GET', 'POST'])
 def edit(id):
+    """game in collection id page
+    Args:
+        id: id of the game
+    Returns:
+        rendering game in collection page
+
+    """
     user = session.get('user')
 
     if request.method == 'POST':
@@ -142,6 +173,11 @@ def edit(id):
 
 @app.route('/collection', methods=['GET', 'POST'])
 def collection():
+    """user collection page
+    Returns:
+        collection for logged user
+
+    """
     user = session.get('user')
 
     if request.method == 'POST':
@@ -156,17 +192,25 @@ def collection():
                                 collections=DB.collection.find({"username":user}))
 
 
-# log out page
 @app.route('/logout')
 def logout():
+    """logout function
+    Returns:
+        redirect to index cleaning the session.
+
+    """
     session.clear()
     return redirect(url_for('index'))
 
 
 
-# change password and mail
 @app.route('/settings', methods=['GET', 'POST'])
 def settings():
+    """setting pages
+    Returns:
+        render setting page for logged user
+
+    """
     user = session.get('user')
 
     if request.method == 'POST':
@@ -188,12 +232,24 @@ def settings():
 
 @app.errorhandler(404)
 def page_not_found(e):
-    # note that we set the 404 status explicitly
+    """not found page
+    Args:
+        e: exception causing the page to be shown
+    Returns:
+        render not found page
+
+    """
     return render_template('pages/404.html'), 404
 
 @app.errorhandler(500)
 def internal_server_error(e):
-    # note that we set the 500 status explicitly
+    """error pages
+    Args:
+        e: exception causing the page to be shown
+    Returns:
+        render error page
+
+    """
     return render_template('pages/500.html'), 500
 
 

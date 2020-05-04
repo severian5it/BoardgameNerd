@@ -2,6 +2,14 @@ from werkzeug.security import check_password_hash, generate_password_hash
 from flask import session
 
 def check_user_login(db, post_request):
+    """check if a user is inserting correct login
+    Args:
+        db: database to check for account 
+        post_form: form from which extract detail
+    Returns:
+        response dictionary containing the result of operations
+
+    """
     username = post_request.get('username')
     password = post_request.get('password')
     user = db.users.find_one({'$or': [{ 'username': username}, 
@@ -20,6 +28,14 @@ def check_user_login(db, post_request):
     return response
 
 def change_user_mail(db, post_request):
+    """change user mail
+    Args:
+        db: database to check for account 
+        post_form: form from which extract detail
+    Returns:
+        response dictionary containing the result of operations
+
+    """
     wrong_email = False
     updated = False
 
@@ -40,6 +56,14 @@ def change_user_mail(db, post_request):
     return response
 
 def change_user_password(db, post_request):
+    """change user passworc
+    Args:
+        db: database to check for account 
+        post_form: form from which extract detail
+    Returns:
+        response dictionary containing the result of operations
+
+    """
     wrong_password = False
     updated = False
     no_user = False
