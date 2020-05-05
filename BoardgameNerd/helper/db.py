@@ -121,9 +121,9 @@ def update_collection(db, post_request):
     updated = False
     user = post_request['user']
     id = post_request['id']
-    note = post_request['note']
-    date_buy = post_request['dateBuy']
-    rating = post_request['rating']
+    note = post_request.get('note')
+    date_buy = post_request.get('dateBuy')
+    rating = post_request.get('rating')
     db.collection.find_one_and_update(
         {'username': user,
         'id': id},
