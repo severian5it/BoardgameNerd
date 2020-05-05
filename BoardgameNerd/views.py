@@ -274,4 +274,15 @@ def internal_server_error(e):
     """
     return render_template('pages/500.html'), 500
 
+@app.route('/contact', methods=['GET', 'POST'])
+def contact_page():
+    user = session.get('user')
+
+    return render_template(
+        "pages/contact.html", 
+        active="contact",
+        user=user,
+
+    )
+
 
