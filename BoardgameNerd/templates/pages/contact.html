@@ -1,12 +1,22 @@
-{% extends 'layout/base.html' %} {% block content %}
+{% extends 'layout/base.html' %} 
+
+{% block content %}
 <main class="content ">
+    <div class="toast" role data-delay="5000" id="contactToast">
+        <div class="toast-header">
+            <button type="button" class="close ml-2 mb-1" data-dismiss="toast">&times;</button>
+          </div>
+        <div class="toast-body  text-muted">
+            <div class="align-middle">
+            </div>
+        </div>
+    </div>
     <section class='bg-primary'>
 
         <div class="container">
             <div class="row">
                 <div class="col-12">
                     <h1>Contact</h1>
-                    <hr>
                 </div>
             </div>
             <div class="row justify-content-center">

@@ -36,9 +36,22 @@ $(document).ready(function () {
             event.preventDefault();
             let sendUrl = "https://api.emailjs.com/api/v1.0/email/send";
             callApi(sendUrl, contactForm).then(function (response) {
-                console.log(response)
+                if (response.status == 200) {
+                    $('#contactToast').addClass("bg-success");
+                    $('#contactToast .toast-header').addClass("bg-success");
+                    $("#contactToast .toast-body").text('mail successfully sent');
+                    $('#contactToast').toast('show');
+                    $('input').val('');
+                    $('textarea').val('')}
+                else {
+                    throw new err
+                }
             }).catch(function (err) {
                 console.log('Oops... ' + err);
+                $('#contactToast').addClass("bg-danger");
+                $('#contactToast .toast-header').addClass("bg-danger");
+                $("#contactToast .toast-body").text('error sending the mail');
+                $('#contactToast').toast('show');
 
             });
 
