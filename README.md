@@ -1,5 +1,5 @@
 <div align="center">
-    <h1>  Boardgame Archive </h1>
+    <h1>  Boardgame Nerd </h1>
 </div>
 
 <div align="center">
@@ -43,6 +43,17 @@ up-to-date with the latest new things coming out? In any case this is the right 
 1. [Credits](#credits)
 1. [Contacts](#contacts)
 1. [Disclaimer](#disclaimer)
+
+My project is leveraging *free xml API* from [BoardGameGeek](https://www.boardgamegeek.com/), Creating a 
+back end architecture that supports a front end interface. 
+
+The *GUI* allows a the website visitor to do the following:
+* Browse all the game in the DB.
+* Get informed about all the latest game loved by the community.
+* Get random games.
+* Suggest to the webmaster any improvement.
+* Add Games to a personal collection.
+* Add notes to every game part of collection.
 
 # UX
 
@@ -100,16 +111,16 @@ Modal not dependent on the device:
 ### Elements on every page
 #### Navbar
 The navigation bar is fixed, and show a 20 faces dice on a site, that can be clicked to redirect the user to the main
-page. On Flask *Back-end* the user is checked and the navbar can have 2 distinct aspect, whether the user is logged on or not:
+page. On Flask *Back-end* the user is checked and the navbar can have 2 distinct aspect, whether the user is logged on or not; is worth to mention that all the controls and the status of the user are managed via the package `Flask session`
 
-    - For visitors to the site who are not logged in, list items links are available for them to use.
+For visitors to the site who are not logged in, list items links are available for them to use.
         1. About
         1. Search
         1. Contact
         1. Log in
         1. Register
 
-    - For users who are logged in, the list items are as follows:
+For users who are logged in, the list items are as follows:
         1. About
         1. Search
         1. Contact
