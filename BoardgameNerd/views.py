@@ -11,7 +11,6 @@ from flask import flash, redirect, render_template, request, session, url_for
 
 
 @app.route('/')
-@app.route('/index')
 def index():
     """Main access to the application
     Returns:
@@ -89,8 +88,9 @@ def registration():
          user=user
     )
 
+@app.route('/search')
 @app.route('/search/<query>', methods=['GET'])
-def search(query):
+def search(query=None):
     """Search page
     Args:
         query: word to search for, accept multiple words joined with '+'
@@ -98,12 +98,28 @@ def search(query):
         rendering search page results
 
     """
+    from_menu = False
+    empty_search = False
     user = session.get('user')
+
+    if query is None:
+        from_menu = True
+        print('from_menu')
+        return render_template("pages/search-results.html",  
+                        search_results=None, 
+                        user=user,
+                        empty_search=empty_search,
+                        from_menu=from_menu)
 
     r = requests.get(SEARCH_API+query)
     search_results = xmltodict.parse(r.content)
     if search_results["items"].get("item") is None:
-        flash({"content": "search returned no result", "background": "bg-warning"})         
+        empty_search = True
+        return render_template("pages/search-results.html",  
+                        search_results=None, 
+                        user=user,
+                        empty_search=empty_search,
+                        from_menu=from_menu)       
     else:    
         search_results=search_results["items"]["item"]
 
@@ -112,7 +128,8 @@ def search(query):
 
     return render_template("pages/search-results.html",  
                             search_results=search_results, 
-                            user=user)
+                            user=user,
+                            from_menu=from_menu)
 
 @app.route('/game/<id>', methods=['GET', 'POST'])
 def game(id):

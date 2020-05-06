@@ -434,3 +434,7 @@ section.hot .section-heading p {
 .round-search {
   border-radius: 12px;
 }
+
+.top-buffer { 
+  margin-top: 30vh; 
+}

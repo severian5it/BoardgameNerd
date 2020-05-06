@@ -8,7 +8,20 @@
 <div class="container-fluid bg-primary p-5">
   {% include 'component/search-bar.html' %}
   <div class="row">
+    {% if from_menu %}
+    <div class="mx-auto detail-page ">
+      <div class="top-buffer">
+        <h3 class="text-center">Search for a Boardgame!</h3>
+      </div>
+    </div>
 
+    {% elif  empty_search %}
+    <div class="mx-auto detail-page">
+      <div class="top-buffer">
+        <h3 class="text-center">No Results, sorry!</h3>
+      </div>
+    </div>
+    {% else  %}
     {% for result in search_results %}
     <div class="col-12 col-md-6 col-lg-4 col-xl-3">
       <div class="card card-game card-body">
@@ -20,6 +33,8 @@
       </div>
     </div>
     {% endfor %}
+    {% endif %}
+
   </div>
 </div>
 {% endblock %}
