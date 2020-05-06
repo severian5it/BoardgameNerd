@@ -14,6 +14,7 @@ up-to-date with the latest new things coming out? In any case this is the right 
 ![Home page](BoardgameNerd/static/img/mockup.png)
 
 ## Table of Contents
+
 1. [UX](#ux)
     - [User Stories](#user-stories)
     - [Wireframes](#wireframes)
@@ -45,15 +46,16 @@ up-to-date with the latest new things coming out? In any case this is the right 
 1. [Disclaimer](#disclaimer)
 
 My project is leveraging *free xml API* from [BoardGameGeek](https://www.boardgamegeek.com/), Creating a 
-back end architecture that supports a front end interface. 
+back end architecture that supports a front end interface.
 
 The *GUI* allows a the website visitor to do the following:
-* Browse all the game in the DB.
-* Get informed about all the latest game loved by the community.
-* Get random games.
-* Suggest to the webmaster any improvement.
-* Add Games to a personal collection.
-* Add notes to every game part of collection.
+
+- Browse all the game in the DB.
+- Get informed about all the latest game loved by the community.
+- Get random games.
+- Suggest to the webmaster any improvement.
+- Add Games to a personal collection.
+- Add notes to every game part of collection.
 
 # UX
 
@@ -82,6 +84,7 @@ kind of device
 ## Wireframes
 
 Wireframe mockups, created using [Balsamiq](https://balsamiq.com/), are available in diffent format:
+
  1. Laptop
     1. [Landing](wireframes/landing/LandingLaptop.pdf)
     1. [Search](wireframes/search/SearchLaptop.pdf)
@@ -100,16 +103,20 @@ Wireframe mockups, created using [Balsamiq](https://balsamiq.com/), are availabl
      1. [Search Details](wireframes/searchDetails/SearchDetailsLaptop.pdf)
      1. [Collection](wireframes/collection/collectionMobile.pdf)
      1. [Collection Details](wireframes/collectionDetails/collectionDetailsMobile.pdf)
-     
+
 Modal not dependent on the device:
+
    1. [Log in](wireframes/modal/loginModal.pdf)
    1. [Register](wireframes/modal/registerModal.pdf)
 
 # Features
+
 ## Existing Features
 
 ### Elements on every page
+
 #### Navbar
+
 The navigation bar is fixed, and show a 20 faces dice on a site, that can be clicked to redirect the user to the main
 page. On Flask *Back-end* the user is checked and the navbar can have 2 distinct aspect, whether the user is logged on or not; is worth to mention that all the controls and the status of the user are managed via the package `Flask session`
 
@@ -128,15 +135,26 @@ For users who are logged in, the list items are as follows:
             - Collection
             - Settings
             - Log out
+
 #### Footer
 
 Footer is always present at the very end, and has been on purpose designed as minimal, containing the following information:
     - Copyright information.
     - Links to Facebook, Instagram and Twitter Pages, not existing at the moment.
 
+#### Toast
+
+All messages will be delivered from back-end to front-end via `Flask flash`, in which the level of warning will be specified, and this will give a specific colour to the toast:
+
+- Success: green.
+- Danger: red.
+- Warning: yellow.
+
+
 ### Landing Page
 
 Landing Page has been designed to capture the attention of the user getting there, proposing him 4 distinct options:
+
 1. to search for a boardgame via keywords.
 1. to explore what is hot in boardgame community at the moment.
 1. to have a look to boardgames from the past.
@@ -144,19 +162,48 @@ Landing Page has been designed to capture the attention of the user getting ther
 
 #### Search Section
 
+search section allows for a quick search directly from a box placed on top of the cover image, calling the flask API `search` and redirecting to the search page.
 
 #### Hot Carousel
 
+This will be one of the two carousel in the page, and is leveraging the **Hot** Api from [BoardGameGeek](https://www.boardgamegeek.com/); the API is returning between 60 and 70 elements that are visited the most from the end users of the above mentioned sites. 
+The Carousel has been heavily customized, but is responsive, and programmatically append the next element to be shown. More details in the Credit sections, each element of the carousel is a card that is re-used as a `flask component`.
+
 #### Old Carousels
+
+The old carousel is retrieving 12 random elements from BoardGameGeek](https://www.boardgamegeek.com/) DB; it's purpose is to interest the visitors with old-school game, and most of customization is done at `Flask API` level, where  random game are generated, and those without thumbnails are excludede. Via a **JavaScript** the responsive hot carousels mechanism is re-used.  
 
 #### Features section
 
+The section is a responsive show-off via `FontAwesome` icons of the most important features of the site, via quick slogan, easy to be understood. The About link of the navbar links here.
+
 ### Detail Page
 
+Detail page is reachable via Hot or Old Carousel in The home page or clicking the card returned by the search. The Detail page show the most important characteristics of a game, along with a button that allows the end user to add it to his/her collection.
+Characteristic shown are the following:
+
+* Description of a game.
+* **Image** of the box.
+* Year of publication.
+* Minimum number of Players.
+* Maximum number of Players.
+* Duration.
+* Category.
+* Mechanics.
+* Name of the Designer.
+* Game Family.
+
+if the user is not logged-on, he will get redirected to the log-in pages, clicking on Add.
 
 ### Search Page
 
+This is accessible via the *home page*, or the *nav bar*. All the game returned will be shown with a responsive grid of cards, and details for each of them will be accessible clicking on them.
+
+a message will be shown for user in case the search bears no results, or the user is coming from the navbar.
+
 ### Collection Page
+
+This page will be accessible only if user is logged in from dropdown list. 
 
 ### Collection Detail Page
 
