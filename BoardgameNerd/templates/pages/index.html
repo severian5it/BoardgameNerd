@@ -10,22 +10,11 @@
       <div class="col-xl-9 mx-auto">
         <h1 class="mb-5">What Boardgame are you looking for today?</h1>
       </div>
-      <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
-        <form>
-          <div class="form-row">
-            <div class="col-12 col-md-9 mb-2 mb-md-0">
-              <input type="text" id="toSearch" class="form-control form-control-lg" placeholder="Type a word...">
-            </div>
-            <div class="col-12 col-md-3">
-              <a href="" class="searchButton btn btn-block btn-lg btn-primary" type="submit">
-                <i class="fa fa-search"></i>
-              </a>
-            </div>
-          </div>
-        </form>
-      </div>
     </div>
+    {% include 'component/search-bar.html' %}
+
   </div>
+
 </header>
 
 <!-- Top content  code for carousel from here:  https://azmind.com/bootstrap-carousel-multiple-items -->
@@ -42,7 +31,8 @@
       <div id="carousel-hot" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner carousel-inner-hot row w-100 mx-auto" role="listbox">
           {% for doc in docs %}
-          <div class="carousel-item item-hot col-12 col-sm-6 col-md-4 col-lg-3 {% if loop.index == 1 %} active {% endif %}">
+          <div
+            class="carousel-item item-hot col-12 col-sm-6 col-md-4 col-lg-3 {% if loop.index == 1 %} active {% endif %}">
             <div class="card card-game card-body">
               <h5 class="card-title text-center">{{ doc['name']['@value'] }}</h5>
               <a href="/game/{{ doc['@id'] }}">
@@ -79,7 +69,8 @@
       <div id="carousel-old" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner  carousel-inner-old row w-100 mx-auto" role="listbox">
           {% for game in random_games %}
-          <div class="carousel-item item-old col-12 col-sm-6 col-md-4 col-lg-3 {% if loop.index == 1 %} active {% endif %}">
+          <div
+            class="carousel-item item-old col-12 col-sm-6 col-md-4 col-lg-3 {% if loop.index == 1 %} active {% endif %}">
             <div class="card card-game card-body">
               <h5 class="card-title text-center">{{ game['name'] }}</h5>
               <a href="/game/{{ game['id'] }}">
@@ -107,7 +98,7 @@
 <section class="features" id="features">
   <div class="container">
     <div class="section-heading text-center">
-      <h2>Vast Catalogue, Manage your collection</h2>
+      <h2>Manage your boardgame collection</h2>
       <p class="text-muted">Check out what you can do with this free application!</p>
       <hr>
     </div>
@@ -126,7 +117,7 @@
               <div class="feature-item">
                 <i class="fas fa-search-plus"></i>
                 <h3>Vast Database</h3>
-                <p class="text-muted">Browse the largest catalogue availabe online!</p>
+                <p class="text-muted">Browse the Largest Boardgame Catalogue availabe online!</p>
               </div>
             </div>
           </div>
@@ -135,14 +126,14 @@
               <div class="feature-item">
                 <i class="fas fa-gift"></i>
                 <h3>Free to Use</h3>
-                <p class="text-muted">Free to use for any purpose!</p>
+                <p class="text-muted">Free to Use for any Purpose!</p>
               </div>
             </div>
             <div class="col-lg-6">
               <div class="feature-item">
                 <i class="fas fa-archive"></i>
                 <h3>Manage your Collection</h3>
-                <p class="text-muted">Manage and personalize your collection!</p>
+                <p class="text-muted">Enrich and Personalize your Collection!</p>
               </div>
             </div>
           </div>
