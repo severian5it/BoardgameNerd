@@ -430,3 +430,7 @@ section.hot .section-heading p {
   font-size: 55px;
   color: black;
 }
+
+.round-search {
+  border-radius: 12px;
+}
