@@ -18,6 +18,8 @@ collection, and writing notes and assigning scores
     - [User Stories](#user-stories)
     - [Wireframes](#wireframes)
 1. [Features](#features)
+    - [Existing Features](#existing-features)
+    - [Features Left to Implement](#features-left-to-implement)
 1. [Information Architecture](#information-architecture)
     - [Database choice](#database-choice)
     - [Data Storage Types](#data-storage-types)
@@ -85,6 +87,42 @@ Modal not dependent on the device:
    1. [Register](wireframes/modal/registerModal.pdf)
 
 # Features
+## Existing Features
+
+### Elements on every page
+- Navbar
+    - The navigation is fixed, and show a 20 faces dice on a site, that can be clicked to redirect the user to the main
+    page.
+
+    - For visitors to the site who are not logged in, list items links are available for them to use.
+        1. About
+        1. Search
+        1. Contact
+        1. Log in
+        1. Register
+
+    - For users who are logged in, the list items are as follows:
+        1. About
+        1. Search
+        1. Contact
+        1. User's name (this option is a dropdown menu)
+            - Collection
+            - Settings
+            - Log out
+
+## Features Left to Implement
+### Pagination and Infinity Scrolling
+
+No *Pagination* is implemented at the moment, it could be coupled with an **infinity scrolling** features to show partial results and let end user scroll continously till the end of the results. 
+
+### Filter on Collection Page
+
+End users at the moment cannot filter on the boardgame returned by a search or on their own collections. Would be great to allow them this possibilities, however the number of categories are highly variables, and probably are coming from manual imputing, and this makes implementation of filtering hard to be useful.
+
+### Pop Over on Cards
+
+to allow the end user to have a glimpse about a boardgame's characteristics, will be nice to have a pop over when hovering over a card, showing a part of the description along, with some major characteristics.
+
 
 # Information Architecture
 ## Database Choice
