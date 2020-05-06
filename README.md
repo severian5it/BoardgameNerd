@@ -8,10 +8,10 @@
 
 ## Introduction
 
-BoardGame Archive has been created by Pierluca Del Buono to serve Boardgame Geeks to manage their
-collection. The site allow visitors to search a vast catalogue of Boardgame, add them to their 
-collection, and writing notes and assigning scores
+[BoardGame Nerd](https://boardgame-nerd.herokuapp.com/) has been created for Geek like me, who are passionate about Tabletop gaming. Are you looking for a way to catalogue your collection? Do you want to explore a big catalogue of all-time game? Or maybe do you want to stay
+up-to-date with the latest new things coming out? In any case this is the right application for you.
 
+![Home page](BoardgameNerd/static/img/mockup.png)
 
 ## Table of Contents
 1. [UX](#ux)
@@ -19,6 +19,14 @@ collection, and writing notes and assigning scores
     - [Wireframes](#wireframes)
 1. [Features](#features)
     - [Existing Features](#existing-features)
+        - [Navbar](#navbar)
+        - [Footer](#footer)
+        - [Landing Page](#landing-page)
+            - [Search Section](#landing-page)
+            - [Hot Carousel](#hot-carousel)
+            - [Old Carousel](#old-carousel)
+            - [Features](#features-section)
+
     - [Features Left to Implement](#features-left-to-implement)
 1. [Information Architecture](#information-architecture)
     - [Database choice](#database-choice)
@@ -90,9 +98,9 @@ Modal not dependent on the device:
 ## Existing Features
 
 ### Elements on every page
-- Navbar
-    - The navigation is fixed, and show a 20 faces dice on a site, that can be clicked to redirect the user to the main
-    page.
+#### Navbar
+The navigation bar is fixed, and show a 20 faces dice on a site, that can be clicked to redirect the user to the main
+page. On Flask *Back-end* the user is checked and the navbar can have 2 distinct aspect, whether the user is logged on or not:
 
     - For visitors to the site who are not logged in, list items links are available for them to use.
         1. About
@@ -109,10 +117,19 @@ Modal not dependent on the device:
             - Collection
             - Settings
             - Log out
-- Footer
+#### Footer
 
+Footer is always present at the very end, and has been on purpose designed as minimal, containing the following information:
+    - Copyright information.
+    - Links to Facebook, Instagram and Twitter Pages, not existing at the moment.
 
 ### Landing Page
+
+Landing Page has been designed to capture the attention of the user getting there, proposing him 4 distinct options:
+1. to search for a boardgame via keywords.
+1. to explore what is hot in boardgame community at the moment.
+1. to have a look to boardgames from the past.
+1. to know more about the main features of the application.
 
 #### Search Section
 
@@ -123,9 +140,15 @@ Modal not dependent on the device:
 
 #### Features section
 
+### Detail Page
+
+
 ### Search Page
 
 ### Collection Page
+
+### Collection Detail Page
+
 
 ### Contact Page
 
