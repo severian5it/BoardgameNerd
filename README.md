@@ -109,6 +109,40 @@ Modal not dependent on the device:
             - Collection
             - Settings
             - Log out
+- Footer
+
+
+### Landing Page
+
+#### Search Section
+
+
+#### Hot Carousel
+
+#### Old Carousels
+
+#### Features section
+
+### Search Page
+
+### Collection Page
+
+### Contact Page
+
+### Login Page
+
+### Registration Page
+
+### Setting Page
+
+### 404 Page
+
+In case of *not found error*, the user is redirected to a generic page.
+
+
+### 500 Page
+
+In case of *internal server error*, the user is redirected to a generic page.
 
 ## Features Left to Implement
 ### Pagination and Infinity Scrolling
@@ -122,6 +156,10 @@ End users at the moment cannot filter on the boardgame returned by a search or o
 ### Pop Over on Cards
 
 to allow the end user to have a glimpse about a boardgame's characteristics, will be nice to have a pop over when hovering over a card, showing a part of the description along, with some major characteristics.
+
+### custom 404 and 500 page
+
+page implemented for 404 and 500 page are standards, would be nice to find a nice design for them.
 
 
 # Information Architecture
