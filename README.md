@@ -131,20 +131,23 @@ The navigation bar is fixed, and show a 20 faces dice on a site, that can be cli
 page. On Flask *Back-end* the user is checked and the navbar can have 2 distinct aspect, whether the user is logged on or not; is worth to mention that all the controls and the status of the user are managed via the package `Flask session`
 
 For visitors to the site who are not logged in, list items links are available for them to use.
-        1. About
-        1. Search
-        1. Contact
-        1. Log in
-        1. Register
+
+1. About
+1. Search
+1. Contact
+1. Log in
+1. Register
 
 For users who are logged in, the list items are as follows:
-        1. About
-        1. Search
-        1. Contact
-        1. User's name (this option is a dropdown menu)
-            - Collection
-            - Settings
-            - Log out
+
+1. About
+1. Search
+1. Contact
+1. User's name this option is a dropdown menu with following items:
+
+    - Collection
+    - Settings
+    - Log out
 
 #### Footer
 
@@ -351,7 +354,7 @@ Site was mostly developed relying on `HTML`, `Python`, `JavaScript` and `CSS`.
 - [PyMongo](https://api.mongodb.com/python/current/) to manipulate data on MongoDB via `Python` methods.
 - [Flask](https://flask.palletsprojects.com/en/1.0.x/) to build API and render Pages or redirect user's calls.
 - [Jinja2](http://jinja.pocoo.org/docs/2.10/) to programmatically build web pages from templates.
-- [XmltoDict]() Python Library used to transform API XML response into *Ordered Dictionaries*.
+- [xmltoDict](https://pypi.org/project/xmltodict/) Python Library used to transform API XML response into *Ordered Dictionaries*.
 
 # Testing
 
@@ -361,11 +364,12 @@ Site was mostly developed relying on `HTML`, `Python`, `JavaScript` and `CSS`.
 
 To run this project on your own IDE follow the instructions below:
 
-Ensure you have the following tools: 
+Ensure you have the following tools:
 
 - An IDE such as [Visual Studio Code](https://code.visualstudio.com/)
 
 The following **must be installed** on your machine:
+
 - [PIP](https://pip.pypa.io/en/stable/installing/)
 - [Python 3](https://www.python.org/downloads/)
 - [Git](https://gist.github.com/derhuerst/1b15ff4652a867391f03)
@@ -378,19 +382,19 @@ To deploy to heroku, take the following steps:
 
 1. Create a `requirements.txt` file using the terminal command `pip freeze > requirements.txt`.
 
-2. Create a `Procfile` with the terminal command `echo web: python app.py > Procfile`.
+1. Create a `Procfile` with the terminal command `echo web: python app.py > Procfile`.
 
-3. `git add` and `git commit` the new requirements and Procfile and then `git push` the project to GitHub.
+1. `git add` and `git commit` the new requirements and Procfile and then `git push` the project to GitHub.
 
-3. Create a new app on the [Heroku website](https://dashboard.heroku.com/apps) by clicking the "New" button in your dashboard. Give it a name and set the region to Europe.
+1. Create a new app on the [Heroku website](https://dashboard.heroku.com/apps) by clicking the "New" button in your dashboard. Give it a name and set the region to Europe.
 
-4. From the heroku dashboard of your newly created application, click on "Deploy" > "Deployment method" and select GitHub.
+1. From the heroku dashboard of your newly created application, click on "Deploy" > "Deployment method" and select GitHub.
 
-5. Confirm the linking of the heroku app to the correct GitHub repository.
+1. Confirm the linking of the heroku app to the correct GitHub repository.
 
-6. In the heroku dashboard for the application, click on "Settings" > "Reveal Config Vars".
+1. In the heroku dashboard for the application, click on "Settings" > "Reveal Config Vars".
 
-7. Set the following config vars:
+1. Set the following config vars:
 
 | Key | Value |
  --- | ---
@@ -399,17 +403,23 @@ IP | 0.0.0.0
 MONGO_URI | `mongodb+srv://<username>:<password>@<cluster_name>-qtxun.mongodb.net/<database_name>?retryWrites=true&w=majority`
 PORT | 5000
 ROOT_PASSWORD | `<your_secret_key>`
+DEBUG | 0
 
 - To get you MONGO_URI read the MongoDB Atlas documentation [here](https://docs.atlas.mongodb.com/)
 
-8. In the heroku dashboard, click "Deploy".
+1. In the heroku dashboard, click "Deploy".
 
-9. In the "Manual Deployment" section of this page, made sure the master branch is selected and then click "Deploy Branch".
+1. In the "Manual Deployment" section of this page, made sure the master branch is selected and then click "Deploy Branch".
 
-10. The site is now successfully deployed.
+1. The site is now successfully deployed.
 
 # Credits
 
+## Content
+
+## Code
+
+## Images
 
 ## Acknowledgements
 
