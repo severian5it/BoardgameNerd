@@ -27,7 +27,15 @@ up-to-date with the latest new things coming out? In any case this is the right 
             - [Hot Carousel](#hot-carousel)
             - [Old Carousel](#old-carousel)
             - [Features](#features-section)
-
+        - [Search Page](#search-page)
+        - [Detail Page](#detail-page)
+        - [Collection Page](#collection-page)
+            - [Collection Detail Page](#collection-detail-page)
+        - [Login Page](#login-page)
+        - [Contact Page](#contact-page)
+        - [Registration Page](#registration-page)
+        - [404 Page](#contact-page)
+        - [500 Page](#registration-page)
     - [Features Left to Implement](#features-left-to-implement)
 1. [Information Architecture](#information-architecture)
     - [Database choice](#database-choice)
@@ -36,12 +44,14 @@ up-to-date with the latest new things coming out? In any case this is the right 
         - [Users Collection](#users-collection)
         - [Boardgame Collection](#boardgame-collection)
 1. [Technologies Used](#technologies-used)
+    -[Tools](#tools)
+    -[Libraries](#libraries)
 1. [Testing](#testing)
 1. [Deployment](#deployment)
-[Deployment](#deployment)
-    - [Heroku Deployment](#heroku-deployment)
     - [How to run this project locally](#how-to-run-this-project-locally)
+    - [Heroku Deployment](#heroku-deployment)
 1. [Credits](#credits)
+    - [Acknowledgements](#acknowledgements)
 1. [Contacts](#contacts)
 1. [Disclaimer](#disclaimer)
 
@@ -200,12 +210,13 @@ if the user is not logged-on, he will get redirected to the log-in pages, clicki
 This is accessible via the *home page*, or the *nav bar*. All the game returned will be shown with a responsive grid of cards, and details for each of them will be accessible clicking on them.
 
 a message will be shown for user in case the search bears no results, or the user is coming from the navbar.
+Behind the scene the `Search flask API`, will run two API calls, this because the original *BGG search API* doesn't return anything else beside the game id and its description: the second call will enrich the ids with thumbnail to show up in the cards.
 
 ### Collection Page
 
 This page will be accessible only if user is logged in from dropdown list; it will be similar to the search results page, but only game belonging to a collection will be shown, with the same grid of responsive cards. The only add-on will be a remove button on each card to quickly remove them from collection.
 
-### Collection Detail Page
+#### Collection Detail Page
 
 Collection Details page will be similar to the detail page, but here the user will have a couple of buttons, one to save and one to remove the game from his/her collection. Here the user can input or update some traits that will be unique for the game part of his/her collection, in particular:
 * Date of acquisition, with a date-picker item.
@@ -225,9 +236,9 @@ In the `Flask API` access to this page by user already logged in are prevented. 
 ### Registration Page
 
 User can register in a dedicated page, where he must input the following:
-* *email*
-* *username*
-* *password*
+* *email.*
+* *username.*
+* *password.*
 
 He gets warned about login status by a toast and re-directed to collection page in case of success; In the `Flask API` access to this page by user already logged in are prevented.
 In back-end, python procedure will check on `MongoDB` about wheter use and password are already in use or not.
@@ -321,6 +332,8 @@ User Review| note | `maxlength="200"` | string
 
 # Technologies Used
 
+Site was mostly developed relying on `HTML`, `Python`, `JavaScript` and `CSS`.
+
 ## Tools
 
 - [Visual Studio Code](https://code.visualstudio.com/) as *IDE*.
@@ -330,7 +343,7 @@ User Review| note | `maxlength="200"` | string
 - [MongoDB Atlas](https://www.mongodb.com/cloud/atlas) as *Database Management Tool*
 - [TechSini Multi-Mockup](https://techsini.com/multi-mockup/index.php) to create mockup image.
 
-### Libraries
+## Libraries
 
 - [JQuery](https://jquery.com) to access and Manipulate the **DOM**.
 - [Bootstrap](https://www.bootstrapcdn.com/) to speed up pages design, providing responsiveness out of the box..
@@ -349,6 +362,7 @@ User Review| note | `maxlength="200"` | string
 To run this project on your own IDE follow the instructions below:
 
 Ensure you have the following tools: 
+
 - An IDE such as [Visual Studio Code](https://code.visualstudio.com/)
 
 The following **must be installed** on your machine:
@@ -393,6 +407,13 @@ ROOT_PASSWORD | `<your_secret_key>`
 9. In the "Manual Deployment" section of this page, made sure the master branch is selected and then click "Deploy Branch".
 
 10. The site is now successfully deployed.
+
+# Credits
+
+
+## Acknowledgements
+
+Many thanks to [Simen Daehlin](https://github.com/Eventyret) for his continous suggestions and push for improvements.
 
 # Contact
 To contact me feel free to email
