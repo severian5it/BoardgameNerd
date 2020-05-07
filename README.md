@@ -270,7 +270,7 @@ a NoSQL database has been selected for his low latency response, keeping in mind
 MongoDB was the optimal choice, being free of cost in his limited edition, good start, and with the possibility
 to increase resource throwing more money to it.
 
-The Design of Data didn't respect The (third normal form)[https://en.wikipedia.org/wiki/Third_normal_form], a design rules to prevent redundancy, because NoSQL database are doing join poorly, and therefore for a precise choice, space has been traded-off in order to speed up the response time.
+The Design of Data didn't respect The [Third Normal Form](https://en.wikipedia.org/wiki/Third_normal_form), a design rules to prevent redundancy, because NoSQL database are doing join poorly, and therefore for a precise choice, space has been traded-off in order to speed up the response time.
 
 ## Data Storage Types
 The types of data used in the project are:
@@ -309,21 +309,36 @@ Image | image | - | string
 Min Player | minplayers | - | integer
 Max Player | maxplayers | - | integer
 Playing Time | playingtime | - | integer
-Min Playing Time | minplaytime | - | integer
-Max Playing Time | maxplaytime | - | integer
-Age | age | - | integer
+Minimum Age | Minage | - | integer
 Game Description | description | - | string
-Language Dependence | language_dependence | - | string
 List of category | boardgamecategory | - | Array(string)
 List of mechanics | boardgamemechanic | - | Array(string)
-List of family category | boardgamefamily | - | Array(string)
+List of family| boardgamefamily | - | Array(string)
 List of Designer| boardgamedesigner | - | Array(string)
-List of Artist| boardgameartist | - | Array(string)
-List of Publisher| boardgamepublisher | - | Array(string)
 Date Bought | dateAdded | timepicker | datetime
 Rating| rating | - | integer
-User Review| review | `maxlength="200"` | string
- # Technologies Used
+User Review| note | `maxlength="200"` | string
+
+# Technologies Used
+
+## Tools
+
+- [Visual Studio Code](https://code.visualstudio.com/) as *IDE*.
+- [PIP](https://pip.pypa.io/en/stable/installing/) as package manager.
+- [Git](https://gist.github.com/derhuerst/1b15ff4652a867391f03) as version control tool.
+- [GitHub](https://github.com/) as *code repository*.
+- [MongoDB Atlas](https://www.mongodb.com/cloud/atlas) as *Database Management Tool*
+- [TechSini Multi-Mockup](https://techsini.com/multi-mockup/index.php) to create mockup image.
+
+### Libraries
+
+- [JQuery](https://jquery.com) to access and Manipulate the **DOM**.
+- [Bootstrap](https://www.bootstrapcdn.com/) to speed up pages design, providing responsiveness out of the box..
+- [FontAwesome](https://www.bootstrapcdn.com/fontawesome/) to provide icons ready to use.
+- [PyMongo](https://api.mongodb.com/python/current/) to manipulate data on MongoDB via `Python` methods.
+- [Flask](https://flask.palletsprojects.com/en/1.0.x/) to build API and render Pages or redirect user's calls.
+- [Jinja2](http://jinja.pocoo.org/docs/2.10/) to programmatically build web pages from templates.
+- [XmltoDict]() Python Library used to transform API XML response into *Ordered Dictionaries*.
 
 # Testing
 
