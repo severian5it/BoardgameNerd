@@ -22,7 +22,7 @@ def enrich_thumbnail(search_ids_to_enrich):
     for d in details['items']['item']:
         result = {}
         result['id'] = d.get('@id')
-        result['thumbnail'] = d.get('thumbnail', url_for('static', filename='img/question-mark.png'))
+        result['image'] = d.get('image', url_for('static', filename='img/question-mark.png'))
         board_game_name = d.get('name')
         if type(board_game_name) == list:
             result['name'] = board_game_name[0].get('@value')
@@ -58,8 +58,8 @@ def random_games(nbr=50):
         else:
             result['name'] = board_game_name.get('@value')
         result['id'] = d.get('@id')
-        result['thumbnail'] = d.get('thumbnail')
-        if result['thumbnail'] is not None:
+        result['image'] = d.get('image')
+        if result['image'] is not None:
             random_results.append(result)
     return random_results[:12]
 

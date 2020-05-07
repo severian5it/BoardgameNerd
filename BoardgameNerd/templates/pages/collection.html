@@ -11,7 +11,7 @@
                 <div class="card-body">
                     <h5 class="card-title text-center">{{ collection['boardgame_name']  }}</h5>
                     <a href="/edit/{{ collection['id'] }}">
-                    <img class="card-img-top img-fluid" src="{{  collection['boardgame_thumbnail'] }}"
+                    <img class="card-img-top img-fluid" src="{{  collection['boardgame_image'] }}"
                         alt="Card image cap"> </a>
                         <form id="add-collectionform" action="/collection" method="post">
                             <input name="user" type="hidden" value={{ collection['username'] }}>
