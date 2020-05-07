@@ -155,8 +155,9 @@ For users who are logged in, the list items are as follows:
 #### Footer
 
 Footer is always present at the very end, and has been on purpose designed as minimal, containing the following information:
-    - Copyright information.
-    - Links to Facebook, Instagram and Twitter Pages, not existing at the moment.
+
+- Copyright information.
+- Links to Facebook, Instagram and Twitter Pages, not existing at the moment.
 
 #### Toast
 
