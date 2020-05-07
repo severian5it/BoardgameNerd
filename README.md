@@ -171,7 +171,7 @@ The Carousel has been heavily customized, but is responsive, and programmaticall
 
 #### Old Carousels
 
-The old carousel is retrieving 12 random elements from BoardGameGeek](https://www.boardgamegeek.com/) DB; it's purpose is to interest the visitors with old-school game, and most of customization is done at `Flask API` level, where  random game are generated, and those without thumbnails are excludede. Via a **JavaScript** the responsive hot carousels mechanism is re-used.  
+The old carousel is retrieving 12 random elements from [BoardGameGeek](https://www.boardgamegeek.com/) DB; it's purpose is to interest the visitors with old-school game, and most of customization is done at `Flask API` level, where  random game are generated, and those without thumbnails are excludede. Via a **JavaScript** the responsive hot carousels mechanism is re-used.  
 
 #### Features section
 
@@ -203,32 +203,52 @@ a message will be shown for user in case the search bears no results, or the use
 
 ### Collection Page
 
-This page will be accessible only if user is logged in from dropdown list. 
+This page will be accessible only if user is logged in from dropdown list; it will be similar to the search results page, but only game belonging to a collection will be shown, with the same grid of responsive cards. The only add-on will be a remove button on each card to quickly remove them from collection.
 
 ### Collection Detail Page
 
+Collection Details page will be similar to the detail page, but here the user will have a couple of buttons, one to save and one to remove the game from his/her collection. Here the user can input or update some traits that will be unique for the game part of his/her collection, in particular:
+* Date of acquisition, with a date-picker item.
+* Rating, with a 5 star radio button.
+* Notes, with a text area.
 
 ### Contact Page
 
+Here visitors can send suggestions or get in touch with me; the form is making use of [email.js](https://www.emailjs.com/) behind the scene, and their API gets invoked by a `fetch Javascript API`. The user is warned about the results of his/her action by a toast.
+
 ### Login Page
+
+User can login in a dedicated page, where he can alternatively user *email* or *username*. He gets warned about login status by a toast and re-directed to collection page in case of success.
+
+In the `Flask API` access to this page by user already logged in are prevented. In back-end, python procedure will check on `MongoDB` about correctness of the password and existence of the user.
 
 ### Registration Page
 
+User can register in a dedicated page, where he must input the following:
+* *email*
+* *username*
+* *password*
+
+He gets warned about login status by a toast and re-directed to collection page in case of success; In the `Flask API` access to this page by user already logged in are prevented.
+In back-end, python procedure will check on `MongoDB` about wheter use and password are already in use or not.
+
 ### Setting Page
+
+This is the page where logged user has the possibility to change his/her password or mail. Consistency check will be performed by python procedure on `MongoDB`.
 
 ### 404 Page
 
 In case of *not found error*, the user is redirected to a generic page.
-
 
 ### 500 Page
 
 In case of *internal server error*, the user is redirected to a generic page.
 
 ## Features Left to Implement
+
 ### Pagination and Infinity Scrolling
 
-No *Pagination* is implemented at the moment, it could be coupled with an **infinity scrolling** features to show partial results and let end user scroll continously till the end of the results. 
+No *Pagination* is implemented at the moment, it could be coupled with an **infinity scrolling** features to show partial results and let end user scroll continously till the end of the results.
 
 ### Filter on Collection Page
 
@@ -236,23 +256,21 @@ End users at the moment cannot filter on the boardgame returned by a search or o
 
 ### Pop Over on Cards
 
-to allow the end user to have a glimpse about a boardgame's characteristics, will be nice to have a pop over when hovering over a card, showing a part of the description along, with some major characteristics.
+to allow the end user to have a glimpse about a Boardgame's characteristics, will be nice to have a pop over when hovering over a card, showing a part of the description along, with some major characteristics.
 
 ### custom 404 and 500 page
 
 page implemented for 404 and 500 page are standards, would be nice to find a nice design for them.
 
-
 # Information Architecture
+
 ## Database Choice
 
-a NoSQL database has been selected for his low latency response, keeping in mind the need to scale up 
-increasing the number of user and query.
+a NoSQL database has been selected for his low latency response, keeping in mind the need to scale up, increasing the number of user and query.
 MongoDB was the optimal choice, being free of cost in his limited edition, good start, and with the possibility
 to increase resource throwing more money to it.
 
-The Design of Data didn't respect The 3NF, because NoSQL database are doing join poorly, and a level
-of redundancy has been introduced, to speed up the response time.
+The Design of Data didn't respect The (third normal form)[https://en.wikipedia.org/wiki/Third_normal_form], a design rules to prevent redundancy, because NoSQL database are doing join poorly, and therefore for a precise choice, space has been traded-off in order to speed up the response time.
 
 ## Data Storage Types
 The types of data used in the project are:
