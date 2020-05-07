@@ -2,7 +2,7 @@ function slideCustom(carousel, suffix) {
     /** 
      *  code for carousel adapted from this link here:  https://azmind.com/bootstrap-carousel-multiple-items 
      *  check number of items and connect the next one
-     * @param {carousel} carousel on which implement the method 
+     * @param {object} carousel on which implement the method 
      * @param {string} string to compose the item to attach when sliding
      */
     let $e = $(carousel.relatedTarget);

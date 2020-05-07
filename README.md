@@ -51,6 +51,9 @@ up-to-date with the latest new things coming out? In any case this is the right 
     - [How to run this project locally](#how-to-run-this-project-locally)
     - [Heroku Deployment](#heroku-deployment)
 1. [Credits](#credits)
+    - [Contents](#contents)
+    - [Code](#code)
+    - [Images](#images)
     - [Acknowledgements](#acknowledgements)
 1. [Contacts](#contacts)
 1. [Disclaimer](#disclaimer)
@@ -195,16 +198,16 @@ The section is a responsive show-off via `FontAwesome` icons of the most importa
 Detail page is reachable via Hot or Old Carousel in The home page or clicking the card returned by the search. The Detail page show the most important characteristics of a game, along with a button that allows the end user to add it to his/her collection.
 Characteristic shown are the following:
 
-* Description of a game.
-* **Image** of the box.
-* Year of publication.
-* Minimum number of Players.
-* Maximum number of Players.
-* Duration.
-* Category.
-* Mechanics.
-* Name of the Designer.
-* Game Family.
+- Description of a game.
+- **Image** of the box.
+- Year of publication.
+- Minimum number of Players.
+- Maximum number of Players.
+- Duration.
+- Category.
+- Mechanics.
+- Name of the Designer.
+- Game Family.
 
 if the user is not logged-on, he will get redirected to the log-in pages, clicking on Add.
 
@@ -222,9 +225,10 @@ This page will be accessible only if user is logged in from dropdown list; it wi
 #### Collection Detail Page
 
 Collection Details page will be similar to the detail page, but here the user will have a couple of buttons, one to save and one to remove the game from his/her collection. Here the user can input or update some traits that will be unique for the game part of his/her collection, in particular:
-* Date of acquisition, with a date-picker item.
-* Rating, with a 5 star radio button.
-* Notes, with a text area.
+
+- Date of acquisition, with a date-picker item.
+- Rating, with a 5 star radio button.
+- Notes, with a text area.
 
 ### Contact Page
 
@@ -239,9 +243,10 @@ In the `Flask API` access to this page by user already logged in are prevented. 
 ### Registration Page
 
 User can register in a dedicated page, where he must input the following:
-* *email.*
-* *username.*
-* *password.*
+
+- *email.*
+- *username.*
+- *password.*
 
 He gets warned about login status by a toast and re-directed to collection page in case of success; In the `Flask API` access to this page by user already logged in are prevented.
 In back-end, python procedure will check on `MongoDB` about wheter use and password are already in use or not.
@@ -287,21 +292,23 @@ to increase resource throwing more money to it.
 The Design of Data didn't respect The [Third Normal Form](https://en.wikipedia.org/wiki/Third_normal_form), a design rules to prevent redundancy, because NoSQL database are doing join poorly, and therefore for a precise choice, space has been traded-off in order to speed up the response time.
 
 ## Data Storage Types
+
 The types of data used in the project are:
 
-* ObjectId
-* String
-* Integer
-* Boolean
-* DateTime
-* Object
+- ObjectId
+- String
+- Integer
+- Boolean
+- DateTime
+- Object
 
 and some of them are collected into Arrays
 
 ## Collections Data Structure
+
 the website relies on two database collections:
 
-## Users Collection
+### Users Collection
 
 | Title | Field Name | form validation type | Data type |
 --- | --- | --- | --- 
@@ -310,11 +317,11 @@ Name | username | text, `maxlength="40"` | string
 Email Address | email | email, `maxlength="40"` | string
 Password | password | text, `maxlength="15"` | string
 
-#### BoardGame Collection
+### BoardGame Collection
 
 | Title | Key in db | form validation type | Data type |
---- | --- | --- | --- 
-Boardgame relation ID | _id | None | ObjectId 
+--- | --- | --- | ---
+Boardgame relation ID | _id | None | ObjectId
 Username | username | text, `maxlength="40"` | string
 Title | primary_name | text, `maxlength="50"` | string
 BGG id | id | - | integer
@@ -417,19 +424,34 @@ DEBUG | 0
 
 ## Content
 
+Inspiration for this site has been [BoardGameGeek](https://www.boardgamegeek.com/), incredible resource for Boardgame lovers, and in particular I followed this [post](https://boardgamegeek.com/wiki/page/BGG_XML_API2) to know everything about the *XML API*.
+
 ## Code
 
+I took inspiration from many resources on the web for my site, but in a most significant way:
+
+- Structure of the page and graphic is inspired by this **startbootstrap** [template](https://startbootstrap.com/themes/landing-page/) 
+- The Responsive multi-item carousel on landing page has been develoed from this [code snippet](https://azmind.com/bootstrap-carousel-multiple-items) and credit goes to Iatek LLC 2018.
+- Cards hovering effect have been adapted by this [code snippet](https://codepen.io/andrewsims/pen/mQoYwz*/).
+- Star Rating Radio Button has been adapted by this [code snippet](https://codepen.io/yaworek/pen/JJpEaZ*/).
+- Project scaffolding has been developed following this [post](https://code.visualstudio.com/docs/python/tutorial-flask) on how to develop a Flask Project on *VSCode*.
+
+
 ## Images
+
+The photo used in the Landing section was downloaded from [Unsplash](https://unsplash.com/), and credit goes to [*Christopher Paul High*](https://unsplash.com/@christopherphigh).
 
 ## Acknowledgements
 
 Many thanks to [Simen Daehlin](https://github.com/Eventyret) for his continous suggestions and push for improvements.
 
 # Contact
+
 To contact me feel free to email
 
  `pdelbuono  (at)  gmail (dot) com`
  
+
 # Disclaimer
 
 The content of this website is educational purposes only.
