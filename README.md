@@ -17,6 +17,11 @@ up-to-date with the latest new things coming out? In any case this is the right 
 
 1. [UX](#ux)
     - [User Stories](#user-stories)
+    - [Design](#design)
+        - [Framework](#framework)
+        - [Color Scheme](#color-Scheme)
+        - [Icons](#icons)
+        - [Typography](#typography)
     - [Wireframes](#wireframes)
 1. [Features](#features)
     - [Existing Features](#existing-features)
@@ -93,6 +98,13 @@ As a user of BoardGame Archive I expect/need/want:
 about loading status and pop up and modals when my actions are completed successfully.
 1. to navigate the site also from mobile or from table, in way that the site is responsive to different
 kind of device
+
+## Design
+### Framework
+### Color Scheme
+### Icons
+### Typography
+
 
 ## Wireframes
 
@@ -363,6 +375,7 @@ Site was mostly developed relying on `HTML`, `Python`, `JavaScript` and `CSS`.
 - [Flask](https://flask.palletsprojects.com/en/1.0.x/) to build API and render Pages or redirect user's calls.
 - [Jinja2](http://jinja.pocoo.org/docs/2.10/) to programmatically build web pages from templates.
 - [xmltoDict](https://pypi.org/project/xmltodict/) Python Library used to transform API XML response into *Ordered Dictionaries*.
+- [Email.js](https://emailjs.com/) to send mail from Contact Page.
 
 # Testing
 
