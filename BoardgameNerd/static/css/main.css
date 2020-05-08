@@ -299,10 +299,12 @@ footer ul li a:hover, footer ul li a:focus, footer ul li a:active, footer ul li 
 .btn-card {
   display: block;
   width: 100%;
-};
+}
 
-
-
+.card-result {
+  border-color: red;
+  border-width: thin;
+}
 
 /* small part of https://codepen.io/andrewsims/pen/mQoYwz*/
 .card-game:hover {

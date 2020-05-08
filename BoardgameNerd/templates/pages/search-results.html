@@ -5,7 +5,7 @@
 
 <!-- Search Bar -->
 
-<div class="container-fluid bg-primary p-5">
+<div class="container-fluid p-5">
   {% include 'component/search-bar.html' %}
   <div class="row">
     {% if from_menu %}
@@ -24,13 +24,20 @@
     {% else  %}
     {% for result in search_results %}
     <div class="col-12 col-md-6 col-lg-4 col-xl-3">
-      <div class="card card-game card-body">
-        <h5 class="card-title text-center">{{ result['name']}}</h5>
-        <a href="/game/{{ result['id']  }}">
-          <img class="card-img-top img-fluid p-2" src="{{ result['image']  }}">
-        </a>
-        <div class="knowmore-link">Read More <i class="fas fa-arrow-circle-right"></i></div>
-      </div>
+      <a href="/game/{{ result['id']  }}" class="no-underline">
+        <div class="card card-game card-result">
+          <div class="card-header">
+            <h5 class=" text-center text-truncate">{{ result['name']}}</h5>
+          </div>
+          <div class="card-body">
+            <img class="card-img-top img-fluid p-2" src="{{ result['image'] }}">
+            <button class='btn btn-danger btn-card'>
+              <i class="fas fa-search"></i> 
+              View
+            </button>
+          </div>
+        </div>
+      </a>
     </div>
     {% endfor %}
     {% endif %}
