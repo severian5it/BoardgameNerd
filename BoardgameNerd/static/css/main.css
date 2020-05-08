@@ -450,3 +450,17 @@ section.hot .section-heading p {
 .top-buffer { 
   margin-top: 30vh; 
 }
+
+/* This only works with JavaScript, 
+if it's not present, don't show loader */
+.no-js #loader { display: none;  }
+.js #loader { display: block; position: absolute; left: 100px; top: 0; }
+.spinner {
+	position: fixed;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	height: 100%;
+	z-index: 9999;
+	background: url("../img/spinner.gif") center no-repeat #fff;
+}

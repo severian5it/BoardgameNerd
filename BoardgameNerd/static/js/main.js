@@ -23,11 +23,17 @@ function slideCustom(carousel, suffix) {
     }
 };
 
+
+
 $(document).ready(function () {
 
     $("#warningToast").toast('show');
 
-
+    /* logic similar to https://smallenvelop.com/display-loading-icon-page-loads-completely/ */
+    $(window).on("load",function() {
+        // Animate loader off screen
+        $(".spinner").fadeOut("slow");
+    });
 
     $('#toSearch').keypress(function (e) {
         /**
