@@ -284,17 +284,26 @@ footer ul li a:hover, footer ul li a:focus, footer ul li a:active, footer ul li 
   object-fit: cover;
 }
 
-.card-title {
+.card-header {
   width: 100%;
-  height: 5vh;
+  height: 8vh;
 }
-
 
 .card-game {
   margin-bottom: 2rem;
   margin-top: 2rem;
-  height: 50vh;
+  height: 53vh;
+  border-radius: 25px;
 }
+
+.btn-card {
+  display: block;
+  width: 100%;
+};
+
+
+
+
 /* small part of https://codepen.io/andrewsims/pen/mQoYwz*/
 .card-game:hover {
   transition: all 0.2s ease-out;

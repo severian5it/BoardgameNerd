@@ -34,13 +34,20 @@
           {% for doc in docs %}
           <div
             class="carousel-item item-hot col-12 col-sm-6 col-md-4 col-lg-3 {% if loop.index == 1 %} active {% endif %}">
-            <div class="card card-game card-body">
-              <h5 class="card-title text-center">{{ doc['name']['@value'] }}</h5>
-              <a href="/game/{{ doc['@id'] }}">
-                <img class="card-img-top img-fluid p-2" src="{{ doc['thumbnail']['@value'] }}">
-              </a>
-              <div class="knowmore-link">Read More <i class="fas fa-arrow-circle-right"></i></div>
-            </div>
+            <a href="/game/{{ doc['@id'] }}" class="no-underline">
+              <div class="card card-game">
+                <div class="card-header">
+                  <h5 class=" text-center text-truncate">{{ doc['name']['@value'] }}</h5>
+                </div>
+                <div class="card-body">
+                  <img class="card-img-top img-fluid p-2" src="{{ doc['thumbnail']['@value'] }}">
+                  <button class='btn btn-danger btn-card'>
+                    <i class="fas fa-search"></i> 
+                    View
+                  </button>
+                </div>
+              </div>
+            </a>
           </div>
           {% endfor %}
 
@@ -72,13 +79,21 @@
           {% for game in random_games %}
           <div
             class="carousel-item item-old col-12 col-sm-6 col-md-4 col-lg-3 {% if loop.index == 1 %} active {% endif %}">
-            <div class="card card-game card-body">
-              <h5 class="card-title text-center">{{ game['name'] }}</h5>
-              <a href="/game/{{ game['id'] }}">
-                <img class="card-img-top img-fluid p-2" src="{{ game.get('image') }}">
-              </a>
-              <div class="knowmore-link">Read More <i class="fas fa-arrow-circle-right"></i></div>
-            </div>
+
+            <a href="/game/{{ game['id']  }}" class="no-underline">
+              <div class="card card-game">
+                <div class="card-header">
+                  <h5 class=" text-center text-truncate">{{ game['name'] }}</h5>
+                </div>
+                <div class="card-body">
+                  <img class="card-img-top img-fluid p-2" src="{{ game.get('image') }}">
+                  <button class='btn btn-danger btn-card'>
+                    <i class="fas fa-search"></i> 
+                    View
+                  </button>
+                </div>
+              </div>
+            </a>
           </div>
           {% endfor %}
 
