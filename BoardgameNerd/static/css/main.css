@@ -282,6 +282,7 @@ footer ul li a:hover, footer ul li a:focus, footer ul li a:active, footer ul li 
   width: 100%;
   height: 35vh;
   object-fit: cover;
+
 }
 
 .card-header {
@@ -299,6 +300,14 @@ footer ul li a:hover, footer ul li a:focus, footer ul li a:active, footer ul li 
 .btn-card {
   display: block;
   width: 100%;
+  -webkit-transition: 0.3s ease-in-out 0.3s;
+  transition: 0.3s ease-in-out 0.3s;
+}
+
+.btn-card:hover {
+  display: block;
+  width: 100%;
+  background-color:  #7b4397;
 }
 
 .card-result {
@@ -315,16 +324,7 @@ footer ul li a:hover, footer ul li a:focus, footer ul li a:active, footer ul li 
   background-color: white;
 }
 
-.knowmore-link {
-  margin-top: 0.25rem;
-  color: #5ca4a9;
-  -webkit-transition: 0.3s ease-in-out 0.3s;
-  transition: 0.3s ease-in-out 0.3s;
-}
 
-.knowmore-link:hover {
-  color: #346861;
-}
 div.detail-page {
   min-height: 80vh
 }
@@ -378,7 +378,7 @@ section.features .feature-item i {
   font-size: 80px;
   display: block;
   margin-bottom: 15px;
-  background: linear-gradient(to left, #7b4397, #dc2430);
+  background: linear-gradient(to left, #7b4397, #dc3445);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -443,8 +443,16 @@ section.hot .section-heading p {
   color: black;
 }
 
+.round-input {
+  border-radius: 12px;
+}
+
 .round-search {
   border-radius: 12px;
+  background-color:  #dc3445;
+}
+.round-search:hover {
+  background-color: #7b4397;
 }
 
 .top-buffer { 

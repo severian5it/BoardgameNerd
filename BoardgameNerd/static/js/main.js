@@ -35,21 +35,6 @@ $(document).ready(function () {
         $(".spinner").fadeOut("slow");
     });
 
-    $('#toSearch').keypress(function (e) {
-        /**
-         * Jquery function to call search with CR on a search field
-         */
-        if (e.keyCode == 13)
-            $('.searchButton').click();
-    });
-
-    $('.searchButton').click(function () {
-        /**
-         * submitting search query
-         */
-        this.href = '/search/' + document.getElementById('toSearch').value
-        $('.searchButton').submit()
-    });
 
     $('#carousel-hot').on('slide.bs.carousel', function (e) {
         

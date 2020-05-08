@@ -1,14 +1,21 @@
-<div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
-<form>
-    <div class="form-row">
-        <div class="col-12 col-md-9 mb-2 mb-md-0">
-            <input type="text" id="toSearch" class="form-control form-control-lg round-search" placeholder="look for a boardgame..">
-        </div>
-        <div class="col-12 col-md-3">
-            <a href="" class="searchButton btn btn-block btn-lg btn-primary round-search" type="submit">
-                <i class="fa fa-search"></i>
-            </a>
-        </div>
+    <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
+        <form id="search-form" action="/search" method="post">
+            <div class="form-row">
+
+            <div class="col-12 col-md-9 mb-2 mb-md-0">
+
+                <div class="form-group">
+                    <input aria-label="Enter a username" class="form-control form-control-lg round-input" id="query"
+                        placeholder="look for a boardgame.." required type="text" name=query
+                        value="{{ request.form.query }}">
+                </div>
+            </div>
+    <div class="col-12 col-md-3">
+
+        <button class="btn btn-search btn-block btn-lg round-search" id="query-submit" type="submit">
+            <i class="fa fa-search text-white"></i>
+        </button>
     </div>
-</form>
+</div>
+    </form>
 </div>

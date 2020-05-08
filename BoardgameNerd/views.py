@@ -17,11 +17,8 @@ def index():
         rendering landing page
 
     """
-    user = session.get('user')
-    r = requests.get(HOT_API)
-    doc = xmltodict.parse(r.content)
-    docs=doc["items"]["item"]
 
+    user = session.get('user')
     r = requests.get(HOT_API)
     doc = xmltodict.parse(r.content)
     docs=doc["items"]["item"]
@@ -88,8 +85,8 @@ def registration():
          user=user
     )
 
-@app.route('/search')
-@app.route('/search/<query>', methods=['GET'])
+@app.route('/search', methods=['GET', 'POST'])
+@app.route('/search/<query>', methods=['GET', 'POST'])
 def search(query=None):
     """Search page
     Args:
@@ -102,14 +99,18 @@ def search(query=None):
     empty_search = False
     user = session.get('user')
 
-    if query is None:
+    if query is None and not request.form:
         from_menu = True
-        print('from_menu')
         return render_template("pages/search-results.html",  
                         search_results=None, 
                         user=user,
                         empty_search=empty_search,
                         from_menu=from_menu)
+
+    if request.method == 'POST':
+        print(request.form)
+        post_request = request.form
+        query = post_request.get('query')    
 
     r = requests.get(SEARCH_API+query)
     search_results = xmltodict.parse(r.content)
