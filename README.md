@@ -419,12 +419,10 @@ To deploy to heroku, take the following steps:
 
 | Key | Value |
  --- | ---
-DEBUG | FALSE
 IP | 0.0.0.0
 MONGO_URI | `mongodb+srv://<username>:<password>@<cluster_name>-qtxun.mongodb.net/<database_name>?retryWrites=true&w=majority`
 PORT | 5000
 ROOT_PASSWORD | `<your_secret_key>`
-DEBUG | 0
 
 - To get you MONGO_URI read the MongoDB Atlas documentation [here](https://docs.atlas.mongodb.com/)
 
