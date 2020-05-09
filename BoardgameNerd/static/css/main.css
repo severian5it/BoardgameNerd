@@ -286,8 +286,13 @@ footer ul li a:hover, footer ul li a:focus, footer ul li a:active, footer ul li 
 }
 
 .card-header {
+  color: black;
   width: 100%;
   height: 8vh;
+}
+
+.card-header:hover{
+  text-decoration: none;
 }
 
 .card-game {
