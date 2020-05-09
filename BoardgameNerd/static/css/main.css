@@ -485,3 +485,8 @@ border-radius: 25px;
   border-radius: 12px;
   background-color:  black;
 }
+
+.btn-send:hover {
+  color: antiquewhite;
+  background-color:  grey;
+}
