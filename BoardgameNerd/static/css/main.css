@@ -412,12 +412,15 @@ section.hot .section-heading p {
 }
 
 .toast {
-  position: absolute; 
   min-height: 10vh; 
   min-width: 20vw; 
   top: 4rem; 
   right: 0;
   z-index: 10000;
+}
+
+#warningToast {
+  position: absolute; 
 }
 
 

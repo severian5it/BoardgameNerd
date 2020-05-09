@@ -2,7 +2,7 @@
 
 {% block content %}
 
-<header class="masthead text-white text-center">
+<header class="masthead text-white text-center landing" id="landing">
   <div class="overlay"></div>
   <div class="container">
     <div class="row">
@@ -35,14 +35,15 @@
           <div
             class="carousel-item item-hot col-12 col-sm-6 col-md-4 col-lg-3 {% if loop.index == 1 %} active {% endif %}">
             <a href="/game/{{ doc['@id'] }}" class="no-underline">
-              <div class="card card-game" data-toggle="tooltip" data-placement="top" title="{{ doc['name']['@value'] }}">
+              <div class="card card-game" data-toggle="tooltip" data-placement="top"
+                title="{{ doc['name']['@value'] }}">
                 <div class="card-header">
                   <h5 class=" text-center text-truncate">{{ doc['name']['@value'] }}</h5>
                 </div>
                 <div class="card-body">
                   <img class="card-img-top img-fluid p-2" src="{{ doc['thumbnail']['@value'] }}">
                   <button class='btn btn-danger btn-card'>
-                    <i class="fas fa-search"></i> 
+                    <i class="fas fa-search"></i>
                     View
                   </button>
                 </div>
@@ -81,14 +82,14 @@
             class="carousel-item item-old col-12 col-sm-6 col-md-4 col-lg-3 {% if loop.index == 1 %} active {% endif %}">
 
             <a href="/game/{{ game['id']  }}" class="no-underline">
-              <div class="card card-game"  data-toggle="tooltip" data-placement="top" title="{{ game['name'] }}">
+              <div class="card card-game" data-toggle="tooltip" data-placement="top" title="{{ game['name'] }}">
                 <div class="card-header">
                   <h5 class=" text-center text-truncate">{{ game['name'] }}</h5>
                 </div>
                 <div class="card-body">
                   <img class="card-img-top img-fluid p-2" src="{{ game.get('image') }}">
                   <button class='btn btn-danger btn-card'>
-                    <i class="fas fa-search"></i> 
+                    <i class="fas fa-search"></i>
                     View
                   </button>
                 </div>
@@ -160,41 +161,49 @@
 </section>
 
 <section class="contacts bg-primary" id="contacts">
-
+  <div class="toast" role data-delay="5000" id="contactToast">
+    <div class="toast-header">
+      <button type="button" class="close ml-2 mb-1" data-dismiss="toast">&times;</button>
+    </div>
+    <div class="toast-body  text-muted">
+      <div class="align-middle">
+      </div>
+    </div>
+  </div>
   <div class="container">
     <div class="section-heading text-center">
       <h2>Get in Touch</h2>
       <hr>
     </div>
     <div class="row justify-content-center">
-        <div class="col-11 col-md-7 form-wrapper">
-            <form id="contact-form" method="POST">
-                <div class="form-group">
-                    <label for="contactName">Name</label>
-                    <input type="text" class="form-control" name="contactName" id="contactName"
-                        placeholder="Name (required)" required>
-                </div>
-                <div class="form-group">
-                    <label for="contactEmail">Email address</label>
-                    <input type="email" class="form-control" name="contactEmail" id="contactEmail"
-                        placeholder="Email (required)" required>
-                </div>
-                <div class="form-group">
-                    <label for="contactSubject">Subject</label>
-                    <input type="text" class="form-control" name="contactSubject" id="contactSubject" placeholder="Subject (required)"
-                        required>
-                </div>
-                <div class="form-group">
-                    <label for="contactMessage">Message</label>
-                    <textarea class="form-control" name="contactMessage" id="contactMessage" rows="10"
-                        placeholder="Message (required)" required></textarea>
-                </div>
-                <button type="submit" class="btn btn-send mb-2">
-                    <i class="fas fa-paper-plane"></i> Send</button>
-            </form>
-        </div>
+      <div class="col-11 col-md-7 form-wrapper">
+        <form id="contact-form" method="POST">
+          <div class="form-group">
+            <label for="contactName">Name</label>
+            <input type="text" class="form-control" name="contactName" id="contactName" placeholder="Name (required)"
+              required>
+          </div>
+          <div class="form-group">
+            <label for="contactEmail">Email address</label>
+            <input type="email" class="form-control" name="contactEmail" id="contactEmail"
+              placeholder="Email (required)" required>
+          </div>
+          <div class="form-group">
+            <label for="contactSubject">Subject</label>
+            <input type="text" class="form-control" name="contactSubject" id="contactSubject"
+              placeholder="Subject (required)" required>
+          </div>
+          <div class="form-group">
+            <label for="contactMessage">Message</label>
+            <textarea class="form-control" name="contactMessage" id="contactMessage" rows="10"
+              placeholder="Message (required)" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-send mb-2">
+            <i class="fas fa-paper-plane"></i> Send</button>
+        </form>
+      </div>
     </div>
-</div>
+  </div>
 </section>
 
 
