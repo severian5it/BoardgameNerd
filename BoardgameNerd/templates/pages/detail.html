@@ -6,12 +6,12 @@
     <div class="row">
         <div class="col-lg-6 ">
             <h1 class="text-center m-4 ">{{  detail['name'] }}</h1>
-            <p class="p-4">{{  detail['description']|safe }}<p>
+            <p class="p-4 frame">{{  detail['description']|safe }}<p>
 
         </div>
         <div class="col-lg-6 mb-1">
-                <img src="{{  detail['image'] }}" class="mx-auto d-block w-50 m-4" alt="{{ detail['name'] }}">
-                <div class="justify-left ml-5 pl-5">
+                <img src="{{  detail['image'] }}" class="mx-auto d-block w-50 mt-4 p-4" alt="{{ detail['name'] }}">
+                <div class="justify-left m-2 p-3 frame">
 
                     <p>
                         <b>year published: </b> {{  detail['yearpublished']  }}
@@ -60,7 +60,7 @@
                         <input name="boardgamefamily" type="hidden" value="{{  ', '.join(detail['boardgamefamily']) }}"">
                         <input name="boardgamemechanic" type="hidden" value="{{  ', '.join(detail['boardgamemechanic']) }}"">
                         <div class="text-center">
-                            <button class="btn btn-search btn-danger" id="addCollectionSubmit" type="submit">
+                            <button class="btn round-input btn-danger" id="addCollectionSubmit" type="submit">
                                 <i class="fas fa-heart"></i>
                                 Add it!
                             </button>

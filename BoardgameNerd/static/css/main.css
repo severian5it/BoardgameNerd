@@ -415,7 +415,7 @@ section.hot .section-heading p {
   min-height: 10vh; 
   min-width: 20vw; 
   top: 4rem; 
-  right: 0;
+  left: 0;
   z-index: 10000;
 }
 
@@ -497,4 +497,9 @@ border-radius: 25px;
 .btn-send:hover {
   color: antiquewhite;
   background-color:  grey;
+}
+
+.frame {
+  background-color: antiquewhite;
+  border-radius: 25px;
 }
