@@ -472,3 +472,16 @@ if it's not present, don't show loader */
 	z-index: 9999;
 	background: url("../img/spinner.gif") center no-repeat #fff;
 }
+
+.form-wrapper { 
+background-color: antiquewhite;
+border-radius: 25px;
+}
+
+.btn-send {
+  color: white;
+  width: 100%;
+  display: block;
+  border-radius: 12px;
+  background-color:  black;
+}
