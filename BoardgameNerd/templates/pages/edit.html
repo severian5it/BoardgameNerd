@@ -7,18 +7,19 @@
             <h1 class="text-center m-4">{{  detail['boardgame_name'] }}</h1>
             <p class="p-4 frame">{{  detail['boardgame_description']|safe }}</p>
             <div class="p-4 mb-1 frame">
+                <h4 class='text-center mb-2'>Your notes</h4>
                 <form id="add-collectionform" action="/edit/{{ id }}" method="post">
                     <input name="user" type="hidden" value={{user}}>
                     <input name="id" type="hidden" value={{ id }}>
                     <input name="type" type="hidden" value='update'>
-                    <div class="form-group">
-                        <label for="dateBuy"><b>Date of acquisition: </b></label>
+                    <div class="form-group form-inline">
+                        <label for="dateBuy" class="mr-5"><b>Date of acquisition: </b></label>
                         <input type="date" name="dateBuy" max="3000-12-31" min="1000-01-01" class="form-control"
                             value={{ detail["dateBuy"] }}>
                     </div>
                     <!-- https://codepen.io/yaworek/pen/JJpEaZ  -->
-                    <div class="form-group">
-                        <label for="rating"><b>Rating: </b></label>
+                    <div class="form-group form-inline">
+                        <label for="rating" class="mr-4"><b>Rating: </b></label>
                         <div class="rating">
                             <input type="radio" name="rating" value="5" id="5" {% if detail["rating"] == '5' %} checked
                                 {% endif %}>
@@ -39,7 +40,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="note">Notes:</label>
+                        <label for="note"><b>Notes:</b></label>
                     <textarea class="form-control" id="note" rows=10 name="note" placeholder="Notes about the game">{{ detail["note"] }}</textarea>
 
                         <button class="btn btn-send mt-2" id="editItemCollectionSubmit" type="submit">

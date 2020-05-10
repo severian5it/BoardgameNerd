@@ -413,10 +413,10 @@ section.hot .section-heading p {
 
 .toast {
   min-height: 10vh; 
-  min-width: 20vw; 
+  min-width: 30vw; 
   top: 4rem; 
-  left: 0;
   z-index: 10000;
+  border-color: gray;
 }
 
 #warningToast {
@@ -506,7 +506,7 @@ border-radius: 25px;
 
 .button-footer {
   width: 40%;
-  display: inline;
-  
+  display: inline; 
 }
+
 
