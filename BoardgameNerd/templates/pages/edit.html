@@ -5,67 +5,71 @@
     <div class="row">
         <div class="col-lg-6">
             <h1 class="text-center m-4">{{  detail['boardgame_name'] }}</h1>
-            <p>{{  detail['boardgame_description']|safe }}<p>
-                    <form id="add-collectionform" action="/edit/{{ id }}" method="post">
-                        <input name="user" type="hidden" value={{user}}>
-                        <input name="id" type="hidden" value={{ id }}>
-                        <input name="type" type="hidden" value='update'>
-                        <div class="form-group">
-                            <label><b>Date of acquisition</b></label>
-                            <input type="date" name="dateBuy" max="3000-12-31" min="1000-01-01" class="form-control"
-                                value={{ detail["dateBuy"] }}>
+            <p class="p-4 frame">{{  detail['boardgame_description']|safe }}</p>
+            <div class="p-4 mb-1 frame">
+                <form id="add-collectionform" action="/edit/{{ id }}" method="post">
+                    <input name="user" type="hidden" value={{user}}>
+                    <input name="id" type="hidden" value={{ id }}>
+                    <input name="type" type="hidden" value='update'>
+                    <div class="form-group">
+                        <label for="dateBuy"><b>Date of acquisition: </b></label>
+                        <input type="date" name="dateBuy" max="3000-12-31" min="1000-01-01" class="form-control"
+                            value={{ detail["dateBuy"] }}>
+                    </div>
+                    <!-- https://codepen.io/yaworek/pen/JJpEaZ  -->
+                    <div class="form-group">
+                        <label for="rating"><b>Rating: </b></label>
+                        <div class="rating">
+                            <input type="radio" name="rating" value="5" id="5" {% if detail["rating"] == '5' %} checked
+                                {% endif %}>
+                            <label for="5">☆</label>
+                            <input type="radio" name="rating" value="4" id="4" {% if detail["rating"] == '4' %} checked
+                                {% endif %}>
+                            <label for="4">☆</label>
+                            <input type="radio" name="rating" value="3" id="3" {% if detail["rating"] == '3' %} checked
+                                {% endif %}>
+                            <label for="3">☆</label>
+                            <input type="radio" name="rating" value="2" id="2" {% if detail["rating"] == '2' %} checked
+                                {% endif %}>
+                            <label for="2">☆</label>
+                            <input type="radio" name="rating" value="1" id="1" {% if detail["rating"] == '1' %} checked
+                                {% endif %}>
+                            <label for="1">☆</label>
                         </div>
-                        <!-- https://codepen.io/yaworek/pen/JJpEaZ  -->
-                        <div class="form-group">
-                            <div class="rating">
-                                <input type="radio" name="rating" value="5" id="5" {% if detail["rating"] == '5' %}
-                                    checked {% endif %}>
-                                <label for="5">☆</label>
-                                <input type="radio" name="rating" value="4" id="4" {% if detail["rating"] == '4' %}
-                                    checked {% endif %}>
-                                <label for="4">☆</label>
-                                <input type="radio" name="rating" value="3" id="3" {% if detail["rating"] == '3' %}
-                                    checked {% endif %}>
-                                <label for="3">☆</label>
-                                <input type="radio" name="rating" value="2" id="2" {% if detail["rating"] == '2' %}
-                                    checked {% endif %}>
-                                <label for="2">☆</label>
-                                <input type="radio" name="rating" value="1" id="1" {% if detail["rating"] == '1' %}
-                                    checked {% endif %}>
-                                <label for="1">☆</label>
-                            </div>
-                        </div>
+                    </div>
 
-                        <div class="form-group">
-                            <label for="note">Notes</label>
-                            <textarea class="form-control" id="note" rows=10 name="note" placeholder="Notes about the game">
+                    <div class="form-group">
+                        <label for="note">Notes:</label>
+                        <textarea class="form-control" id="note" rows=10 name="note" placeholder="Notes about the game">
                         {{ detail["note"] }}
                     </textarea>
-                        </div>
 
-                        <button class="btn btn-search btn-success" id="editItemCollectionSubmit" type="submit">
-                            <i class="fas fa-save"></i>
-                            Save
-                        </button>
-   
-                    </form>
-                    <form id="add-collectionform" action="/edit/{{id}}" method="post">
-                        <input name="user" type="hidden" value={{user}}>
-                        <input name="id" type="hidden" value={{ id }}>
-                        <input name="type" type="hidden" value='delete'>
-                        <button class="btn btn-search btn-danger" id="deleteItemCollectionSubmit" type="submit">
-                            <i class="fas fa-trash"></i>
-                            Remove it
-                        </button>
-                    </form>
+                    <button class="btn btn-search btn-success" id="editItemCollectionSubmit" type="submit">
+                        <i class="fas fa-save"></i>
+                        Save
+                    </button>
+                </div>
 
+
+                </form>
+                <form id="add-collectionform" action="/edit/{{id}}" method="post">
+                    <input name="user" type="hidden" value={{user}}>
+                    <input name="id" type="hidden" value={{ id }}>
+                    <input name="type" type="hidden" value='delete'>
+                    <button class="btn btn-search btn-danger" id="deleteItemCollectionSubmit" type="submit">
+                        <i class="fas fa-trash"></i>
+                        Remove it
+                    </button>
+                </form>
+
+            </div>
 
         </div>
 
         <div class="col-lg-6 mb-1">
             <img src="{{  detail['boardgame_image'] }}" class="mx-auto d-block w-50 m-4"
                 alt="{{ detail['boardgame_name'] }}">
-            <div class="justify-left ml-5 pl-5">
+            <div class="justify-left m-2 p-3 frame">
                 <p>
                     <b>year published: </b> {{  detail['year_published']  }}
                 </p>
