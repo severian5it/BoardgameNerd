@@ -44,22 +44,11 @@
                         {{ detail["note"] }}
                     </textarea>
 
-                    <button class="btn btn-search btn-success" id="editItemCollectionSubmit" type="submit">
-                        <i class="fas fa-save"></i>
-                        Save
-                    </button>
-                </div>
-
-
-                </form>
-                <form id="add-collectionform" action="/edit/{{id}}" method="post">
-                    <input name="user" type="hidden" value={{user}}>
-                    <input name="id" type="hidden" value={{ id }}>
-                    <input name="type" type="hidden" value='delete'>
-                    <button class="btn btn-search btn-danger" id="deleteItemCollectionSubmit" type="submit">
-                        <i class="fas fa-trash"></i>
-                        Remove it
-                    </button>
+                        <button class="btn btn-send mt-2" id="editItemCollectionSubmit" type="submit">
+                            <i class="fas fa-save"></i>
+                            Save
+                        </button>
+                    </div>
                 </form>
 
             </div>
@@ -99,6 +88,19 @@
                 </p>
 
             </div>
+            <form id="add-collectionform" action="/edit/{{id}}" method="post">
+                <input name="user" type="hidden" value={{user}}>
+                <input name="id" type="hidden" value={{ id }}>
+                <input name="type" type="hidden" value='delete'>
+                <div class="text-center">
+
+                    <button class="btn round-input btn-danger" id="deleteItemCollectionSubmit" type="submit">
+                        <i class="fas fa-trash"></i>
+                        Remove it
+                    </button>
+                </div>
+
+            </form>
         </div>
     </div>
 </div>
