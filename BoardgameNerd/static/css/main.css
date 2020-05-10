@@ -503,3 +503,10 @@ border-radius: 25px;
   background-color: antiquewhite;
   border-radius: 25px;
 }
+
+.button-footer {
+  width: 40%;
+  display: inline;
+  
+}
+
