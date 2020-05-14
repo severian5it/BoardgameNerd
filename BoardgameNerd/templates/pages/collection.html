@@ -25,13 +25,32 @@
                     </a>
 
                     <form class='button-footer' id="add-collectionform" action="/collection" method="post">
-                        <input name="user" type="hidden" value={{ collection['username'] }}>
-                        <input name="id" type="hidden" value={{ collection['id'] }}>
-                        <button class="btn round-search float-right text-white" id="deleteboardgameSubmit" type="submit">
+                        <input name="user" type="hidden" value="{{ collection['username'] }}">
+                        <input name="id" type="hidden" value="{{ collection['id'] }}">
+                        <button type="button" class="btn round-search float-right text-white" id="submitBtn" data-toggle="modal" data-target="#confirm-submit">
                             <i class="fas fa-trash">
                                 Remove</i>
                         </button>
+
                     </form>
+
+                    <div class="modal fade" id="confirm-submit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    Confirm Removal
+                                </div>
+                                <div class="modal-body">
+                                    Are you sure you want to remove the game?
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                                    <a href="#" id="submit" class="fas fa-trash btn round-search float-right text-white">Remove</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
 
                 </div>
             </div>

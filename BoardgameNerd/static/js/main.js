@@ -45,5 +45,11 @@ $(document).ready(function () {
         slideCustom(e, 'old')
     });
 
+   
+   $('#submit').click(function(){
+        /* when the submit button in the modal is clicked, submit the form */
+       $('#add-collectionform').submit();
+   });
+
 });
 
