@@ -23,7 +23,9 @@ function slideCustom(carousel, suffix) {
     }
 };
 
-
+function passFormId(id) {
+    $('#form-delete').val(id);
+}
 
 $(document).ready(function () {
 
@@ -45,10 +47,11 @@ $(document).ready(function () {
         slideCustom(e, 'old')
     });
 
-   
-   $('#submit').click(function(){
+   $('#confirm-deletion').click(function(){
         /* when the submit button in the modal is clicked, submit the form */
-       $('#add-collectionform').submit();
+       let id = $('#form-delete').val()
+       $('#delete-collectionform'+id).submit();
+
    });
 
 });

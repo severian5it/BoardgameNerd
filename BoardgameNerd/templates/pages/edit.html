@@ -8,7 +8,7 @@
             <p class="p-4 frame">{{  detail['boardgame_description']|safe }}</p>
             <div class="p-4 mb-1 frame">
                 <h4 class='text-center mb-2'>Your notes</h4>
-                <form id="add-collectionform" action="/edit/{{ id }}" method="post">
+                <form id="edit-collectionform" action="/edit/{{ id }}" method="post">
                     <input name="user" type="hidden" value={{user}}>
                     <input name="id" type="hidden" value={{ id }}>
                     <input name="type" type="hidden" value='update'>
