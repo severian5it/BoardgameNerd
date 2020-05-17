@@ -3,7 +3,7 @@
 {% block content %}
 
     <!-- Section: Account settings -->
-    <section>
+    <section class='bg-primary'>
 
         <div  class="container">
             <div class="row">
@@ -13,10 +13,10 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-6">
+                <div class="col-11 col-md-5 frame mx-1 mb-2 pb-2">
                     <form id="emailEdit" action="/settings" method="post">
                         <h3>Change email</h3>
-                        <p>To update your email address please fill in both fields</p>
+                        <p>To update your email please fill in both fields</p>
                         <div class="form-group">
                             <input name="user" type="hidden" value={{user}}>
                         </div>
@@ -31,12 +31,12 @@
                                 placeholder="New email" value="{{ request.form.newemail }}" required>
                             </label>
                         </div>
-                            <button id="emailEditBtn" type="submit" class="btn btn-success">Update email</button>
+                            <button id="emailEditBtn" type="submit" class="btn btn-send">Update email</button>
                     </form>
                 </div>
 
                     
-                <div class="col-6">
+                <div class="col-11 col-md-5 frame mx-1 mb-2 pb-2">
                     <form action="/settings" method="post">
                         <h3>Change password</h3>
                         <p>To update your password please fill in both fields</p>
@@ -53,7 +53,7 @@
                             <input name="newpassword" type="password" class="form-control"
                                 autocomplete="new-password" id="newpassword" value="{{ request.form.newpassword }}" placeholder="New password" required>
                         </div>
-                        <button id="passEditBtn" type="submit" class="btn btn-success">Update password</button>
+                        <button id="passEditBtn" type="submit" class="btn btn-send">Update password</button>
                     </form>
                 </div>
             </div>
