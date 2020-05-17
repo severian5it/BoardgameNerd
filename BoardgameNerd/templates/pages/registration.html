@@ -12,8 +12,8 @@
                 </div>
             </div>
             <div class="row justify-content-center">
-                <div class="col-11 col-md-6 col-lg-5 col-xl-4 card p-4">
-                    <h3>Create an account to manage your Boardgame Collection</h3>
+                <div class="col-11 col-md-6 col-lg-5 col-xl-4 card p-4 frame">
+                    <h3>Create an account to manage your Collection!</h3>
                     <form id="new-account-form" action="/registration" method="post">
                         <div class="form-group">
                             <label for="newUsername">Username</label>
@@ -32,7 +32,7 @@
                             <input class="form-control" id="newPasswordInput" maxlength="20" minlength="8" placeholder="Password"
                                 required type="password" name=password value="{{ request.form.password }}">
                         </div>
-                        <button class="btn btn-search btn-success" id="newAccountSubmit" type="submit">
+                        <button class="btn btn-send" id="newAccountSubmit" type="submit">
                             <i class="fas fa-user-plus"></i>
                             Create account</button>
                     </form>
