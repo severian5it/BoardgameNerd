@@ -41,23 +41,9 @@
             </a>
         </div>
         {% endfor %}
-        <div class="modal fade" id="confirm-submit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        Confirm Removal
-                    </div>
-                    <div class="modal-body">
-                        Are you sure you want to remove the game?
-                    </div>
-                    <div class="modal-footer">
-                        <input name="id" type="hidden" id="form-delete" value="">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                        <a href="#" id="confirm-deletion" class="fas fa-trash btn round-search float-right text-white">Remove</a>
-                    </div>
-                </div>
-            </div>
-        </div>
+
+        {% include 'component/delete-modal.html' %}
+
     </div>
 </div>
 
