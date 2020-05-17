@@ -41,7 +41,8 @@
 
                     <div class="form-group">
                         <label for="note"><b>Notes:</b></label>
-                    <textarea class="form-control" id="note" rows=10 name="note" placeholder="Notes about the game">{{ detail["note"] }}</textarea>
+                        <textarea class="form-control" id="note" rows=10 name="note"
+                            placeholder="Notes about the game">{{ detail["note"] }}</textarea>
 
                         <button class="btn btn-send mt-2" id="editItemCollectionSubmit" type="submit">
                             <i class="fas fa-save"></i>
@@ -87,20 +88,23 @@
                 </p>
 
             </div>
-            <form id="add-collectionform" action="/edit/{{id}}" method="post">
+            <form id="delete-collectionform{{id}}" action="/edit/{{id}}" method="post">
                 <input name="user" type="hidden" value={{user}}>
                 <input name="id" type="hidden" value={{ id }}>
                 <input name="type" type="hidden" value='delete'>
                 <div class="text-center">
 
-                    <button class="btn round-search text-white" id="deleteItemCollectionSubmit" type="submit">
-                        <i class="fas fa-trash"></i>
-                        Remove it
+                    <button type="button" class="btn round-search text-white" id="remove-btn" data-toggle="modal"
+                        data-target="#confirm-submit" onclick="passFormId({{ id }})">
+                        <i class="fas fa-trash">
+                            Remove it</i>
                     </button>
+
                 </div>
 
             </form>
         </div>
+        {% include 'component/delete-modal.html' %}
     </div>
 </div>
 
