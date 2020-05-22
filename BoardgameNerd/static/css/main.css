@@ -1,11 +1,15 @@
   /* coming from https://startbootstrap.com/themes/landing-page/ */
+  @import url("https://fonts.googleapis.com/css?family=Satisfy");
+
 
   body {
     font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   }
   
-  h1,
-  h2,
+  h1,  h2 {
+    font-family: 'Satisfy', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: 700;
+  }
   h3,
   h4,
   h5,
@@ -199,7 +203,7 @@
 
 #mainNav .navbar-brand {
   color: #fd5252;
-  font-family: 'Catamaran', 'Helvetica', 'Arial', 'sans-serif';
+  font-family: 'Satisfy', 'Helvetica', 'Arial', 'sans-serif';
   font-weight: 200;
   letter-spacing: 1px;
 }
