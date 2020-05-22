@@ -298,8 +298,11 @@ footer ul li a:hover, footer ul li a:focus, footer ul li a:active, footer ul li 
   height: 8vh;
 }
 
-.card-header:hover{
-  text-decoration: none;
+.card-header h5{
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
 }
 
 .card-game {

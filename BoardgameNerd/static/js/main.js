@@ -32,14 +32,14 @@ $(document).ready(function () {
     $("#warningToast").toast('show');
 
     /* logic similar to https://smallenvelop.com/display-loading-icon-page-loads-completely/ */
-    $(window).on("load",function() {
+    $(window).on("load", function () {
         // Animate loader off screen
         $(".spinner").fadeOut("slow");
     });
 
 
     $('#carousel-hot').on('slide.bs.carousel', function (e) {
-        
+
         slideCustom(e, 'hot')
     });
 
@@ -47,12 +47,27 @@ $(document).ready(function () {
         slideCustom(e, 'old')
     });
 
-   $('#confirm-deletion').click(function(){
+    $('#confirm-deletion').click(function () {
         /* when the submit button in the modal is clicked, submit the form */
-       let id = $('#form-delete').val()
-       $('#delete-collectionform'+id).submit();
+        let id = $('#form-delete').val()
+        $('#delete-collectionform' + id).submit();
 
-   });
+    });
+
+    $('.card-header').hover(
+        function () {
+            $(this).addClass('hover')
+        },
+        function () {
+            $(this).removeClass('hover')
+        }
+    )
+
+    var className = 'text-truncate';
+    $('.card-header h5').on('mouseenter', function (e) {
+        $(this).removeClass(className);
+    }).on('mouseleave', function (e) {
+        $(this).addClass(className);
+    });
 
 });
-
