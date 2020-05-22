@@ -1,20 +1,18 @@
   /* coming from https://startbootstrap.com/themes/landing-page/ */
-  @import url("https://fonts.googleapis.com/css?family=Satisfy");
+  @import url("https://fonts.googleapis.com/css?family=Satisfy|Amita");
 
 
   body {
     font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   }
   
-  h1,  h2 {
-    font-family: 'Satisfy', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    font-weight: 700;
-  }
+  h1,  
+  h2,
   h3,
   h4,
   h5,
   h6 {
-    font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: 'Amita', sans-serif;
     font-weight: 700;
   }
 
