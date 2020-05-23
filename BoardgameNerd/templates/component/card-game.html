@@ -1,0 +1,33 @@
+<div class="col-12 col-md-6 col-lg-4 col-xl-3">
+
+    <div class="card card-game" data-toggle="tooltip" data-placement="top" title="{{ collection['boardgame_name']  }}">
+        <div class="card-header">
+            <h5 class=" text-center text-truncate">{{ collection['boardgame_name']  }}</h5>
+        </div>
+        <div class="card-body">
+
+            <img class="card-img-top img-fluid p-2" src="{{ collection['boardgame_image'] }}">
+            <a href="/edit/{{ collection['id'] }}" class="no-underline">
+                <button class='btn btn-send btn-footer-left'>
+                    <i class="fas fa-edit"></i>
+                    Edit
+                </button>
+            </a>
+            
+            <form class='btn-footer-right delete-form' id="delete-collectionform{{collection['id']}}"
+                action="/collection" method="post">
+                <input name="user" type="hidden" value="{{ collection['username'] }}">
+                <input name="id" type="hidden" value="{{ collection['id'] }}">
+                <button type="button" class="btn round-search float-right text-white" id="remove-btn"
+                    data-toggle="modal" data-target="#confirm-submit" onclick="passFormId({{ collection['id']}})">
+                    <i class="fas fa-trash">
+                    </i>
+                </button>
+
+            </form>
+
+
+        </div>
+    </div>
+    </a>
+</div>
