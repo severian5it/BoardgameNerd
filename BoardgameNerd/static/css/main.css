@@ -37,6 +37,36 @@ body {
   border-color: gray;
 }
 
+.form-wrapper {
+  background-color: antiquewhite;
+  border-radius: 2em;
+}
+
+.btn-send {
+  color: white;
+  width: 100%;
+  display: block;
+  border-radius: 0.8em;
+  background-color: black;
+}
+
+.btn-send:hover {
+  color: antiquewhite;
+  background-color: grey;
+}
+
+.frame {
+  background-color: antiquewhite;
+  border-radius: 2em;
+}
+
+section {
+  padding: 5em 0;
+}
+
+section h2 {
+  font-size: 3em;
+}
 /*------------Navigation Bar------------*/
 
 #mainNav {
@@ -275,6 +305,51 @@ footer ul li a.active {
   }
 }
 
+/*------------Section Features------------*/
+
+section.features .section-heading h2 {
+  margin-top: 0;
+}
+
+section.features .section-heading p {
+  margin-bottom: 0;
+}
+
+section.features .device-container,
+section.features .feature-item {
+  max-width: 20em;
+  margin: 0 auto;
+}
+
+section.features .device-container {
+  margin-bottom: 6em;
+}
+
+@media (min-width: 992px) {
+  section.features .device-container {
+    margin-bottom: 0;
+  }
+}
+
+section.features .feature-item {
+  padding-top: 2em;
+  padding-bottom: 2em;
+  text-align: center;
+}
+
+section.features .feature-item h3 {
+  font-size: 2em;
+}
+
+section.features .feature-item i {
+  font-size: 5em;
+  display: block;
+  margin-bottom: 0.3em;
+  background: linear-gradient(to left, #7b4397, #dc3445);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 /*------------Star Rating------------*/
 
 .rating {
@@ -369,64 +444,16 @@ footer ul li a.active {
   background-color: white;
 }
 
+/*------------Detail Page------------*/
 
 div.detail-page {
   min-height: 80vh
 }
 
 
-section {
-  padding: 100px 0;
-}
 
-section h2 {
-  font-size: 50px;
-}
 
-/* features section */
 
-section.features .section-heading h2 {
-  margin-top: 0;
-}
-
-section.features .section-heading p {
-  margin-bottom: 0;
-}
-
-section.features .device-container,
-section.features .feature-item {
-  max-width: 325px;
-  margin: 0 auto;
-}
-
-section.features .device-container {
-  margin-bottom: 100px;
-}
-
-@media (min-width: 992px) {
-  section.features .device-container {
-    margin-bottom: 0;
-  }
-}
-
-section.features .feature-item {
-  padding-top: 50px;
-  padding-bottom: 50px;
-  text-align: center;
-}
-
-section.features .feature-item h3 {
-  font-size: 30px;
-}
-
-section.features .feature-item i {
-  font-size: 80px;
-  display: block;
-  margin-bottom: 15px;
-  background: linear-gradient(to left, #7b4397, #dc3445);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
 
 
 section.oldies .section-heading h2 {
@@ -519,28 +546,7 @@ if it's not present, don't show loader */
   background: url("../img/spinner.gif") center no-repeat #fff;
 }
 
-.form-wrapper {
-  background-color: antiquewhite;
-  border-radius: 25px;
-}
 
-.btn-send {
-  color: white;
-  width: 100%;
-  display: block;
-  border-radius: 12px;
-  background-color: black;
-}
-
-.btn-send:hover {
-  color: antiquewhite;
-  background-color: grey;
-}
-
-.frame {
-  background-color: antiquewhite;
-  border-radius: 25px;
-}
 
 .btn-footer-left {
   width: 75%;
