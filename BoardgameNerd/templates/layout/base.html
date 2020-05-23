@@ -10,7 +10,7 @@
     {% include 'layout/nav.html' %}
     <!-- Content -->
     {% for message in get_flashed_messages() %}
-        {% include 'component/toast.html' %}
+    {% include 'component/toast.html' %}
     {% endfor %}
 
     {% include 'component/spinner.html' %}
@@ -21,7 +21,6 @@
 
     <!-- Footer -->
     {% include 'layout/footer.html' %}
-
     {% include 'layout/script.html' %}
 
 </body>

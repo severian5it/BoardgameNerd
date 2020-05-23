@@ -29,6 +29,7 @@ body {
   background: linear-gradient(#fdcc52, #fdc539);
 }
 
+/* Toast */
 .toast {
   min-height: 10vh;
   min-width: 30vw;
@@ -37,23 +38,16 @@ body {
   border-color: gray;
 }
 
+#warningToast {
+  position: absolute;
+}
+
 .form-wrapper {
   background-color: antiquewhite;
   border-radius: 2em;
 }
 
-.btn-send {
-  color: white;
-  width: 100%;
-  display: block;
-  border-radius: 0.8em;
-  background-color: black;
-}
 
-.btn-send:hover {
-  color: antiquewhite;
-  background-color: grey;
-}
 
 .frame {
   background-color: antiquewhite;
@@ -67,7 +61,7 @@ section {
 section h2 {
   font-size: 3em;
 }
-/*------------SPINNER------------*/
+/*------------Spinner-----------*/
 
 .spinner {
   position: fixed;
@@ -317,6 +311,32 @@ footer ul li a.active {
   }
 }
 
+/* styling control*/
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background: #fdcc52;
+  height: 5em;
+  width: 5em;
+  outline: black;
+  background-size: 100%, 100%;
+  border-radius: 50%;
+  border: 0.01em solid black;
+  background-image: none;
+  opacity: 1;
+}
+
+.carousel-control-next-icon:after {
+  content: '>';
+  font-size: 2.5em;
+  color: black;
+}
+
+.carousel-control-prev-icon:after {
+  content: '<';
+  font-size: 2.5em;
+  color: black;
+}
+
 /*------------Section Features------------*/
 
 section.features .section-heading h2 {
@@ -463,6 +483,7 @@ div.detail-page {
 }
 
 
+/*------------Section Old------------*/
 
 
 section.oldies .section-heading h2 {
@@ -476,6 +497,24 @@ section.oldies .section-heading p {
 
 
 
+/*------------Section Contact------------*/
+
+.btn-send {
+  color: white;
+  width: 100%;
+  display: block;
+  border-radius: 0.8em;
+  background-color: black;
+}
+
+.btn-send:hover {
+  color: antiquewhite;
+  background-color: grey;
+}
+
+/*------------Section Hot------------*/
+
+
 section.hot .section-heading h2 {
   margin-top: 0;
 }
@@ -484,43 +523,16 @@ section.hot .section-heading p {
   margin-bottom: 0;
 }
 
-#warningToast {
-  position: absolute;
-}
 
 
-/*https://stackoverflow.com/questions/46249541/change-arrow-colors-in-bootstraps-carousel*/
-.carousel-control-prev-icon,
-.carousel-control-next-icon {
-  background: #fdcc52;
-  height: 100px;
-  width: 100px;
-  outline: black;
-  background-size: 100%, 100%;
-  border-radius: 50%;
-  border: 1px solid black;
-  background-image: none;
-  opacity: 1;
-}
-
-.carousel-control-next-icon:after {
-  content: '>';
-  font-size: 55px;
-  color: black;
-}
-
-.carousel-control-prev-icon:after {
-  content: '<';
-  font-size: 55px;
-  color: black;
-}
+/*------------Search Page------------*/
 
 .round-input {
-  border-radius: 12px;
+  border-radius: 0.6em;
 }
 
 .round-search {
-  border-radius: 12px;
+  border-radius: 0.6em;
   background-color: #dc3445;
 }
 
@@ -533,8 +545,7 @@ section.hot .section-heading p {
 }
 
 
-
-
+/*------------Collection Page------------*/
 .btn-footer-left {
   width: 75%;
   display: inline;
