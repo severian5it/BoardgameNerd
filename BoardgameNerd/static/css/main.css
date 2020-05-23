@@ -58,14 +58,14 @@ body {
 /*------------Footer------------*/
 
 footer {
-  padding: 25px 0;
+  padding: 2em 0;
   text-align: center;
   color: rgba(255, 255, 255, 0.3);
   background-color: #222;
 }
 
 footer p {
-  font-size: 12px;
+  font-size: 0.8;
   margin: 0;
 }
 
@@ -74,7 +74,7 @@ footer ul {
 }
 
 footer ul li a {
-  font-size: 12px;
+  font-size: 0.8em;
   color: rgba(255, 255, 255, 0.3);
 }
 
