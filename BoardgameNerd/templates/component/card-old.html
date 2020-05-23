@@ -1,0 +1,15 @@
+
+    <a href="/game/{{ game['id']  }}" class="no-underline">
+        <div class="card card-game" data-toggle="tooltip" data-placement="top" title="{{ game['name'] }}">
+            <div class="card-header">
+                <h5 class=" text-center text-truncate">{{ game['name'] }}</h5>
+            </div>
+            <div class="card-body">
+                <img class="card-img-top img-fluid p-2" src="{{ game.get('image') }}">
+                <button class='btn btn-danger btn-card'>
+                    <i class="fas fa-search"></i>
+                    View
+                </button>
+            </div>
+        </div>
+    </a>

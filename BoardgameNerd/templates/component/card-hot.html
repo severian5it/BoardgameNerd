@@ -1,0 +1,14 @@
+    <a href="/game/{{ doc['@id'] }}" class="no-underline">
+        <div class="card card-game" data-toggle="tooltip" data-placement="top" title="{{ doc['name']['@value'] }}">
+            <div class="card-header">
+                <h5 class=" text-center text-truncate">{{ doc['name']['@value'] }}</h5>
+            </div>
+            <div class="card-body">
+                <img class="card-img-top img-fluid p-2" src="{{ doc['thumbnail']['@value'] }}">
+                <button class='btn btn-danger btn-card'>
+                    <i class="fas fa-search"></i>
+                    View
+                </button>
+            </div>
+        </div>
+    </a>
