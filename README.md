@@ -52,6 +52,7 @@ up-to-date with the latest new things coming out? In any case this is the right 
     -[Tools](#tools)
     -[Libraries](#libraries)
 1. [Testing](#testing)
+    -[Manual Testing](#manual-testing)
 1. [Deployment](#deployment)
     - [How to run this project locally](#how-to-run-this-project-locally)
     - [Heroku Deployment](#heroku-deployment)
@@ -400,6 +401,26 @@ via the *inspect* **chrome devtool** functionality it has been examined for the 
 * Galaxy S5
 
 also following section has been tested:
+
+1. Navbar: navigating through different pages and calling random feature.
+
+1. Search: calling different ingredients, and testing different results.
+
+1. Contact form via the following routine:
+    1. Going to the "Contact" Section
+    2. Trying to submit the empty form and verify that an error message about the required fields appears
+    3. Trying to submit the form with an invalid email address and verify that a relevant error message appears
+    4. Trying to submit the form with all inputs valid and verify that the mail is sent correctly.
+
+1. Catalogue, browsing all the alphabet letters.
+
+1. Random Features, calling each time a different cocktail.
+
+1. Landing Page, accessing all the page of the site.
+
+I kept track of all the test on this [matrix](assets/test/manualTest.xlsx)
+
+![Manual Testing Matrix](assets/images/Manual_Test_Matrix.png)
 
 # Deployment
 

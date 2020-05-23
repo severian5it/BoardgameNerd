@@ -51,7 +51,7 @@ $(document).ready(function () {
                     $("#contactToast .toast-body").text('mail successfully sent');
                     $('#contactToast').toast('show');
                     $('input').val('');
-                    $('textarea').val('')
+                    $('textarea').val('');
                 } else {
                     throw new err
                 }
