@@ -204,6 +204,7 @@ def collection():
         collection for logged user
 
     """
+    empty_search = False
     user = session.get('user')
 
     if user is None:            
@@ -217,9 +218,13 @@ def collection():
             flash({"content": "game successfully removed from the collection", })
             return redirect(url_for('collection'))
     else:
+        collections=DB.collection.find({"username":user})
+        if collections.count() == 0:
+            empty_search = True
         return render_template("pages/collection.html", 
                                 user=user,
-                                collections=DB.collection.find({"username":user}))
+                                collections=collections,
+                                empty_search = empty_search)
 
 
 @app.route('/logout')
