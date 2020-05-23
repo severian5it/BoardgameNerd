@@ -2,7 +2,8 @@
 
 {% block content %}
 
-<header class="masthead text-white text-center landing" id="landing">
+<!-- Header -->
+<header class="master-head text-white text-center landing" id="landing">
   <div class="overlay"></div>
   <div class="container">
     <div class="row">
@@ -11,23 +12,18 @@
       </div>
     </div>
     <!-- Search Bar -->
-
     {% include 'component/search-bar.html' %}
-
   </div>
-
 </header>
 
-<!-- Top content  code for carousel from here:  https://azmind.com/bootstrap-carousel-multiple-items -->
+<!-- Hot Carousel-->
 <section class="hot" id="hot">
-
   <div class="top-content">
     <div class="section-heading text-center">
       <h2>See what is hot now</h2>
       <p class="text-muted">explore what is trending in the community</p>
       <hr>
     </div>
-
     <div class="container-fluid">
       <div id="carousel-hot" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner carousel-inner-hot row w-100 mx-auto" role="listbox">
@@ -66,7 +62,6 @@
 </section>
 
 <section class="oldies bg-primary" id="oldies">
-
   <div class="top-content">
     <div class="section-heading text-center">
       <h2>Discover old-school Classic</h2>
