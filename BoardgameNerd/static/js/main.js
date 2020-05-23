@@ -64,6 +64,7 @@ $(document).ready(function () {
     )
 
     var className = 'text-truncate';
+    
     $('.card-header h5').on('mouseenter', function (e) {
         $(this).removeClass(className);
     }).on('mouseleave', function (e) {

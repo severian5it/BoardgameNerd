@@ -10,19 +10,10 @@
     {% include 'layout/nav.html' %}
     <!-- Content -->
     {% for message in get_flashed_messages() %}
-    <div class="toast" role data-delay="5000" id="warningToast">
-        <div class="toast-header {{ message.get('background') }}">
-            <button type="button" class="close ml-auto" data-dismiss="toast">&times;</button>
-          </div>
-        <div class="toast-body  text-muted">
-            <div class="align-middle">
-                {{ message['content'] }}
-            </div>
-        </div>
-    </div>
+        {% include 'component/toast.html' %}
     {% endfor %}
 
-    <div class="spinner"></div>
+    {% include 'component/spinner.html' %}
 
 
     {% block content %}
@@ -32,7 +23,6 @@
     {% include 'layout/footer.html' %}
 
     {% include 'layout/script.html' %}
-
 
 </body>
 
