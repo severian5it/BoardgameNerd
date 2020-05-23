@@ -1,4 +1,4 @@
-/*------------GENERAL------------*/
+/*------------General------------*/
 @import url("https://fonts.googleapis.com/css?family=Satisfy|Amita");
 
 body {
@@ -19,7 +19,73 @@ h6 {
   text-decoration: none !important
 }
 
-/*------------LANDING SEARCH SECTION------------*/
+/* for the fixed navbar */
+body {
+  padding-top: 3em;
+}
+
+/*------------Navigation Bar------------*/
+
+#mainNav {
+  border-color: rgba(34, 34, 34, 0.05);
+  background-color: white;
+  transition: all .35s;
+  font-family: 'Catamaran', 'Helvetica', 'Arial', 'sans-serif';
+  font-weight: 800;
+  letter-spacing: 1px;
+  border-bottom: 3px solid #fd5252;
+
+}
+
+#mainNav .navbar-brand {
+  color: #fd5252;
+  font-family: 'Satisfy', 'Helvetica', 'Arial', 'sans-serif';
+  font-weight: 200;
+  letter-spacing: 1px;
+}
+
+#mainNav .navbar-brand:hover,
+#mainNav .navbar-brand:focus {
+  color: #181717;
+}
+
+#mainNav .navbar-toggler {
+  font-size: 12px;
+  padding: 8px 10px;
+  color: #222222;
+}
+
+/*------------Footer------------*/
+
+footer {
+  padding: 25px 0;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.3);
+  background-color: #222;
+}
+
+footer p {
+  font-size: 12px;
+  margin: 0;
+}
+
+footer ul {
+  margin-bottom: 0;
+}
+
+footer ul li a {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.3);
+}
+
+footer ul li a:hover,
+footer ul li a:focus,
+footer ul li a:active,
+footer ul li a.active {
+  text-decoration: none;
+}
+
+/*------------Landing Search Section------------*/
 
 .master-head {
   position: relative;
@@ -56,7 +122,7 @@ h6 {
 }
 
 
-/*------------LANDING BOTH CAROUSELS------------*/
+/*------------Landing BothCarousels------------*/
 
 @media (min-width: 768px) and (max-width: 991px) {
   /* Show 4th slide on md if col-md-4*/
@@ -196,70 +262,10 @@ h6 {
   }
 }
 
-/* navbar from https://github.com/BlackrockDigital/startbootstrap-new-age/blob/master/css/new-age.css*/
-#mainNav {
-  border-color: rgba(34, 34, 34, 0.05);
-  background-color: white;
-  transition: all .35s;
-  font-family: 'Catamaran', 'Helvetica', 'Arial', 'sans-serif';
-  font-weight: 800;
-  letter-spacing: 1px;
-  border-bottom: 3px solid #fd5252;
-
-}
-
-#mainNav .navbar-brand {
-  color: #fd5252;
-  font-family: 'Satisfy', 'Helvetica', 'Arial', 'sans-serif';
-  font-weight: 200;
-  letter-spacing: 1px;
-}
-
-#mainNav .navbar-brand:hover,
-#mainNav .navbar-brand:focus {
-  color: #181717;
-}
-
-#mainNav .navbar-toggler {
-  font-size: 12px;
-  padding: 8px 10px;
-  color: #222222;
-}
-
-/* as in here: https://stackoverflow.com/questions/11124777/twitter-bootstrap-navbar-fixed-top-overlapping-site */
-body {
-  padding-top: 60px;
-}
 
 
-/* footer from https://github.com/BlackrockDigital/startbootstrap-new-age/blob/master/css/new-age.css*/
-footer {
-  padding: 25px 0;
-  text-align: center;
-  color: rgba(255, 255, 255, 0.3);
-  background-color: #222;
-}
 
-footer p {
-  font-size: 12px;
-  margin: 0;
-}
 
-footer ul {
-  margin-bottom: 0;
-}
-
-footer ul li a {
-  font-size: 12px;
-  color: rgba(255, 255, 255, 0.3);
-}
-
-footer ul li a:hover,
-footer ul li a:focus,
-footer ul li a:active,
-footer ul li a.active {
-  text-decoration: none;
-}
 
 /* star rating https://codepen.io/yaworek/pen/JJpEaZ*/
 .rating {
