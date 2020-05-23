@@ -48,7 +48,7 @@ def login():
         post_form = request.form
         response = check_user_login(DB, post_form)
         if response['passwordCorrect']:
-            flash({"content": "succesful logon!", "background": "bg-success"})         
+            flash({"content": "succesful logon!", })         
             return redirect(url_for('collection'))
         else:
             flash({"content": "wrong user or password!", "background": "bg-danger"})         
@@ -75,7 +75,7 @@ def registration():
         post_form = request.form
         response = create_account(DB, post_form)
         if response['user_created']:
-            flash({"content": "You were successfully signed up", "background": "bg-success"})         
+            flash({"content": "You were successfully signed up", })         
             return redirect(url_for('login'))
         else:
             flash({"content": "user or mail already exists!", "background": "bg-warning"})         
@@ -108,7 +108,6 @@ def search(query=None):
                         from_menu=from_menu)
 
     if request.method == 'POST':
-        print(request.form)
         post_request = request.form
         query = post_request.get('query')    
 
@@ -151,7 +150,7 @@ def game(id):
         post_form = request.form
         response = insert_in_collection(DB, post_form)
         if response["inserted"]:
-            flash({"content": "game added to the collection!", "background": "bg-success"})         
+            flash({"content": "game added to the collection!", })         
             return redirect(url_for('index'))
         else:
             flash({"content": "this game is already part of your collection!", "background": "bg-warning"})         
@@ -184,12 +183,12 @@ def edit(id):
         if post_form['type'] == 'delete':
             response = delete_from_collection(DB, post_form)
             if response['deleted']:
-                flash({"content": "game successfully removed from the collection", "background": "bg-success"})         
+                flash({"content": "game successfully removed from the collection", })         
                 return redirect(url_for('collection'))
         elif post_form['type'] == 'update':
             response = update_collection(DB, post_form)
             if response['updated']:
-                flash({"content": "game successfully updated", "background": "bg-success"})         
+                flash({"content": "game successfully updated", })         
                 return redirect(url_for('collection'))
   
     detail  = DB.collection.find_one({"username": user, "id":id}) 
@@ -215,7 +214,7 @@ def collection():
         post_form = request.form
         response = delete_from_collection(DB, post_form)
         if response['deleted']:
-            flash({"content": "game successfully removed from the collection", "background": "bg-success"})
+            flash({"content": "game successfully removed from the collection", })
             return redirect(url_for('collection'))
     else:
         return render_template("pages/collection.html", 
@@ -231,7 +230,7 @@ def logout():
 
     """
     session.clear()
-    flash({"content": "successful log-out", "background": "bg-success"})
+    flash({"content": "successful log-out", })
     return redirect(url_for('index'))
 
 
@@ -254,14 +253,14 @@ def settings():
         if post_request.get('oldemail') != post_request.get('newemail'):
                 response = change_user_mail(DB, post_request)
                 if response['updated']:
-                    flash({"content": "mail successfully updated", "background": "bg-success"})            
+                    flash({"content": "mail successfully updated", })            
                 else:
                     flash({"content": "old mail wrong", "background": "bg-danger"})            
         
         if post_request.get('oldpassword') != post_request.get('newpassword'):
                 response = change_user_password(DB, post_request)
                 if response['updated']:
-                    flash({"content": "password successfully updated", "background": "bg-success"})            
+                    flash({"content": "password successfully updated", })            
                 else:
                     flash({"content": "old password wrong", "background": "bg-danger"})            
 
