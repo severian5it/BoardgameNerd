@@ -82,29 +82,35 @@ The *GUI* allows a the website visitor to do the following:
 
 As a user of BoardGame Archive I expect/need/want:
 
-1. to search a wide catalogue of boardgame.
-1. to be informed about what is hot in the boardgame community.
-1. to add a boardgame to my collection.
-1. to remove a boardgame to my collection.
-1. to find the best fit game to the number of my friends, I want to filter my search results by 
-   number of players.
-1. to find the best fit game to the time I have, I want to filter my search results by 
+1. :white_check_mark:  to search a wide catalogue of boardgame.
+1. :white_check_mark: to be informed about what is hot in the boardgame community.
+1. :white_check_mark: to add a boardgame to my collection.
+1. :white_check_mark: to remove a boardgame to my collection.
+1. :white_check_mark: to find the best fit game to the number of my friends, I want to filter my search results by 
+   :white_check_mark: number of players.
+1. :white_check_mark: to find the best fit game to the time I have, I want to filter my search results by 
    duration.
-1. as a father/ mother, I want to know suggested age of a boardgame .
-1. to add/update a rating to the boardgame I own.
-1. to add/update a review to the boardgame I own.
-1. to be able to connect to their social media channels, to be informed about new features.
-1. to be easily in contact with the website manager via a contact form.
-1. to have informative feedback from the website regarding the interaction, including a clear information
+1. :white_check_mark: as a father/ mother, I want to know suggested age of a boardgame .
+1. :white_check_mark: to add/update a rating to the boardgame I own.
+1. :white_check_mark: to add/update a review to the boardgame I own.
+1. :white_check_mark: to be able to connect to their social media channels, to be informed about new features.
+1. :white_check_mark: to be easily in contact with the website manager via a contact form.
+1. :white_check_mark: to have informative feedback from the website regarding the interaction, including a clear information
 about loading status and pop up and modals when my actions are completed successfully.
-1. to navigate the site also from mobile or from table, in way that the site is responsive to different
+1. :white_check_mark: to navigate the site also from mobile or from table, in way that the site is responsive to different
 kind of device
 
 ## Design
 ### Framework
+- [jQuery 3.4.0](https://code.jquery.com/jquery/)
+    - **jQuery** for its semplicity of use has been selected to improve reactivity of the site. It was not possible to use minified version or latest version for compatibility issues.
+- [Flask 1.1.2](http://flask.pocoo.org/)
+    - Flask is an elegant microframework that I leveraged along with his template engine **Jinja2**
 ### Color Scheme
 ### Icons
+- [Font Awesome 5.13](https://fontawesome.com/) all icons have been source from more than 1000 available in fontaweson.
 ### Typography
+I have used some [Google Fonts](https://fonts.google.com/) all over the Website The font I have selected for all titles is named [Amita](https://fonts.google.com/specimen/Amita), because it seems appropriate for the Fantastic settings many Boardgames have. beside from the build-in Bootstrap Fonts, I have use also [Satisfy](https://fonts.google.com/specimen/Satisty) for Brand logo.
 
 
 ## Wireframes
