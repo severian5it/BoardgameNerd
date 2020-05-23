@@ -87,7 +87,7 @@ As a user of BoardGame Archive I expect/need/want:
 1. :white_check_mark: to add a boardgame to my collection.
 1. :white_check_mark: to remove a boardgame to my collection.
 1. :white_check_mark: to find the best fit game to the number of my friends, I want to filter my search results by 
-   :white_check_mark: number of players.
+   number of players.
 1. :white_check_mark: to find the best fit game to the time I have, I want to filter my search results by 
    duration.
 1. :white_check_mark: as a father/ mother, I want to know suggested age of a boardgame .
@@ -107,10 +107,14 @@ kind of device
 - [Flask 1.1.2](http://flask.pocoo.org/)
     - Flask is an elegant microframework that I leveraged along with his template engine **Jinja2**
 ### Color Scheme
+Following color Palette has been adopted; the main background color used is Crayola(`#FDCC52`) or Antique White(`#FAEBD7`) as an alternative; those two colours are dominating the application. Other Elements, such Button and Navbar are using Rusty Red (`#DC3445`) or a gradient of it with maximum Purple(`#7B4397`). Eerie Black(`#222222`) has been used as an element of contrast, in the footer or for some button.
+
+![Color Palette](BoardgameNerd/static/img/color-palette.png)
 ### Icons
-- [Font Awesome 5.13](https://fontawesome.com/) all icons have been source from more than 1000 available in fontaweson.
+- [Font Awesome 5.13](https://fontawesome.com/) 
+    - all icons have been source from more than 1000 available in fontawesome.
 ### Typography
-I have used some [Google Fonts](https://fonts.google.com/) all over the Website The font I have selected for all titles is named [Amita](https://fonts.google.com/specimen/Amita), because it seems appropriate for the Fantastic settings many Boardgames have. beside from the build-in Bootstrap Fonts, I have use also [Satisfy](https://fonts.google.com/specimen/Satisty) for Brand logo.
+I have used some [Google Fonts](https://fonts.google.com/) all over the Website The font I have selected for all titles is named [Amita](https://fonts.google.com/specimen/Amita), because it seems appropriate for the Fantastic settings many Boardgames have. beside from the build-in Bootstrap Fonts, I have use dalso [Satisfy](https://fonts.google.com/specimen/Satisfy) for Brand logo.
 
 
 ## Wireframes
