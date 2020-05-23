@@ -24,6 +24,19 @@ body {
   padding-top: 3em;
 }
 
+.bg-primary {
+  background: #fdcc52;
+  background: linear-gradient(#fdcc52, #fdc539);
+}
+
+.toast {
+  min-height: 10vh;
+  min-width: 30vw;
+  top: 4rem;
+  z-index: 10000;
+  border-color: gray;
+}
+
 /*------------Navigation Bar------------*/
 
 #mainNav {
@@ -122,7 +135,7 @@ footer ul li a.active {
 }
 
 
-/*------------Landing BothCarousels------------*/
+/*------------Landing Both Carousels------------*/
 
 @media (min-width: 768px) and (max-width: 991px) {
   /* Show 4th slide on md if col-md-4*/
@@ -262,50 +275,47 @@ footer ul li a.active {
   }
 }
 
+/*------------Star Rating------------*/
 
-
-
-
-
-/* star rating https://codepen.io/yaworek/pen/JJpEaZ*/
 .rating {
   display: flex;
   flex-direction: row-reverse;
   justify-content: center
 }
 
-.rating>input {
+.rating > input {
   display: none
 }
 
-.rating>label {
+.rating > label {
   position: relative;
   width: 1em;
   font-size: 4vw;
-  color: #FFD600;
+  color: #fdcc52;
   cursor: pointer
 }
 
-.rating>label::before {
+.rating > label::before {
   content: "\2605";
   position: absolute;
   opacity: 0
 }
 
-.rating>label:hover:before,
-.rating>label:hover~label:before {
+.rating > label:hover:before,
+.rating > label:hover~label:before {
   opacity: 1 !important
 }
 
-.rating>input:checked~label:before {
+.rating > input:checked~label:before {
   opacity: 1
 }
 
-.rating:hover>input:checked~label:before {
+.rating:hover > input:checked~label:before {
   opacity: 0.4
 }
 
-/*https://stackoverflow.com/questions/37287153/how-to-get-images-in-bootstraps-card-to-be-the-same-height-width*/
+/*------------Cards------------*/
+
 .card-img-top {
   width: 100%;
   height: 35vh;
@@ -330,7 +340,7 @@ footer ul li a.active {
   margin-bottom: 2rem;
   margin-top: 2rem;
   height: 53vh;
-  border-radius: 25px;
+  border-radius: 2em;
 }
 
 .btn-card {
@@ -347,16 +357,15 @@ footer ul li a.active {
 }
 
 .card-result {
-  border-color: red;
+  border-color: #dc3445;
   border-width: thin;
 }
 
-/* small part of https://codepen.io/andrewsims/pen/mQoYwz*/
 .card-game:hover {
   transition: all 0.2s ease-out;
   box-shadow: 0px 4px 8px rgba(38, 38, 38, 0.2);
   top: -4px;
-  border: 1px solid #cccccc;
+  border: 0.02em solid #cccccc;
   background-color: white;
 }
 
@@ -428,10 +437,7 @@ section.oldies .section-heading p {
   margin-bottom: 0;
 }
 
-.bg-primary {
-  background: #fdcc52;
-  background: linear-gradient(#fdcc52, #fdc539);
-}
+
 
 
 section.hot .section-heading h2 {
@@ -442,13 +448,7 @@ section.hot .section-heading p {
   margin-bottom: 0;
 }
 
-.toast {
-  min-height: 10vh;
-  min-width: 30vw;
-  top: 4rem;
-  z-index: 10000;
-  border-color: gray;
-}
+
 
 #warningToast {
   position: absolute;
@@ -458,7 +458,7 @@ section.hot .section-heading p {
 /*https://stackoverflow.com/questions/46249541/change-arrow-colors-in-bootstraps-carousel*/
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
-  background: yellow;
+  background: #fdcc52;
   height: 100px;
   width: 100px;
   outline: black;

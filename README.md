@@ -445,6 +445,7 @@ I took inspiration from many resources on the web for my site, but in a most sig
 - Structure of the page and graphic is inspired by this **startbootstrap** [template](https://startbootstrap.com/themes/landing-page/) 
 - The Responsive multi-item carousel on landing page has been develoed from this [code snippet](https://azmind.com/bootstrap-carousel-multiple-items) and credit goes to Iatek LLC 2018.
 - Cards hovering effect have been adapted by this [code snippet](https://codepen.io/andrewsims/pen/mQoYwz*/).
+- Keeping Card same size has been adapted following this [thread](https://stackoverflow.com/questions/37287153/how-to-get-images-in-bootstraps-card-to-be-the-same-height-width).
 - Star Rating Radio Button has been adapted by this [code snippet](https://codepen.io/yaworek/pen/JJpEaZ*/).
 - Project scaffolding has been developed following this [post](https://code.visualstudio.com/docs/python/tutorial-flask) on how to develop a Flask Project on *VSCode*.
 
