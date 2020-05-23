@@ -450,6 +450,46 @@ The following **must be installed** on your machine:
 - An account at [MongoDB Atlas](https://www.mongodb.com/cloud/atlas) or MongoDB running locally on your machine. 
 - How to set up your Mongo Atlas account [here](https://docs.atlas.mongodb.com/).
 
+### Installation
+1. clone locally the github repository with the following command.
+```
+git clone https://github.com/severian5it/BoardGameNerd.git
+```
+
+1. A virtual environment will make all the installation and developer easy to implement. Start The Virtual environment with following command.
+```
+python3 -m .venv venv
+```  
+
+1. Activate the virtual environment
+```
+.venv\Scripts\activate 
+```
+
+
+1. upgrade local version of pip if needed
+```
+pip3 install --upgrade pip.
+```
+
+1. Install all required modules with the command 
+```
+pip3 -r requirements.txt.
+```
+
+1. In your local IDE create a file called `.flaskenv`, this will contain all the system variable
+
+1. Inside the .flaskenv file, create a SECRET_KEY containing a string and a MONGO_URI to link to your own database; also a DEBUG variable equals to 1 can assist the development. 
+
+1. Create in **MongoDB** a database containing two collections: `users`, and `collection`.
+
+1. You can now run the application with the command
+```
+python3 -m BoardgameNerd.webapp
+```
+
+1. You can interact with application visiting at `http://127.0.0.1:5000`.
+
 ## Heroku Deployment
 
 To deploy to heroku, take the following steps:
