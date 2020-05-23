@@ -379,6 +379,28 @@ Site was mostly developed relying on `HTML`, `Python`, `JavaScript` and `CSS`.
 
 # Testing
 
+## Manual Testing
+
+I used following validator to check the validity of the website code:
+
+* **css**: [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/) 
+* **HTML**: [W3C Markup Validation Service](https://validator.w3.org/)
+* **JavaScript**: [JavaScript Beautify Tools](http://beautifytools.com/javascript-validator.php)
+
+The work has been reviewed by a number of relatives and friend, mostly on the mobile,
+each of them giving suggestions.
+
+The website has been test with multiple resizing to test the its responsiveness.
+via the *inspect* **chrome devtool** functionality it has been examined for the most popular mobile devices such as 
+* Samsung 9+
+* iPhone 6/7/8
+* iPhone X
+* iPad
+* iPad Pro
+* Galaxy S5
+
+also following section has been tested:
+
 # Deployment
 
 ## How to run this project locally
