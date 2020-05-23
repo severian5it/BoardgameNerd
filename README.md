@@ -49,10 +49,10 @@ up-to-date with the latest new things coming out? In any case this is the right 
         - [Users Collection](#users-collection)
         - [Boardgame Collection](#boardgame-collection)
 1. [Technologies Used](#technologies-used)
-    -[Tools](#tools)
-    -[Libraries](#libraries)
+    - [Tools](#tools)
+    - [Libraries](#libraries)
 1. [Testing](#testing)
-    -[Manual Testing](#manual-testing)
+    - [Manual Testing](#manual-testing)
 1. [Deployment](#deployment)
     - [How to run this project locally](#how-to-run-this-project-locally)
     - [Heroku Deployment](#heroku-deployment)
@@ -418,9 +418,9 @@ also following section has been tested:
 
 1. Landing Page, accessing all the page of the site.
 
-I kept track of all the test on this [matrix](assets/test/manualTest.xlsx)
+I kept track of all the test on this [matrix](BoardgameNerd/test/manualTest.xlsx)
 
-![Manual Testing Matrix](assets/images/Manual_Test_Matrix.png)
+![Manual Testing Matrix](BoardgameNerd/static/img/testing.png)
 
 # Deployment
 
