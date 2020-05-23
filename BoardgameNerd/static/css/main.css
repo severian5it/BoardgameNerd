@@ -32,27 +32,27 @@ body {
   transition: all .35s;
   font-family: 'Catamaran', 'Helvetica', 'Arial', 'sans-serif';
   font-weight: 800;
-  letter-spacing: 1px;
-  border-bottom: 3px solid #fd5252;
+  letter-spacing: 0.01em;
+  border-bottom: 0.2em solid #dc3445;
 
 }
 
 #mainNav .navbar-brand {
-  color: #fd5252;
+  color: #dc3445;
   font-family: 'Satisfy', 'Helvetica', 'Arial', 'sans-serif';
   font-weight: 200;
-  letter-spacing: 1px;
+  letter-spacing: 0.01em;
 }
 
 #mainNav .navbar-brand:hover,
 #mainNav .navbar-brand:focus {
-  color: #181717;
+  color: #7b4397;
 }
 
 #mainNav .navbar-toggler {
-  font-size: 12px;
-  padding: 8px 10px;
-  color: #222222;
+  font-size: 0.7em;
+  padding: 0.5em 0.8em;;
+  color: #7b4397;
 }
 
 /*------------Footer------------*/
@@ -65,7 +65,7 @@ footer {
 }
 
 footer p {
-  font-size: 0.8;
+  font-size: 0.8em;
   margin: 0;
 }
 
