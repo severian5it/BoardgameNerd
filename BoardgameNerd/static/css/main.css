@@ -512,9 +512,16 @@ border-radius: 25px;
   border-radius: 25px;
 }
 
-.button-footer {
-  width: 40%;
+.btn-footer-left {
+  width: 75%;
   display: inline; 
 }
+
+.btn-footer-right {
+  width: 20%;
+  display: inline; 
+}
+
+
 
 

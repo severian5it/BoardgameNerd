@@ -18,13 +18,13 @@
 
                     <img class="card-img-top img-fluid p-2" src="{{ collection['boardgame_image'] }}">
                     <a href="/edit/{{ collection['id'] }}" class="no-underline">
-                        <button class='btn btn-send button-footer'>
+                        <button class='btn btn-send btn-footer-left'>
                             <i class="fas fa-edit"></i>
                             Edit
                         </button>
                     </a>
 
-                    <form class='button-footer delete-form' id="delete-collectionform{{collection['id']}}"
+                    <form class='btn-footer-right delete-form' id="delete-collectionform{{collection['id']}}"
                         action="/collection" method="post">
                         <input name="user" type="hidden" value="{{ collection['username'] }}">
                         <input name="id" type="hidden" value="{{ collection['id'] }}">
@@ -32,7 +32,7 @@
                             data-toggle="modal" data-target="#confirm-submit"
                             onclick="passFormId({{ collection['id']}})">
                             <i class="fas fa-trash">
-                                Remove</i>
+                            </i>
                         </button>
 
                     </form>
