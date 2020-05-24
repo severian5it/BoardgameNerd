@@ -1,11 +1,13 @@
 {% extends 'layout/base.html' %}
 
 {% block content %}
-<div class="container-fluid bg-primary p-5">
+<div class="container-fluid p-5">
     <div class="row">
         <div class="mx-auto detail-page ">
             <div class="top-buffer">
-                <h1>Ooops! Our server is on the break</h1>
+                {% include 'component/image-error.html' %}
+
+                <h3>Ooops! Our server is on the break</h3>
             </div>
         </div>
     </div>

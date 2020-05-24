@@ -432,6 +432,11 @@ I kept track of all the test on this [matrix](BoardgameNerd/test/manualTest.xlsx
 
 ![Manual Testing Matrix](BoardgameNerd/static/img/testing.png)
 
+## Bug
+
+min.js with spinner and 3.5 problem with carousels
+
+
 # Deployment
 
 ## How to run this project locally
