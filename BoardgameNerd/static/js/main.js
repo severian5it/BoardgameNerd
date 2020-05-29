@@ -14,7 +14,6 @@
         if (idx >= totalItems - (itemsPerSlide - 1)) {
             let it = itemsPerSlide - (totalItems - idx);
             for (let i = 0; i < it; i++) {
-                // append slides to end
                 if (carousel.direction == "left") {
                     $('.item-'.concat(suffix)).eq(i).appendTo('.carousel-inner-'.concat(suffix));
                 } else {

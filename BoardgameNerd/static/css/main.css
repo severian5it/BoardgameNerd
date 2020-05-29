@@ -573,3 +573,9 @@ section.hot .section-heading p {
   width: 20%;
   display: inline;
 }
+
+/*------------Settings Page------------*/
+
+.settings {
+  min-height: 80vh;
+}
