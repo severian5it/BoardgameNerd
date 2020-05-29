@@ -1,19 +1,20 @@
 {% extends 'layout/base.html' %} 
 
 {% block content %}
+<main class="content">
 
     <!-- Section: Account settings -->
     <section class='bg-primary'>
 
         <div  class="container">
             <div class="row">
-                <div class="col-12">
-                    <h1>Edit account</h1>
+                <div class="col-12 text-center">
+                    <h1>Settings</h1>
                     <hr>
                 </div>
             </div>
             <div class="row">
-                <div class="col-11 col-md-5 frame mx-1 mb-2 pb-2">
+                <div class="col-12 col-md mx-1 mb-2 form-wrapper text-white p-4">
                     <form id="emailEdit" action="/settings" method="post">
                         <h3>Change email</h3>
                         <p>To update your email please fill in both fields</p>
@@ -36,7 +37,7 @@
                 </div>
 
                     
-                <div class="col-11 col-md-5 frame mx-1 mb-2 pb-2">
+                <div class="col-12 col-md mx-1 mb-2 form-wrapper text-white p-4">
                     <form action="/settings" method="post">
                         <h3>Change password</h3>
                         <p>To update your password please fill in both fields</p>
@@ -60,6 +61,6 @@
         </div>
 
     </section>
-
+</main>
 
 {% endblock %}

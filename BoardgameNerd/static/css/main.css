@@ -43,7 +43,8 @@ body {
 }
 
 .form-wrapper {
-  background-color: antiquewhite;
+  color: rgba(255, 255, 255, 0.3);
+  background-color: #222;
   border-radius: 2em;
 }
 
@@ -132,6 +133,10 @@ footer ul li a:focus,
 footer ul li a:active,
 footer ul li a.active {
   text-decoration: none;
+}
+
+.fab {
+  color: #fdcc52;
 }
 
 /*------------Landing Search Section------------*/
@@ -504,12 +509,12 @@ section.oldies .section-heading p {
   width: 100%;
   display: block;
   border-radius: 0.8em;
-  background-color: black;
+  background-color: #dc3445;
 }
 
 .btn-send:hover {
   color: antiquewhite;
-  background-color: grey;
+  background-color: #7b4397;
 }
 
 /*------------Section Hot------------*/
