@@ -1,10 +1,10 @@
+/**
+ * This function takes the url and the contact form and return
+ * a promise from the service that send the mail
+ * @param {string} url 
+ * @param {object} contactForm
+ */
 async function callApi(url, contactForm) {
-    /**
-     * This function takes the url and the contact form and return
-     * a promise from the service that send the mail
-     * @param {string} url 
-     * @param {object} contactForm
-     */
 
     let sendType = "POST";
 
@@ -36,12 +36,12 @@ $(document).ready(function () {
     if (document.querySelector('#contact-form')) {
 
         const contactForm = document.querySelector('#contact-form');
-
+        /**
+         * function firing when submitting the contact form, and from that
+         * calling the api.
+         */
         contactForm.addEventListener('submit', (event) => {
-            /**
-             * function firing when submitting the contact form, and from that
-             * calling the api.
-             */
+
             event.preventDefault();
             let sendUrl = "https://api.emailjs.com/api/v1.0/email/send";
             callApi(sendUrl, contactForm).then(function (response) {
