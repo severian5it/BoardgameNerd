@@ -122,8 +122,10 @@ def search(query=None):
                         from_menu=from_menu)       
     else:    
         search_results=search_results["items"]["item"]
-
-        search_ids_to_enrich = [search['@id'] for search in search_results]
+        if isinstance(search_results, list):
+            search_ids_to_enrich = [search['@id'] for search in search_results]
+        else:
+            search_ids_to_enrich = [search_results['@id']]
         search_results = enrich_thumbnail(search_ids_to_enrich)
 
     return render_template("pages/search-results.html",  

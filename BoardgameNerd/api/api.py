@@ -19,7 +19,10 @@ def enrich_thumbnail(search_ids_to_enrich):
     r = requests.get(THING_API+value)
     details = xmltodict.parse(r.content)
     results_list = []
-    for d in details['items']['item']:
+    details = details['items']['item']
+    if not isinstance(details, list):
+           details = [details]
+    for d in details:
         result = {}
         result['id'] = d.get('@id')
         result['image'] = d.get('image', url_for('static', filename='img/question-mark.png'))
