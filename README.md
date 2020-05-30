@@ -86,22 +86,22 @@ Following stories have been leading my design, and come before implementing and 
 1. as a user I like to be informed about what nice old boargame from the past. :white_check_mark:
 1.  as a user I need to add a boardgame to my personal collection. :white_check_mark:
 1.  as a user I need to remove a boardgame to my personal collection. :white_check_mark:
-1.  as a user I expect to find the best fit game to the number of my friends, visualizing this information browsing for games. :white_check_mark:
-1. as a user I expect to find the best fit game to the time I have, visualizing this information browsing for games. :white_check_mark: 
+1.  as a user I expect to find the best fit game to the number of my friends, visualizing it on screen. :white_check_mark:
+1. as a user I expect to find the best fit game to the time I have, visualizing  it on screen. :white_check_mark: 
 1.  as a father/ mother, I need to visualize suggested age of a boardgame. :white_check_mark:
 1. as a user I like to add/update a rating to the boardgame I own. :white_check_mark: 
 1.  as a user I like to add/update a review to the boardgame I own. :white_check_mark:
-1.  as a user I expect to be ableto connect to their social media channels, to be informed about new features. :white_check_mark:
+1.  as a user I expect to be able to connect to their social media channels, to be informed about new features. :white_check_mark:
 1.  as a user I expect to be easily in contact with the website manager via a contact form. :white_check_mark:
-1.  as a user I want to have informative feedback from the website regarding the interaction, including a clear information about loading status and pop up and toast when my actions are completed successfully or when my searches are empty. :white_check_mark:
-1. as a user I expect to navigate the site also from mobile or from table, in way that the site is responsive and enjoyable in different kind of device :white_check_mark:
+1.  as a user I want to have informative feedback from the website regarding my interaction, including  loading status , pop-up and toast when my actions are completed successfully or when my searches are empty. :white_check_mark:
+1. as a user I expect to navigate the site also from mobile or from tablet, in way that the site is responsive and enjoyable on different kind of device :white_check_mark:
 
 ## Design
 ### Framework
 - [jQuery](https://code.jquery.com/jquery/)
-    - **jQuery** for its semplicity of use has been selected to improve reactivity of the site. It was not possible to use minified version or latest version for compatibility issues.
+    - **jQuery** for its semplicity of use has been selected to improve reactivity of the site. It was not possible to use minified version or latest version( 3.5.1) for compatibility issues.
 - [Flask](http://flask.pocoo.org/)
-    - Flask is an elegant microframework that I leveraged along with his template engine **Jinja2**
+    - Flask is an elegant micro-framework that I leveraged along with his template engine **Jinja2**
 ### Color Scheme
 Following color Palette has been adopted; the main background color used is Crayola(`#FDCC52`) or Antique White(`#FAEBD7`) as an alternative; those two colours are dominating the application. Other Elements, such Button and Navbar are using Rusty Red (`#DC3445`) or a gradient of it with maximum Purple(`#7B4397`). Eerie Black(`#222222`) has been used as an element of contrast, in the footer or for some button.
 
@@ -110,8 +110,10 @@ Following color Palette has been adopted; the main background color used is Cray
 - [Font Awesome 5.13](https://fontawesome.com/) 
     - all icons have been source from more than 1000 available in fontawesome.
 ### Typography
-I have used some [Google Fonts](https://fonts.google.com/) all over the Website The font I have selected for all titles is named [Amita](https://fonts.google.com/specimen/Amita), because it seems appropriate for the Fantastic settings many Boardgames have. beside from the build-in Bootstrap Fonts, I have use dalso [Satisfy](https://fonts.google.com/specimen/Satisfy) for Brand logo.
-
+I have used some [Google Fonts](https://fonts.google.com/) all over the Website: 
+* I have selected for all titles[Amita](https://fonts.google.com/specimen/Amita), because it seems appropriate for the Fantastic settings many Boardgames have. 
+* I have used also [Satisfy](https://fonts.google.com/specimen/Satisfy) for Brand logo.
+* Beside those, all others font are the build-in Bootstrap ones.
 
 ## Wireframes
 
@@ -136,7 +138,7 @@ Wireframe mockups, created using [Balsamiq](https://balsamiq.com/), are availabl
      1. [Collection](wireframes/collection/collectionMobile.pdf)
      1. [Collection Details](wireframes/collectionDetails/collectionDetailsMobile.pdf)
 
-Modal not dependent on the device:
+Modals not dependent on the device:
 
    1. [Log in](wireframes/modal/loginModal.pdf)
    1. [Register](wireframes/modal/registerModal.pdf)
@@ -150,7 +152,7 @@ Modal not dependent on the device:
 #### Navbar
 
 The navigation bar is fixed, and show a 20 faces dice on a site, that can be clicked to redirect the user to the main
-page. On Flask *Back-end* the user is checked and the navbar can have 2 distinct aspect, whether the user is logged on or not; is worth to mention that all the controls and the status of the user are managed via the package `Flask session`
+page. On *Flask* **back-end** the user is checked and the navbar can have 2 distinct aspect, whether the user is logged on or not; is worth to mention that all the controls and the status of the user are managed via the package `Flask session`; there is also a strong emphasis on defensive design in **back-end**, to prevent rogue navigation to section which require log-in.
 
 For visitors to the site who are not logged in, list items links are available for them to use.
 
@@ -176,13 +178,12 @@ For users who are logged in, the list items are as follows:
 Footer is always present at the very end, and has been on purpose designed as minimal, containing the following information:
 
 - Copyright information.
-- Links to Facebook, Instagram and Twitter Pages, not existing at the moment.
+- Links to Facebook, Instagram and Twitter Pages for `Boardgame Nerd`, not existing at the minute.
 
 #### Toast
 
-All messages will be delivered from back-end to front-end via `Flask flash`, in which the level of warning will be specified, and this will give a specific colour to the toast:
+All messages will be delivered from back-end to front-end via a `Flask flash`, in which the level of warning will be specified, and in case of danger will give a specific colour to the toast:
 
-- Success: green.
 - Danger: red.
 - Warning: yellow.
 
@@ -193,25 +194,27 @@ Landing Page has been designed to capture the attention of the user getting ther
 
 1. to search for a boardgame via keywords.
 1. to explore what is hot in boardgame community at the moment.
-1. to have a look to boardgames from the past.
+1. to have a look to boardgames from the past, selected random by a package.
 1. to know more about the main features of the application.
+1. a contact section that allows to send mail to the owner of the site.
+
 
 #### Search Section
 
-search section allows for a quick search directly from a box placed on top of the cover image, calling the flask API `search` and redirecting to the search page.
+search section allows for a quick search directly from a box placed on top of the cover image, calling the flask API `search` and redirecting to the search page. The **Back-end** is executing behind the scene 2 APIs call, because the **search** API provided by [BoardGameGeek](https://www.boardgamegeek.com/) only return thumbnail, and a different level of enrichment is necessary, along with results wrangling.
 
 #### Hot Carousel
 
-This will be one of the two carousel in the page, and is leveraging the **Hot** Api from [BoardGameGeek](https://www.boardgamegeek.com/); the API is returning between 60 and 70 elements that are visited the most from the end users of the above mentioned sites. 
-The Carousel has been heavily customized, but is responsive, and programmatically append the next element to be shown. More details in the Credit sections, each element of the carousel is a card that is re-used as a `flask component`.
+This will be one of the two carousel in the page, and is leveraging the **Hot** API from [BoardGameGeek](https://www.boardgamegeek.com/); the API is returning between 60 and 70 elements that are visited the most from the end users of the above mentioned sites, and it's updated real-time
+The Carousel has been heavily customized, but is responsive, and programmatically append the next element to be shown when the navigations controls are toggled. More details in the Credit sections, each element of the carousel is a card that is re-used as a `flask component`.
 
-#### Old Carousels
+#### Old Carousel
 
-The old carousel is retrieving 12 random elements from [BoardGameGeek](https://www.boardgamegeek.com/) DB; it's purpose is to interest the visitors with old-school game, and most of customization is done at `Flask API` level, where  random game are generated, and those without thumbnails are excludede. Via a **JavaScript** the responsive hot carousels mechanism is re-used.  
+The old carousel is retrieving 12 random elements from [BoardGameGeek](https://www.boardgamegeek.com/) DB; its purpose is to interest the visitors with old-school game, and most of customization is done at `Flask API` level, where  random game are generated, and those without thumbnails are excluded. Via a **JavaScript** the responsive hot carousels mechanism is re-used.  <ins>This element is dynamical and every visit will bear a different result.</ins>
 
 #### Features section
 
-The section is a responsive show-off via `FontAwesome` icons of the most important features of the site, via quick slogan, easy to be understood. The About link of the navbar links here.
+The section is a responsive show-off via `FontAwesome` icons of the most important features of the site, via quick slogan, easy to be understood. The **About** link of the navbar links here.
 
 ### Detail Page
 
@@ -229,18 +232,19 @@ Characteristic shown are the following:
 - Name of the Designer.
 - Game Family.
 
-if the user is not logged-on, he will get redirected to the log-in pages, clicking on Add.
+<ins>if the user is not logged-on, he will get redirected to the log-in pages, clicking on Add.</ins>
 
 ### Search Page
 
 This is accessible via the *home page*, or the *nav bar*. All the game returned will be shown with a responsive grid of cards, and details for each of them will be accessible clicking on them.
 
-a message will be shown for user in case the search bears no results, or the user is coming from the navbar.
+A message will be shown for user in case the search bears no results, or the user is coming from the navbar.
 Behind the scene the `Search flask API`, will run two API calls, this because the original *BGG search API* doesn't return anything else beside the game id and its description: the second call will enrich the ids with thumbnail to show up in the cards.
+The **search** API provided by [BoardGameGeek](https://www.boardgamegeek.com/) presented many corner cases that have been managed at **back-end** side.
 
 ### Collection Page
 
-This page will be accessible only if user is logged in from dropdown list; it will be similar to the search results page, but only game belonging to a collection will be shown, with the same grid of responsive cards. The only add-on will be a remove button on each card to quickly remove them from collection.
+This page will be accessible only if user is logged in from dropdown list; it will be similar to the search results page, but only game belonging to a collection will be shown, with the same grid of responsive cards. The only add-on will be a remove button on each card to quickly remove them from collection, and edit button that will allow navigation to the **Collection Detail Page**
 
 #### Collection Detail Page
 
@@ -250,7 +254,7 @@ Collection Details page will be similar to the detail page, but here the user wi
 - Rating, with a 5 star radio button.
 - Notes, with a text area.
 
-### Contact Page
+### Contact Section
 
 Here visitors can send suggestions or get in touch with me; the form is making use of [email.js](https://www.emailjs.com/) behind the scene, and their API gets invoked by a `fetch Javascript API`. The user is warned about the results of his/her action by a toast.
 
@@ -269,19 +273,19 @@ User can register in a dedicated page, where he must input the following:
 - *password.*
 
 He gets warned about login status by a toast and re-directed to collection page in case of success; In the `Flask API` access to this page by user already logged in are prevented.
-In back-end, python procedure will check on `MongoDB` about wheter use and password are already in use or not.
+In back-end, python procedure will check on `MongoDB` about whether *username* and *password* are already in use or not.
 
 ### Setting Page
 
-This is the page where logged user has the possibility to change his/her password or mail. Consistency check will be performed by python procedure on `MongoDB`.
+This is the page where logged user has the possibility to change his/her password or mail. <ins>Consistency check will be performed by python procedure on `MongoDB`</ins>.
 
 ### 404 Page
 
-In case of *not found error*, the user is redirected to a generic page.
+In case of *not found error*, the user is redirected to a generic page, showing dices pictures.
 
 ### 500 Page
 
-In case of *internal server error*, the user is redirected to a generic page.
+In case of *internal server error*, the user is redirected to a generic page, showing dices pictures.
 
 ## Features Left to Implement
 
@@ -291,7 +295,7 @@ No *Pagination* is implemented at the moment, it could be coupled with an **infi
 
 ### Filter on Collection Page
 
-End users at the moment cannot filter on the boardgame returned by a search or on their own collections. Would be great to allow them this possibilities, however the number of categories are highly variables, and probably are coming from manual imputing, and this makes implementation of filtering hard to be useful.
+End users at the moment cannot filter on the boardgame returned by a search or on their own collections. Would be great to allow them this possibilities, however the number of categories are highly variables, since they are coming from manual imputing, and this makes implementation of filtering really hard to be useful.
 
 ### Pop Over on Cards
 
@@ -306,11 +310,10 @@ Application would benefit from implementation of automated tests with *Jasmine* 
 
 ## Database Choice
 
-a NoSQL database has been selected for his low latency response, keeping in mind the need to scale up, increasing the number of user and query.
-MongoDB was the optimal choice, being free of cost in his limited edition, good start, and with the possibility
-to increase resource throwing more money to it.
+a NoSQL database has been selected for his low latency response, keeping in mind the need to scale-up, increasing the number of users and queries accessing concurrently.
+MongoDB was the optimal choice, being free of cost in his limited edition, so perfect to have a **Minimum Viable Product**, and with the possibility to increase resource throwing more money to it.
 
-The Design of Data didn't respect The [Third Normal Form](https://en.wikipedia.org/wiki/Third_normal_form), a design rules to prevent redundancy, because NoSQL database are doing join poorly, and therefore for a precise choice, space has been traded-off in order to speed up the response time.
+The Design of Data didn't respect The [Third Normal Form](https://en.wikipedia.org/wiki/Third_normal_form), a design rules to prevent redundancy, because NoSQL database are doing join poorly, and therefore for a precise choice, space on DB has been traded-off in order to speed up the response time of accessing Collections.
 
 ## Data Storage Types
 
@@ -323,7 +326,7 @@ The types of data used in the project are:
 - DateTime
 - Object
 
-and some of them are collected into Arrays
+and some of them are collected into Arrays.
 
 ## Collections Data Structure
 
@@ -367,22 +370,22 @@ Site was mostly developed relying on `HTML`, `Python`, `JavaScript` and `CSS`.
 
 ## Tools
 
-- [Visual Studio Code](https://code.visualstudio.com/) as *IDE*.
-- [PIP](https://pip.pypa.io/en/stable/installing/) as package manager.
-- [Git](https://gist.github.com/derhuerst/1b15ff4652a867391f03) as version control tool.
-- [GitHub](https://github.com/) as *code repository*.
-- [MongoDB Atlas](https://www.mongodb.com/cloud/atlas) as *Database Management Tool*
+- [Visual Studio Code](https://code.visualstudio.com/) as **IDE**.
+- [PIP](https://pip.pypa.io/en/stable/installing/) as **package manager**.
+- [Git](https://gist.github.com/derhuerst/1b15ff4652a867391f03) as **version control tool**.
+- [GitHub](https://github.com/) as **code repository**.
+- [MongoDB Atlas](https://www.mongodb.com/cloud/atlas) as **Database Management Tool**.
 - [TechSini Multi-Mockup](https://techsini.com/multi-mockup/index.php) to create mockup image.
 
 ## Libraries
 
 - [JQuery](https://jquery.com) to access and Manipulate the **DOM**.
-- [Bootstrap](https://www.bootstrapcdn.com/) to speed up pages design, providing responsiveness out of the box..
+- [Bootstrap](https://www.bootstrapcdn.com/) to speed up pages design, providing responsiveness out of the box.
 - [FontAwesome](https://www.bootstrapcdn.com/fontawesome/) to provide icons ready to use.
 - [PyMongo](https://api.mongodb.com/python/current/) to manipulate data on MongoDB via `Python` methods.
 - [Flask](https://flask.palletsprojects.com/en/1.0.x/) to build API and render Pages or redirect user's calls.
 - [Jinja2](http://jinja.pocoo.org/docs/2.10/) to programmatically build web pages from templates.
-- [xmltoDict](https://pypi.org/project/xmltodict/) Python Library used to transform API XML response into *Ordered Dictionaries*.
+- [xmltoDict](https://pypi.org/project/xmltodict/) Python Library used to parse API XML response into *Ordered Dictionaries*.
 - [Email.js](https://emailjs.com/) to send mail from Contact Page.
 
 # Testing
@@ -393,21 +396,20 @@ to testing has been dedicated this [section](testing.md).
 
 ## How to run this project locally
 
-To run this project on your own IDE follow the instructions below:
-
-Ensure you have the following tools:
+To run this project on your own IDE follow the instructions below, and ensure you have the following tools:
 
 - An IDE such as [Visual Studio Code](https://code.visualstudio.com/)
 
-The following **must be installed** on your machine:
+And the following tools, <ins> that  must be installed on your machine </ins>:
 
 - [PIP](https://pip.pypa.io/en/stable/installing/)
 - [Python 3](https://www.python.org/downloads/)
 - [Git](https://gist.github.com/derhuerst/1b15ff4652a867391f03)
 - An account at [MongoDB Atlas](https://www.mongodb.com/cloud/atlas) or MongoDB running locally on your machine. 
-- How to set up your Mongo Atlas account [here](https://docs.atlas.mongodb.com/).
+- Here how to set up your Mongo Atlas account [here](https://docs.atlas.mongodb.com/).
 
 ### Installation
+
 the following instruction applies to `MacOS` or `Linux` environment, for Windows please find the following [this link](https://packaging.python.org/guides/installing-using-pip-and-virtual-environments/) on how to activate an enviroment, and install  modules from requirements file.
 
 1. clone locally the github repository with the following command.
@@ -426,12 +428,12 @@ python3 -m .venv venv
 ```
 
 
-1. upgrade local version of pip if needed
+1. upgrade local version of pip if needed:
 ```
 pip3 install --upgrade pip.
 ```
 
-1. Install all required modules with the command 
+1. Install all required modules with the command:
 ```
 pip3 -r requirements.txt.
 ```
@@ -501,7 +503,9 @@ I took inspiration from many resources on the web for my site, but in a most sig
 - Star Rating Radio Button has been adapted by this [code snippet](https://codepen.io/yaworek/pen/JJpEaZ*/).
 - Project scaffolding has been developed following this [post](https://code.visualstudio.com/docs/python/tutorial-flask) on how to develop a Flask Project on *VSCode*.
 
-
+I feel important also to recommend for *Flask* the following resources:
+- The youtube channel of [Corey Schafer](https://www.youtube.com/watch?v=MwZwr5Tvyxo&list=PL-osiE80TeTs4UjLw5MM6OjgkjFeUxCYH)
+- The Blog of [Miguel Grinberg](https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world), with his fantastic **Flask Mega-Tutorial**.
 ## Images
 
 The photo used in the Landing section was downloaded from [Unsplash](https://unsplash.com/), and credit goes to [*Christopher Paul High*](https://unsplash.com/@christopherphigh).
@@ -510,7 +514,7 @@ Dice images for **404** and **500** pages are coming from [freepik.com](https://
 
 ## Acknowledgements
 
-Many thanks to [Simen Daehlin](https://github.com/Eventyret) for his continous suggestions and push for improvements.
+Many thanks to [Simen Daehlin](https://github.com/Eventyret), he was great with his continous suggestions and push for improvements.
 
 # Contact
 
