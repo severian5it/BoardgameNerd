@@ -83,4 +83,7 @@ I kept track of all the test on this [matrix](BoardgameNerd/test/manualTests.xls
 
 ## Bugs
 
-3.5 version of jQuery was causing problems toggling the navbar, and I bounced it down to version 3.4.1; minified version of jQuery then it wasn't implementing the method `Fadeout`, to use with the Spinner, and it was replaced by full version.
+Most of the bugs were related to the **XML API** results that were converted in Ordered Dictionaries; wrangling them had many corner cases. Other bugs were caused by jQuery compability, such as:
+* 3.5 version of jQuery was causing problems toggling the navbar, and I bounced it down to version 3.4.1
+* Minified version of jQuery then it wasn't implementing the method `Fadeout`, to use with the Spinner, and it was replaced by full version.
+* Method `Fadeout` was also called late on some mobile engine, causing the spinner to never go away, hampering the navigation. To solve it I changed the sequence of its loading.
