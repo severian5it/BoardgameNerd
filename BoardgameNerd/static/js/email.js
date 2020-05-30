@@ -46,8 +46,6 @@ $(document).ready(function () {
             let sendUrl = "https://api.emailjs.com/api/v1.0/email/send";
             callApi(sendUrl, contactForm).then(function (response) {
                 if (response.status == 200) {
-                    $('#contactToast').addClass("bg-success");
-                    $('#contactToast .toast-header').addClass("bg-success");
                     $("#contactToast .toast-body").text('mail successfully sent');
                     $('#contactToast').toast('show');
                     $('input').val('');
@@ -56,7 +54,6 @@ $(document).ready(function () {
                     throw new err
                 }
             }).catch(function (err) {
-                $('#contactToast').addClass("bg-danger");
                 $('#contactToast .toast-header').addClass("bg-danger");
                 $("#contactToast .toast-body").text('error sending the mail');
                 $('#contactToast').toast('show');

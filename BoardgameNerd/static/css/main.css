@@ -30,24 +30,29 @@ h6 {
 }
 
 /* Toast */
+
 .toast {
   min-height: 10vh;
   min-width: 30vw;
   top: 4rem;
   z-index: 10000;
   border-color: rgba(255, 255, 255, 0.3);
+  right: 0;
 }
 
 #warningToast {
   position: absolute;
 }
 
+
+
+/* Frame */
+
 .form-wrapper {
   color: rgba(255, 255, 255, 0.3);
   background-color: #222222;
   border-radius: 2rem;
 }
-
 
 
 .frame {
