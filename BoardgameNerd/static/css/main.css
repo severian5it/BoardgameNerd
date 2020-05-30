@@ -167,18 +167,15 @@ footer ul li a.active {
 
 /*------------Landing Both Carousels------------*/
 
-
-
-/* styling control*/
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
   background: #fdcc52;
   height: 5rem;
   width: 5rem;
-  outline: black;
+  outline: #222222;
   background-size: 100%, 100%;
   border-radius: 50%;
-  border: 0.01em solid black;
+  border: 0.01em solid #222222;
   background-image: none;
   opacity: 1;
 }
@@ -186,13 +183,13 @@ footer ul li a.active {
 .carousel-control-next-icon:after {
   content: '>';
   font-size: 2.5rem;
-  color: black;
+  color: #222222;
 }
 
 .carousel-control-prev-icon:after {
   content: '<';
   font-size: 2.5rem;
-  color: black;
+  color: #222222;
 }
 
 /*------------Section Features------------*/
