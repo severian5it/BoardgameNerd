@@ -63,29 +63,29 @@ up-to-date with the latest new things coming out? In any case this is the right 
 1. [Contacts](#contacts)
 1. [Disclaimer](#disclaimer)
 
-My project is leveraging *free xml API* from [BoardGameGeek](https://www.boardgamegeek.com/), Creating a 
-back end architecture that supports a front end interface.
+My project is leveraging `free xml API` from [BoardGameGeek](https://www.boardgamegeek.com/), Creating a 
+**back-end** architecture that supports a **front-end** interface.
 
-The *GUI* allows a the website visitor to do the following:
+The *GUI* allows the website visitor to do the following:
 
 - Browse all the game in the DB.
 - Get informed about all the latest game loved by the community.
-- Get random games.
-- Suggest to the webmaster any improvement.
-- Add Games to a personal collection.
+- Get random old games.
+- Get in contact with the webmaster to suggest any improvement.
+- Add games to a personal collection.
 - Add notes to every game part of collection.
 
 # UX
 
 ## User stories
 
-I thought of the following stories before implementing and design my application:
+Following stories have been leading my design, and come before implementing and design my applications:
 
 1. as a user I want to search a wide catalogue of boardgame. :white_check_mark:
 1. as a user I need to be informed about what is hot in the boardgame community. :white_check_mark:
 1. as a user I like to be informed about what nice old boargame from the past. :white_check_mark:
 1.  as a user I need to add a boardgame to my personal collection. :white_check_mark:
-1.  as a user I need to remove a boardgame to my personalcollection. :white_check_mark:
+1.  as a user I need to remove a boardgame to my personal collection. :white_check_mark:
 1.  as a user I expect to find the best fit game to the number of my friends, visualizing this information browsing for games. :white_check_mark:
 1. as a user I expect to find the best fit game to the time I have, visualizing this information browsing for games. :white_check_mark: 
 1.  as a father/ mother, I need to visualize suggested age of a boardgame. :white_check_mark:
@@ -408,6 +408,8 @@ The following **must be installed** on your machine:
 - How to set up your Mongo Atlas account [here](https://docs.atlas.mongodb.com/).
 
 ### Installation
+the following instruction applies to `MacOS` or `Linux` environment, for Windows please find the following [this link](https://packaging.python.org/guides/installing-using-pip-and-virtual-environments/) on how to activate an enviroment, and install  modules from requirements file.
+
 1. clone locally the github repository with the following command.
 ```
 git clone https://github.com/severian5it/BoardGameNerd.git
