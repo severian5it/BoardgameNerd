@@ -32,7 +32,7 @@
         $("#warningToast").toast('show');
 
         $(window).on("load", function () {
-            $(".spinner").stop().fadeOut("slow");
+            $(".spinner").hide();
         });
 
 
