@@ -101,7 +101,7 @@ Following stories have been leading my design, and come before implementing and 
 - [jQuery](https://code.jquery.com/jquery/)
     - **jQuery** for its semplicity of use has been selected to improve reactivity of the site. It was not possible to use minified version or latest version( 3.5.1) for compatibility issues.
 - [Flask](http://flask.pocoo.org/)
-    - Flask is an elegant micro-framework that I leveraged along with his template engine **Jinja2**
+    - Flask is an elegant micro-framework that I leveraged along with his template engine **Jinja2**.
 ### Color Scheme
 Following color Palette has been adopted; the main background color used is Crayola(`#FDCC52`) or Antique White(`#FAEBD7`) as an alternative; those two colours are dominating the application. Other Elements, such Button and Navbar are using Rusty Red (`#DC3445`) or a gradient of it with maximum Purple(`#7B4397`). Eerie Black(`#222222`) has been used as an element of contrast, in the footer or for some button.
 
@@ -111,7 +111,7 @@ Following color Palette has been adopted; the main background color used is Cray
     - all icons have been source from more than 1000 available in fontawesome.
 ### Typography
 I have used some [Google Fonts](https://fonts.google.com/) all over the Website: 
-* I have selected for all titles[Amita](https://fonts.google.com/specimen/Amita), because it seems appropriate for the Fantastic settings many Boardgames have. 
+* I have selected for all titles [Amita](https://fonts.google.com/specimen/Amita), because it seems appropriate for the Fantastic settings many Boardgames have. 
 * I have used also [Satisfy](https://fonts.google.com/specimen/Satisfy) for Brand logo.
 * Beside those, all others font are the build-in Bootstrap ones.
 
@@ -182,7 +182,7 @@ Footer is always present at the very end, and has been on purpose designed as mi
 
 #### Toast
 
-All messages will be delivered from back-end to front-end via a `Flask flash`, in which the level of warning will be specified, and in case of danger will give a specific colour to the toast:
+All messages will be delivered from back-end to front-end via a `Flask flash`, in which the level of warning will be specified, and in case of danger or warning will give a specific colour to the toast:
 
 - Danger: red.
 - Warning: yellow.
@@ -268,9 +268,9 @@ In the `Flask API` access to this page by user already logged in are prevented. 
 
 User can register in a dedicated page, where he must input the following:
 
-- *email.*
-- *username.*
-- *password.*
+- *email*
+- *username*
+- *password*
 
 He gets warned about login status by a toast and re-directed to collection page in case of success; In the `Flask API` access to this page by user already logged in are prevented.
 In back-end, python procedure will check on `MongoDB` about whether *username* and *password* are already in use or not.
@@ -299,7 +299,7 @@ End users at the moment cannot filter on the boardgame returned by a search or o
 
 ### Pop Over on Cards
 
-to allow the end user to have a glimpse about a Boardgame's characteristics, will be nice to have a pop over when hovering over a card, showing a part of the description along, with some major characteristics.
+To allow the end user to have a glimpse about a Boardgame's characteristics, will be nice to have a pop over when hovering over a card, showing a part of the description along, with some major characteristics.
 
 ### Automated test
 
@@ -390,7 +390,7 @@ Site was mostly developed relying on `HTML`, `Python`, `JavaScript` and `CSS`.
 
 # Testing
 
-to testing has been dedicated this [section](testing.md).
+To testing has been dedicated this [section](testing.md).
 
 # Deployment
 
@@ -406,37 +406,41 @@ And the following tools, <ins> that  must be installed on your machine </ins>:
 - [Python 3](https://www.python.org/downloads/)
 - [Git](https://gist.github.com/derhuerst/1b15ff4652a867391f03)
 - An account at [MongoDB Atlas](https://www.mongodb.com/cloud/atlas) or MongoDB running locally on your machine. 
-- Here how to set up your Mongo Atlas account [here](https://docs.atlas.mongodb.com/).
 
 ### Installation
 
 the following instruction applies to `MacOS` or `Linux` environment, for Windows please find the following [this link](https://packaging.python.org/guides/installing-using-pip-and-virtual-environments/) on how to activate an enviroment, and install  modules from requirements file.
 
 1. clone locally the github repository with the following command.
-```
-git clone https://github.com/severian5it/BoardGameNerd.git
-```
+
+    ```
+    git clone https://github.com/severian5it/BoardGameNerd.git
+    ```
 
 1. A virtual environment will make all the installation and developer easy to implement. Start The Virtual environment with following command.
-```
-python3 -m .venv venv
-```  
+
+    ```
+    python3 -m .venv venv
+    ```  
 
 1. Activate the virtual environment
-```
-.venv\Scripts\activate 
-```
+
+    ```
+    .venv\Scripts\activate 
+    ```
 
 
 1. upgrade local version of pip if needed:
-```
-pip3 install --upgrade pip.
-```
+
+    ```
+    pip3 install --upgrade pip.
+    ```
 
 1. Install all required modules with the command:
-```
-pip3 -r requirements.txt.
-```
+
+    ```
+    pip3 -r requirements.txt.
+    ```
 
 1. In your local IDE create a file called `.flaskenv`, this will contain all the system variable
 
@@ -445,9 +449,9 @@ pip3 -r requirements.txt.
 1. Create in **MongoDB** a database containing two collections: `users`, and `collection`.
 
 1. You can now run the application with the command
-```
-python3 -m BoardgameNerd.webapp
-```
+    ```
+    python3 -m BoardgameNerd.webapp
+    ```
 
 1. You can interact with application visiting at `http://127.0.0.1:5000`.
 
@@ -471,14 +475,14 @@ To deploy to heroku, take the following steps:
 
 1. Set the following config vars:
 
-| Key | Value |
- --- | ---
-IP | 0.0.0.0
-MONGO_URI | `mongodb+srv://<username>:<password>@<cluster_name>-qtxun.mongodb.net/<database_name>?retryWrites=true&w=majority`
-PORT | 5000
-ROOT_PASSWORD | `<your_secret_key>`
+    | Key | Value |
+    --- | ---
+    IP | 0.0.0.0
+    MONGO_URI | `mongodb+srv://<username>:<password>@<cluster_name>-qtxun.mongodb.net/<database_name>?retryWrites=true&w=majority`
+    PORT | 5000
+    ROOT_PASSWORD | `<your_secret_key>`
 
-- To get you MONGO_URI read the MongoDB Atlas documentation [here](https://docs.atlas.mongodb.com/)
+    To get you MONGO_URI read the MongoDB Atlas documentation [here](https://docs.atlas.mongodb.com/)
 
 1. In the heroku dashboard, click "Deploy".
 
@@ -490,7 +494,7 @@ ROOT_PASSWORD | `<your_secret_key>`
 
 ## Content
 
-Inspiration for this site has been [BoardGameGeek](https://www.boardgamegeek.com/), incredible resource for Boardgame lovers, and in particular I followed this [post](https://boardgamegeek.com/wiki/page/BGG_XML_API2) to know everything about the *XML API*.
+Inspiration for this site has been [BoardGameGeek](https://www.boardgamegeek.com/), incredible resource for Boardgame lovers, and in particular I followed this [post](https://boardgamegeek.com/wiki/page/BGG_XML_API2) to know about the *XML API*.
 
 ## Code
 
@@ -504,7 +508,7 @@ I took inspiration from many resources on the web for my site, but in a most sig
 - Project scaffolding has been developed following this [post](https://code.visualstudio.com/docs/python/tutorial-flask) on how to develop a Flask Project on *VSCode*.
 
 I feel important also to recommend for *Flask* the following resources:
-- The youtube channel of [Corey Schafer](https://www.youtube.com/watch?v=MwZwr5Tvyxo&list=PL-osiE80TeTs4UjLw5MM6OjgkjFeUxCYH)
+- The youtube channel of [Corey Schafer](https://www.youtube.com/watch?v=MwZwr5Tvyxo&list=PL-osiE80TeTs4UjLw5MM6OjgkjFeUxCYH).
 - The Blog of [Miguel Grinberg](https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world), with his fantastic **Flask Mega-Tutorial**.
 ## Images
 
