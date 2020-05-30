@@ -70,6 +70,7 @@ section h2 {
 /*------------Spinner-----------*/
 
 .spinner {
+  display: block;
   position: fixed;
   left: 0px;
   top: 0px;

@@ -27,13 +27,15 @@
         $('#form-delete').val(id);
     }
 
+    $(window).on("load", function () {
+        $(".spinner").fadeOut("slow");
+    });
+
     $(document).ready(function () {
 
         $("#warningToast").toast('show');
 
-        $(window).on("load", function () {
-            $(".spinner").hide();
-        });
+
 
 
         $('#carousel-hot').on('slide.bs.carousel', function (e) {
