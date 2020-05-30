@@ -9,7 +9,7 @@
 
 I used following onlyvalidator to check the validity of the website code:
 
-* **css**: [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/) 
+* **CSS**: [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/) 
 * **HTML**: [W3C Markup Validation Service](https://validator.w3.org/)
 * **JavaScript**: [JavaScript Beautify Tools](http://beautifytools.com/javascript-validator.php)
 * **Python**: [PEP8 online tools](http://pep8online.com/)

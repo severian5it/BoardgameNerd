@@ -79,31 +79,28 @@ The *GUI* allows a the website visitor to do the following:
 
 ## User stories
 
-As a user of BoardGame Archive I expect/need/want:
+I thought of the following stories before implementing and design my application:
 
-1. :white_check_mark:  to search a wide catalogue of boardgame.
-1. :white_check_mark: to be informed about what is hot in the boardgame community.
-1. :white_check_mark: to add a boardgame to my collection.
-1. :white_check_mark: to remove a boardgame to my collection.
-1. :white_check_mark: to find the best fit game to the number of my friends, I want to filter my search results by 
-   number of players.
-1. :white_check_mark: to find the best fit game to the time I have, I want to filter my search results by 
-   duration.
-1. :white_check_mark: as a father/ mother, I want to know suggested age of a boardgame .
-1. :white_check_mark: to add/update a rating to the boardgame I own.
-1. :white_check_mark: to add/update a review to the boardgame I own.
-1. :white_check_mark: to be able to connect to their social media channels, to be informed about new features.
-1. :white_check_mark: to be easily in contact with the website manager via a contact form.
-1. :white_check_mark: to have informative feedback from the website regarding the interaction, including a clear information
-about loading status and pop up and modals when my actions are completed successfully.
-1. :white_check_mark: to navigate the site also from mobile or from table, in way that the site is responsive to different
-kind of device
+1. as a user I want to search a wide catalogue of boardgame. :white_check_mark:
+1. as a user I need to be informed about what is hot in the boardgame community. :white_check_mark:
+1. as a user I like to be informed about what nice old boargame from the past. :white_check_mark:
+1.  as a user I need to add a boardgame to my personal collection. :white_check_mark:
+1.  as a user I need to remove a boardgame to my personalcollection. :white_check_mark:
+1.  as a user I expect to find the best fit game to the number of my friends, visualizing this information browsing for games. :white_check_mark:
+1. as a user I expect to find the best fit game to the time I have, visualizing this information browsing for games. :white_check_mark: 
+1.  as a father/ mother, I need to visualize suggested age of a boardgame. :white_check_mark:
+1. as a user I like to add/update a rating to the boardgame I own. :white_check_mark: 
+1.  as a user I like to add/update a review to the boardgame I own. :white_check_mark:
+1.  as a user I expect to be ableto connect to their social media channels, to be informed about new features. :white_check_mark:
+1.  as a user I expect to be easily in contact with the website manager via a contact form. :white_check_mark:
+1.  as a user I want to have informative feedback from the website regarding the interaction, including a clear information about loading status and pop up and toast when my actions are completed successfully or when my searches are empty. :white_check_mark:
+1. as a user I expect to navigate the site also from mobile or from table, in way that the site is responsive and enjoyable in different kind of device :white_check_mark:
 
 ## Design
 ### Framework
-- [jQuery 3.4.0](https://code.jquery.com/jquery/)
+- [jQuery](https://code.jquery.com/jquery/)
     - **jQuery** for its semplicity of use has been selected to improve reactivity of the site. It was not possible to use minified version or latest version for compatibility issues.
-- [Flask 1.1.2](http://flask.pocoo.org/)
+- [Flask](http://flask.pocoo.org/)
     - Flask is an elegant microframework that I leveraged along with his template engine **Jinja2**
 ### Color Scheme
 Following color Palette has been adopted; the main background color used is Crayola(`#FDCC52`) or Antique White(`#FAEBD7`) as an alternative; those two colours are dominating the application. Other Elements, such Button and Navbar are using Rusty Red (`#DC3445`) or a gradient of it with maximum Purple(`#7B4397`). Eerie Black(`#222222`) has been used as an element of contrast, in the footer or for some button.
@@ -302,7 +299,7 @@ to allow the end user to have a glimpse about a Boardgame's characteristics, wil
 
 ### Automated test
 
-Application would benefit from implementation of automated tests with *Jasmine** for the front-end, and *pytest* for the back-end.
+Application would benefit from implementation of automated tests with *Jasmine* for the front-end, and *pytest* for the back-end.
 
 
 # Information Architecture
