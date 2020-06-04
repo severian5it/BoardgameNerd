@@ -519,6 +519,7 @@ Dice images for **404** and **500** pages are coming from [freepik.com](https://
 ## Acknowledgements
 
 Many thanks to [Simen Daehlin](https://github.com/Eventyret), he was great with his continous suggestions and push for improvements.
+I wish to express my gratitude also to Massiliano Mirante, for being the first proper user of the application, for his testing and his suggestions.
 
 # Contact
 
